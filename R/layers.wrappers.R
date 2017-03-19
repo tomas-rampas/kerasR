@@ -1,0 +1,47 @@
+#' Layer wrappers
+#'
+#' Apply a layer to every temporal slice of an input or to bi-directional
+#' RNN.
+#'
+#' @param layer      a layer instance (must be a recurrent layer for the bi-directional
+#'                   case)
+#' @param merge_mode Mode by which outputs of the forward and backward RNNs will be combined.
+#'                   One of {'sum', 'mul', 'concat', 'ave', None}. If None, the outputs will
+#'                   not be combined, they will be returned as a list.
+
+#' @examples
+#' if (run_examples()) {
+#' X_train <- matrix(sample(0:19, 100 * 100, TRUE), ncol = 100)
+#' Y_train <- rnorm(100)
+#'
+#' mod <- Sequential()
+#' mod$add(Embedding(input_dim = 20, output_dim = 10,
+#'                   input_length = 100))
+#' mod$add(Dropout(0.5))
+#'
+#' mod$add(Bidirectional(LSTM(16)))
+#' mod$add(Dense(1))
+#' mod$add(Activation("sigmoid"))
+#'
+#' keras_compile(mod, loss = "mse", optimizer = RMSprop())
+#' keras_fit(mod, X_train, Y_train, epochs = 3, verbose = 0)
+#' }
+#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
+#' @references
+#'
+#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
+#'
+#' @name LayerWrapper
+NULL
+
+#' @rdname LayerWrapper
+#' @export
+TimeDistributed <- function(layer) {
+  modules$keras.layers.wrappers$TimeDistributed(layer)
+}
+
+#' @rdname LayerWrapper
+#' @export
+Bidirectional <- function(layer, merge_mode = 'concat') {
+  modules$keras.layers.wrappers$Bidirectional(layer, merge_mode = merge_mode)
+}
