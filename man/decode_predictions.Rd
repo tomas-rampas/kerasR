@@ -4,11 +4,11 @@
 \alias{decode_predictions}
 \title{Decode predictions from pre-defined imagenet networks}
 \usage{
-decode_predictions(img, model = c("Xception", "VGG16", "VGG19", "ResNet50",
+decode_predictions(pred, model = c("Xception", "VGG16", "VGG19", "ResNet50",
   "InceptionV3"), top = 5)
 }
 \arguments{
-\item{img}{the input image, as an array}
+\item{pred}{the output of predictions from the specified model}
 
 \item{model}{the model you wish to preprocess to}
 

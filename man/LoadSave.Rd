@@ -20,7 +20,7 @@ keras_load_weights(model, path = "model.h5")
 
 keras_model_to_json(model, path = "model.json")
 
-keras_model_from_json(model, path = "model.json")
+keras_model_from_json(path = "model.json")
 }
 \arguments{
 \item{model}{keras model object to save; or, for \code{load_weights} the

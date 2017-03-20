@@ -323,6 +323,6 @@ keras_model_to_json <- function(model, path = "model.json") {
 
 #' @rdname LoadSave
 #' @export
-keras_model_from_json <- function(model, path = "model.json") {
+keras_model_from_json <- function(path = "model.json") {
   modules$keras.models$load_model(path)
 }

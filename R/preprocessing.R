@@ -13,8 +13,12 @@
 #'
 #' @export
 load_img <- function(path, grayscale = FALSE, target_size = NULL) {
+
+  if (!is.null(target_size))
+    target_size <- as.integer(target_size)
+
   modules$keras.preprocessing.image$load_img(path = path, grayscale = grayscale,
-                                             target_size = int32(target_size))
+                                             target_size = target_size)
 }
 
 #' Converts a PIL Image instance to a Numpy array.
@@ -50,7 +54,7 @@ img_to_array <- function(img, data_format = NULL) {
 #'
 #' @export
 expand_dims <- function(a, axis = 0) {
-  expand_dims(a = a, axis = int32(axis))
+  modules$np$expand_dims(a = a, axis = int32(axis))
 }
 
 #' Split a sentence into a list of words.
@@ -119,6 +123,45 @@ Tokenizer <- function(num_words = NULL, filters = '!"#$%&()*+,-./:;<=>?@[\\]^_`{
                                               lower = lower, split = split)
 }
 
+#' Pad a linear sequence for an RNN input
+#'
+#' Transform a list of num_samples sequences (lists of scalars) into a 2D
+#' Numpy array of shape  (num_samples, num_timesteps). num_timesteps is
+#' either the maxlen argument if provided, or the length of the longest
+#' sequence otherwise. Sequences that are shorter than num_timesteps are
+#' padded with value at the end. Sequences longer than num_timesteps are
+#' truncated so that it fits the desired length. Position where padding or
+#' truncation happens is determined by padding or truncating, respectively.
+#'
+#' @param sequences   vector of lists of int or float.
+#' @param maxlen      None or int. Maximum sequence length, longer sequences are truncated and shorter sequences are padded with zeros at the end.
+#' @param dtype       datatype of the Numpy array returned.
+#' @param padding     'pre' or 'post', pad either before or after each sequence.
+#' @param truncating  'pre' or 'post', remove values from sequences larger than maxlen either in the beginning or in the end of the sequence
+#' @param value       float, value to pad the sequences to the desired value.
+#'
+#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
+#' @references
+#'
+#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
+#'
+#' @export
+pad_sequences <- function(sequences, maxlen = NULL, dtype = 'int32',
+                          padding = 'pre', truncating = 'pre',
+                          value = 0) {
+
+  if (!is.null(maxlen))
+    maxlen <- int32(maxlen)
+
+  sequences <- lapply(sequences, int32)
+
+  modules$keras.preprocessing.sequence$pad_sequences(sequences = sequences,
+                                                     maxlen = maxlen,
+                                                     dtype = dtype,
+                                                     padding = padding,
+                                                     truncating = truncating,
+                                                     value = value)
+}
 
 
 

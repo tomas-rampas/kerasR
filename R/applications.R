@@ -162,13 +162,13 @@ preprocess_input <- function(img, model = c("Xception", "VGG16", "VGG19", "ResNe
   if (model == "Xception") {
     res <- modules$keras.applications$xception$preprocess_input(img)
   } else if (model == "VGG16") {
-    res <- modules$keras.applications$vgg16()$preprocess_input(img)
+    res <- modules$keras.applications$vgg16$preprocess_input(img)
   } else if (model == "VGG19") {
-    res <- modules$keras.applications$vgg19()$preprocess_input(img)
+    res <- modules$keras.applications$vgg19$preprocess_input(img)
   } else if (model == "ResNet50") {
-    res <- modules$keras.applications$resnet50()$preprocess_input(img)
+    res <- modules$keras.applications$resnet50$preprocess_input(img)
   } else if (model == "InceptionV3") {
-    res <- modules$keras.applications$inception_v3()$preprocess_input(img)
+    res <- modules$keras.applications$inception_v3$preprocess_input(img)
   }
 
   return(res)
@@ -179,7 +179,7 @@ preprocess_input <- function(img, model = c("Xception", "VGG16", "VGG19", "ResNe
 #' These map the class integers to the actual class names
 #' in the pre-defined models.
 #'
-#' @param img     the input image, as an array
+#' @param pred    the output of predictions from the specified model
 #' @param model   the model you wish to preprocess to
 #' @param top     integer, how many top-guesses to return.
 #'
@@ -189,20 +189,20 @@ preprocess_input <- function(img, model = c("Xception", "VGG16", "VGG19", "ResNe
 #'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
 #'
 #' @export
-decode_predictions <- function(img, model = c("Xception", "VGG16", "VGG19", "ResNet50", "InceptionV3"),
+decode_predictions <- function(pred, model = c("Xception", "VGG16", "VGG19", "ResNet50", "InceptionV3"),
                                 top = 5) {
   model <- match.arg(model)
 
   if (model == "Xception") {
-    res <- modules$keras.applications$xception$decode_predictions(img, top = int32(top))
+    res <- modules$keras.applications$xception$decode_predictions(pred, top = int32(top))
   } else if (model == "VGG16") {
-    res <- modules$keras.applications$vgg16()$decode_predictions(img, top = int32(top))
+    res <- modules$keras.applications$vgg16$decode_predictions(pred, top = int32(top))
   } else if (model == "VGG19") {
-    res <- modules$keras.applications$vgg19()$decode_predictions(img, top = int32(top))
+    res <- modules$keras.applications$vgg19$decode_predictions(pred, top = int32(top))
   } else if (model == "ResNet50") {
-    res <- modules$keras.applications$resnet50()$decode_predictions(img, top = int32(top))
+    res <- modules$keras.applications$resnet50$decode_predictions(pred, top = int32(top))
   } else if (model == "InceptionV3") {
-    res <- modules$keras.applications$inception_v3()$decode_predictions(img, top = int32(top))
+    res <- modules$keras.applications$inception_v3$decode_predictions(pred, top = int32(top))
   }
 
   return(res)
