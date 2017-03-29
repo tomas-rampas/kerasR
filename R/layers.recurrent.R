@@ -71,7 +71,7 @@ SimpleRNN <- function(units,
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.recurrent$LSTM(units = int32(units),
+    res <- modules$keras.layers.recurrent$SimpleRNN(units = int32(units),
                  activation = activation,
                  use_bias = use_bias,
                  kernel_initializer = kernel_initializer,
@@ -91,7 +91,7 @@ SimpleRNN <- function(units,
     input_shape <- sapply(input_shape, list)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.recurrent$LSTM(units = int32(units),
+    res <- modules$keras.layers.recurrent$SimpleRNN(units = int32(units),
                  activation = activation,
                  use_bias = use_bias,
                  kernel_initializer = kernel_initializer,
@@ -137,7 +137,7 @@ GRU <- function(units,
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.recurrent$LSTM(units = int32(units),
+    res <- modules$keras.layers.recurrent$GRU(units = int32(units),
                  activation = activation,
                  recurrent_activation = recurrent_activation,
                  use_bias = use_bias,
@@ -158,7 +158,7 @@ GRU <- function(units,
     input_shape <- sapply(input_shape, list)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.recurrent$LSTM(units = int32(units),
+    res <- modules$keras.layers.recurrent$GRU(units = int32(units),
                  activation = activation,
                  recurrent_activation = recurrent_activation,
                  use_bias = use_bias,
