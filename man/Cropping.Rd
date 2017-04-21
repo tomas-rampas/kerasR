@@ -15,8 +15,8 @@ Cropping3D(cropping = 0, data_format = NULL, input_shape = NULL)
 }
 \arguments{
 \item{cropping}{integer or pair of integers. How many units
-  should be trimmed off at the beginning and end
-  of the cropping dimension (axis 1). If a single value
+should be trimmed off at the beginning and end
+of the cropping dimension (axis 1). If a single value
 is provided, the same value will be used for both.}
 
 \item{input_shape}{only need when first layer of a model; sets the input shape

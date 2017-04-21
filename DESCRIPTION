@@ -26,3 +26,4 @@ VignetteBuilder: knitr
 SystemRequirements: Python (>= 2.7); keras <https://keras.io/> (>= 2.0.1)
 License: LGPL-2
 RoxygenNote: 6.0.1
+Roxygen: list(markdown = TRUE)

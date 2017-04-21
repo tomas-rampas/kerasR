@@ -17,18 +17,18 @@ Dense(units, activation = "linear", use_bias = TRUE,
 
 \item{use_bias}{Boolean, whether the layer uses a bias vector.}
 
-\item{kernel_initializer}{Initializer for the `kernel` weights matrix}
+\item{kernel_initializer}{Initializer for the \code{kernel} weights matrix}
 
 \item{bias_initializer}{Initializer for the bias vector}
 
-\item{kernel_regularizer}{Regularizer function applied to the `kernel` weights matrix}
+\item{kernel_regularizer}{Regularizer function applied to the \code{kernel} weights matrix}
 
 \item{bias_regularizer}{Regularizer function applied to the bias vector}
 
 \item{activity_regularizer}{Regularizer function applied to
 the output of the layer (its "activation").}
 
-\item{kernel_constraint}{Constraint function applied to  the `kernel` weights}
+\item{kernel_constraint}{Constraint function applied to  the \code{kernel} weights}
 
 \item{bias_constraint}{Constraint function applied to the bias vector}
 
@@ -37,13 +37,13 @@ of the data}
 }
 \description{
 Dense implements the operation:
- `output = activation(dot(input, kernel) + bias)`
- where `activation` is the element-wise activation function
- passed as the `activation` argument, `kernel` is a weights matrix
- created by the layer, and `bias` is a bias vector created by the layer
- (only applicable if `use_bias` is `True`).
- Note: if the input to the layer has a rank greater than 2, then
- it is flattened prior to the initial dot product with `kernel`.
+\code{output = activation(dot(input, kernel) + bias)}
+where \code{activation} is the element-wise activation function
+passed as the \code{activation} argument, \code{kernel} is a weights matrix
+created by the layer, and \code{bias} is a bias vector created by the layer
+(only applicable if \code{use_bias} is \code{True}).
+Note: if the input to the layer has a rank greater than 2, then
+it is flattened prior to the initial dot product with \code{kernel}.
 }
 \examples{
 require('kerasR')

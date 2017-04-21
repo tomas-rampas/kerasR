@@ -15,7 +15,7 @@ of the data}
 \description{
 For each timestep in the input tensor (dimension #1 in the tensor),
 if all values in the input tensor at that timestep
-are equal to `mask_value`, then the timestep will be masked (skipped)
+are equal to \code{mask_value}, then the timestep will be masked (skipped)
 in all downstream layers (as long as they support masking).
 If any downstream layer does not support masking yet receives such
 an input mask, an exception will be raised.

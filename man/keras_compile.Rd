@@ -27,13 +27,13 @@ a return value.
 }
 \details{
 Possible losses are "mean_squared_error", "mean_absolute_error",
- "mean_absolute_percentage_error", "mean_squared_logarithmic_error",
- "squared_hinge", "hinge", "categorical_crossentropy",
- "sparse_categorical_crossentropy", "binary_crossentropy",
- "kullback_leibler_divergence", "poisson", "cosine_proximity".
+"mean_absolute_percentage_error", "mean_squared_logarithmic_error",
+"squared_hinge", "hinge", "categorical_crossentropy",
+"sparse_categorical_crossentropy", "binary_crossentropy",
+"kullback_leibler_divergence", "poisson", "cosine_proximity".
 
- Possible metrics are "binary_accuracy", "categorical_accuracy",
- "sparse_categorical_accuracy", and "top_k_categorical_accuracy",
+Possible metrics are "binary_accuracy", "categorical_accuracy",
+"sparse_categorical_accuracy", and "top_k_categorical_accuracy",
 }
 \examples{
 require('kerasR')

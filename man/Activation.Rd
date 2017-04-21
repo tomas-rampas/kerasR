@@ -18,8 +18,8 @@ Applies an activation function to an output.
 }
 \details{
 Possible activations include 'softmax', 'elu', 'softplus', 'softsign',
-         'relu', 'tanh', 'sigmoid', 'hard_sigmoid', 'linear'. You may also
-         set this equal to any of the outputs from an \link{AdvancedActivation}.
+'relu', 'tanh', 'sigmoid', 'hard_sigmoid', 'linear'. You may also
+set this equal to any of the outputs from an \link{AdvancedActivation}.
 }
 \examples{
 if (run_examples()) {

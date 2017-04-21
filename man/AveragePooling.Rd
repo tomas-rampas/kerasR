@@ -25,9 +25,9 @@ default to pool_size.}
 
 \item{padding}{One of "valid" or "same" (case-insensitive).}
 
-\item{input_shape}{nD tensor with shape: `(batch_size, ..., input_dim)`.
+\item{input_shape}{nD tensor with shape: \code{(batch_size, ..., input_dim)}.
 The most common situation would be a 2D input with shape
-`(batch_size, input_dim)`.}
+\code{(batch_size, input_dim)}.}
 
 \item{data_format}{A string, one of channels_last (default) or channels_first}
 }
