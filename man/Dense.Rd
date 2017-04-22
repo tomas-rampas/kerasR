@@ -17,18 +17,18 @@ Dense(units, activation = "linear", use_bias = TRUE,
 
 \item{use_bias}{Boolean, whether the layer uses a bias vector.}
 
-\item{kernel_initializer}{Initializer for the `kernel` weights matrix}
+\item{kernel_initializer}{Initializer for the \code{kernel} weights matrix}
 
 \item{bias_initializer}{Initializer for the bias vector}
 
-\item{kernel_regularizer}{Regularizer function applied to the `kernel` weights matrix}
+\item{kernel_regularizer}{Regularizer function applied to the \code{kernel} weights matrix}
 
 \item{bias_regularizer}{Regularizer function applied to the bias vector}
 
 \item{activity_regularizer}{Regularizer function applied to
 the output of the layer (its "activation").}
 
-\item{kernel_constraint}{Constraint function applied to  the `kernel` weights}
+\item{kernel_constraint}{Constraint function applied to  the \code{kernel} weights}
 
 \item{bias_constraint}{Constraint function applied to the bias vector}
 
@@ -37,35 +37,65 @@ of the data}
 }
 \description{
 Dense implements the operation:
- `output = activation(dot(input, kernel) + bias)`
- where `activation` is the element-wise activation function
- passed as the `activation` argument, `kernel` is a weights matrix
- created by the layer, and `bias` is a bias vector created by the layer
- (only applicable if `use_bias` is `True`).
- Note: if the input to the layer has a rank greater than 2, then
- it is flattened prior to the initial dot product with `kernel`.
+\code{output = activation(dot(input, kernel) + bias)}
+where \code{activation} is the element-wise activation function
+passed as the \code{activation} argument, \code{kernel} is a weights matrix
+created by the layer, and \code{bias} is a bias vector created by the layer
+(only applicable if \code{use_bias} is \code{True}).
+Note: if the input to the layer has a rank greater than 2, then
+it is flattened prior to the initial dot product with \code{kernel}.
 }
 \examples{
-require('kerasR')
-if (run_examples()) {
-X_train <- matrix(rnorm(100 * 10), nrow = 100)
-Y_train <- to_categorical(matrix(sample(0:2, 100, TRUE), ncol = 1), 3)
+if(keras_available()) {
+  X_train <- matrix(rnorm(100 * 10), nrow = 100)
+  Y_train <- to_categorical(matrix(sample(0:2, 100, TRUE), ncol = 1), 3)
 
-mod <- Sequential()
-mod$add(Dense(units = 50, input_shape = dim(X_train)[2]))
-mod$add(Dropout(rate = 0.5))
-mod$add(Activation("relu"))
-mod$add(Dense(units = 3))
-mod$add(ActivityRegularization(l1 = 1))
-mod$add(Activation("softmax"))
-keras_compile(mod,  loss = 'categorical_crossentropy', optimizer = RMSprop())
+  mod <- Sequential()
+  mod$add(Dense(units = 50, input_shape = dim(X_train)[2]))
+  mod$add(Dropout(rate = 0.5))
+  mod$add(Activation("relu"))
+  mod$add(Dense(units = 3))
+  mod$add(ActivityRegularization(l1 = 1))
+  mod$add(Activation("softmax"))
+  keras_compile(mod,  loss = 'categorical_crossentropy', optimizer = RMSprop())
 
-keras_fit(mod, X_train, Y_train, batch_size = 32, epochs = 5,
-          verbose = 0, validation_split = 0.2)
+  keras_fit(mod, X_train, Y_train, batch_size = 32, epochs = 5,
+            verbose = 0, validation_split = 0.2)
 }
+
+if(keras_available()) {
+  X_train <- matrix(rnorm(100 * 10), nrow = 100)
+  Y_train <- to_categorical(matrix(sample(0:2, 100, TRUE), ncol = 1), 3)
+
+  mod <- Sequential()
+  mod$add(Dense(units = 50, input_shape = dim(X_train)[2]))
+  mod$add(Dropout(rate = 0.5))
+  mod$add(Activation("relu"))
+  mod$add(Dense(units = 3))
+  mod$add(ActivityRegularization(l1 = 1))
+  mod$add(Activation("softmax"))
+  keras_compile(mod,  loss = 'categorical_crossentropy', optimizer = RMSprop())
+
+  keras_fit(mod, X_train, Y_train, batch_size = 32, epochs = 5,
+            verbose = 0, validation_split = 0.2)
+}
+
 }
 \references{
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
+}
+\seealso{
+Other layers: \code{\link{Activation}},
+  \code{\link{ActivityRegularization}},
+  \code{\link{AdvancedActivation}},
+  \code{\link{BatchNormalization}}, \code{\link{Conv}},
+  \code{\link{Dropout}}, \code{\link{Embedding}},
+  \code{\link{Flatten}}, \code{\link{GaussianNoise}},
+  \code{\link{LayerWrapper}},
+  \code{\link{LocallyConnected}}, \code{\link{Masking}},
+  \code{\link{MaxPooling}}, \code{\link{Permute}},
+  \code{\link{RNN}}, \code{\link{RepeatVector}},
+  \code{\link{Reshape}}, \code{\link{Sequential}}
 }
 \author{
 Taylor B. Arnold, \email{taylor.arnold@acm.org}

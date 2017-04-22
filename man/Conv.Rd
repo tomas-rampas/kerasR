@@ -93,30 +93,43 @@ filterss_in * depth_multiplier.}
 Convolution layers
 }
 \examples{
-if (run_examples()) {
-X_train <- array(rnorm(100 * 28 * 28), dim = c(100, 28, 28, 1))
-Y_train <- to_categorical(matrix(sample(0:2, 100, TRUE), ncol = 1), 3)
-
-mod <- Sequential()
-mod$add(Conv2D(filters = 2, kernel_size = c(2, 2),
-               input_shape = c(28, 28, 1)))
-mod$add(Activation("relu"))
-mod$add(MaxPooling2D(pool_size=c(2, 2)))
-mod$add(LocallyConnected2D(filters = 2, kernel_size = c(2, 2)))
-mod$add(Activation("relu"))
-mod$add(MaxPooling2D(pool_size=c(2, 2)))
-mod$add(Dropout(0.25))
-
-mod$add(Flatten())
-mod$add(Dropout(0.5))
-mod$add(Dense(3, activation='softmax'))
-
-keras_compile(mod, loss='categorical_crossentropy', optimizer=RMSprop())
-keras_fit(mod, X_train, Y_train, verbose = 0)
+if(keras_available()) {
+  X_train <- array(rnorm(100 * 28 * 28), dim = c(100, 28, 28, 1))
+  Y_train <- to_categorical(matrix(sample(0:2, 100, TRUE), ncol = 1), 3)
+  
+  mod <- Sequential()
+  mod$add(Conv2D(filters = 2, kernel_size = c(2, 2),
+                 input_shape = c(28, 28, 1)))
+  mod$add(Activation("relu"))
+  mod$add(MaxPooling2D(pool_size=c(2, 2)))
+  mod$add(LocallyConnected2D(filters = 2, kernel_size = c(2, 2)))
+  mod$add(Activation("relu"))
+  mod$add(MaxPooling2D(pool_size=c(2, 2)))
+  mod$add(Dropout(0.25))
+  
+  mod$add(Flatten())
+  mod$add(Dropout(0.5))
+  mod$add(Dense(3, activation='softmax'))
+  
+  keras_compile(mod, loss='categorical_crossentropy', optimizer=RMSprop())
+  keras_fit(mod, X_train, Y_train, verbose = 0)
 }
 }
 \references{
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
+}
+\seealso{
+Other layers: \code{\link{Activation}},
+  \code{\link{ActivityRegularization}},
+  \code{\link{AdvancedActivation}},
+  \code{\link{BatchNormalization}}, \code{\link{Dense}},
+  \code{\link{Dropout}}, \code{\link{Embedding}},
+  \code{\link{Flatten}}, \code{\link{GaussianNoise}},
+  \code{\link{LayerWrapper}},
+  \code{\link{LocallyConnected}}, \code{\link{Masking}},
+  \code{\link{MaxPooling}}, \code{\link{Permute}},
+  \code{\link{RNN}}, \code{\link{RepeatVector}},
+  \code{\link{Reshape}}, \code{\link{Sequential}}
 }
 \author{
 Taylor B. Arnold, \email{taylor.arnold@acm.org}

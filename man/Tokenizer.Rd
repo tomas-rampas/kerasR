@@ -25,6 +25,12 @@ has index i).
 \references{
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
 }
+\seealso{
+Other preprocessing: \code{\link{expand_dims}},
+  \code{\link{img_to_array}}, \code{\link{load_img}},
+  \code{\link{one_hot}}, \code{\link{pad_sequences}},
+  \code{\link{text_to_word_sequence}}
+}
 \author{
 Taylor B. Arnold, \email{taylor.arnold@acm.org}
 }

@@ -42,6 +42,11 @@ is seen for a 'patience' number of epochs, the learning rate is reduced.
 \references{
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
 }
+\seealso{
+Other callbacks: \code{\link{CSVLogger}},
+  \code{\link{EarlyStopping}},
+  \code{\link{ModelCheckpoint}}, \code{\link{TensorBoard}}
+}
 \author{
 Taylor B. Arnold, \email{taylor.arnold@acm.org}
 }

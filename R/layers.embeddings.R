@@ -14,29 +14,10 @@
 #' @param input_shape             only need when first layer of a model; sets the input shape
 #'                                  of the data
 
-#' @examples
-#' if (run_examples()) {
-#' X_train <- matrix(sample(0:19, 100 * 100, TRUE), ncol = 100)
-#' Y_train <- rnorm(100)
-#'
-#' mod <- Sequential()
-#' mod$add(Embedding(input_dim = 20, output_dim = 10,
-#'                   input_length = 100))
-#' mod$add(Dropout(0.5))
-#'
-#' mod$add(GRU(16))
-#' mod$add(Dense(1))
-#' mod$add(Activation("sigmoid"))
-#'
-#' keras_compile(mod, loss = "mse", optimizer = RMSprop())
-#' keras_fit(mod, X_train, Y_train, epochs = 3, verbose = 0)
-#' }
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @example inst/examples/embeddings.R
+#' @template boilerplate
 #' @export
+#' @family layers
 Embedding <- function(input_dim,
                       output_dim,
                       embeddings_initializer = 'uniform',

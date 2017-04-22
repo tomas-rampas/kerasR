@@ -21,6 +21,14 @@ Load image from a file as PIL object
 \references{
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
 }
+\seealso{
+Other image: \code{\link{img_to_array}}
+
+Other preprocessing: \code{\link{Tokenizer}},
+  \code{\link{expand_dims}}, \code{\link{img_to_array}},
+  \code{\link{one_hot}}, \code{\link{pad_sequences}},
+  \code{\link{text_to_word_sequence}}
+}
 \author{
 Taylor B. Arnold, \email{taylor.arnold@acm.org}
 }

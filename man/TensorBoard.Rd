@@ -30,6 +30,12 @@ histograms for the different layers in your model.
 \references{
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
 }
+\seealso{
+Other callbacks: \code{\link{CSVLogger}},
+  \code{\link{EarlyStopping}},
+  \code{\link{ModelCheckpoint}},
+  \code{\link{ReduceLROnPlateau}}
+}
 \author{
 Taylor B. Arnold, \email{taylor.arnold@acm.org}
 }

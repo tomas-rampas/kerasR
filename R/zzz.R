@@ -15,5 +15,5 @@ int32 <- function(x) {
 #'
 #' @export
 run_examples <- function() {
-  FALSE
+  keras_available()
 }

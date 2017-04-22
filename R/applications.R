@@ -22,11 +22,7 @@
 #'                          be specified if include_top is True, and if no weights
 #'                          argument is specified.
 #'
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @template boilerplate
 #' @name Applications
 NULL
 
@@ -143,18 +139,14 @@ InceptionV3 <- function(include_top = TRUE, weights = 'imagenet', input_tensor =
 #' Preprocess input for pre-defined imagenet networks
 #'
 #' These assume you have already converted images into a three channel,
-#' 224 by 224 matrix with \code{load_img} and \code{img_to_array}. The
+#' 224 by 224 matrix with [load_img] and [img_to_array]. The
 #' processing differs based on the model so set the appropriate model
 #' that you are using.
 #'
 #' @param img     the input image, as an array
 #' @param model   the model you wish to preprocess to
 #'
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @template boilerplate
 #' @export
 preprocess_input <- function(img, model = c("Xception", "VGG16", "VGG19", "ResNet50", "InceptionV3")) {
   model <- match.arg(model)
@@ -183,11 +175,7 @@ preprocess_input <- function(img, model = c("Xception", "VGG16", "VGG19", "ResNe
 #' @param model   the model you wish to preprocess to
 #' @param top     integer, how many top-guesses to return.
 #'
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @template boilerplate
 #' @export
 decode_predictions <- function(pred, model = c("Xception", "VGG16", "VGG19", "ResNet50", "InceptionV3"),
                                 top = 5) {

@@ -15,13 +15,26 @@ of the data}
 \description{
 For each timestep in the input tensor (dimension #1 in the tensor),
 if all values in the input tensor at that timestep
-are equal to `mask_value`, then the timestep will be masked (skipped)
+are equal to \code{mask_value}, then the timestep will be masked (skipped)
 in all downstream layers (as long as they support masking).
 If any downstream layer does not support masking yet receives such
 an input mask, an exception will be raised.
 }
 \references{
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
+}
+\seealso{
+Other layers: \code{\link{Activation}},
+  \code{\link{ActivityRegularization}},
+  \code{\link{AdvancedActivation}},
+  \code{\link{BatchNormalization}}, \code{\link{Conv}},
+  \code{\link{Dense}}, \code{\link{Dropout}},
+  \code{\link{Embedding}}, \code{\link{Flatten}},
+  \code{\link{GaussianNoise}}, \code{\link{LayerWrapper}},
+  \code{\link{LocallyConnected}}, \code{\link{MaxPooling}},
+  \code{\link{Permute}}, \code{\link{RNN}},
+  \code{\link{RepeatVector}}, \code{\link{Reshape}},
+  \code{\link{Sequential}}
 }
 \author{
 Taylor B. Arnold, \email{taylor.arnold@acm.org}

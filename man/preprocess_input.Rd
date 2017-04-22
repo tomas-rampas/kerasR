@@ -14,7 +14,7 @@ preprocess_input(img, model = c("Xception", "VGG16", "VGG19", "ResNet50",
 }
 \description{
 These assume you have already converted images into a three channel,
-224 by 224 matrix with \code{load_img} and \code{img_to_array}. The
+224 by 224 matrix with \link{load_img} and \link{img_to_array}. The
 processing differs based on the model so set the appropriate model
 that you are using.
 }

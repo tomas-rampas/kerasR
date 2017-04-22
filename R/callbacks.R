@@ -19,12 +19,9 @@
 #'                             the full model is saved (model.save(filepath)).
 #' @param period             Interval (number of epochs) between checkpoints.
 #'
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @template boilerplate
 #' @export
+#' @family callbacks
 ModelCheckpoint <- function(filepath, monitor = 'val_loss', verbose = 0,
       save_best_only = FALSE, save_weights_only = FALSE, mode = 'auto',
       period = 1) {
@@ -50,33 +47,10 @@ ModelCheckpoint <- function(filepath, monitor = 'val_loss', verbose = 0,
 #'                     auto mode, the direction is automatically inferred
 #'                     from the name of the monitored quantity.
 #'
-#' @examples
-#' if (run_examples()) {
-#' X_train <- matrix(rnorm(100 * 10), nrow = 100)
-#' Y_train <- to_categorical(matrix(sample(0:2, 100, TRUE), ncol = 1), 3)
-#'
-#' mod <- Sequential()
-#' mod$add(Dense(units = 50, input_shape = dim(X_train)[2]))
-#' mod$add(Activation("relu"))
-#' mod$add(Dense(units = 3))
-#' mod$add(Activation("softmax"))
-#' keras_compile(mod,  loss = 'categorical_crossentropy', optimizer = RMSprop())
-#'
-#' callbacks <- list(CSVLogger(tempfile()),
-#'                   EarlyStopping(),
-#'                   ModelCheckpoint(tempfile()),
-#'                   ReduceLROnPlateau(),
-#'                   TensorBoard(tempfile()))
-#'
-#' keras_fit(mod, X_train, Y_train, batch_size = 32, epochs = 5,
-#'           verbose = 0, callbacks = callbacks, validation_split = 0.2)
-#' }
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @example inst/examples/callbacks.R
+#' @template boilerplate
 #' @export
+#' @family callbacks
 EarlyStopping <- function(monitor = 'val_loss', min_delta = 0, patience = 0,
                           verbose = 0, mode = 'auto') {
   modules$keras.callbacks$EarlyStopping(monitor = monitor, min_delta = min_delta,
@@ -100,12 +74,9 @@ EarlyStopping <- function(monitor = 'val_loss', min_delta = 0, patience = 0,
 #' @param write_images    whether to write model weights to visualize as
 #'                          image in Tensorboard.
 #'
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @template boilerplate
 #' @export
+#' @family callbacks
 TensorBoard <- function(log_dir = './logs', histogram_freq = 0, write_graph = TRUE,
                         write_images = FALSE) {
   modules$keras.callbacks$TensorBoard(log_dir = log_dir, histogram_freq = int32(histogram_freq),
@@ -136,12 +107,9 @@ TensorBoard <- function(log_dir = './logs', histogram_freq = 0, write_graph = TR
 #'                    operation after lr has been reduced.
 #' @param min_lr    lower bound on the learning rate.
 #'
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @template boilerplate
 #' @export
+#' @family callbacks
 ReduceLROnPlateau <- function(monitor = 'val_loss', factor = 0.1, patience = 10,
                               verbose = 0, mode = 'auto', epsilon = 0.0001,
                               cooldown = 0, min_lr = 0) {
@@ -161,12 +129,9 @@ ReduceLROnPlateau <- function(monitor = 'val_loss', factor = 0.1, patience = 10,
 #' @param append      True: append if file exists (useful for continuing training).
 #'                      False: overwrite existing file,
 #'
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @template boilerplate
 #' @export
+#' @family callbacks
 CSVLogger <- function(filename, separator = ',', append = FALSE) {
     modules$keras.callbacks$CSVLogger(filename = filename, separator = separator,
                               append = append)

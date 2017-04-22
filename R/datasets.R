@@ -1,12 +1,12 @@
 #' Load datasets
 #'
 #' These functions all return a named list with elements
-#' X_train, X_test, Y_train, and Y_test. The first time
+#' `X_train`, `X_test`, `Y_train`, and `Y_test`. The first time
 #' calling this function will download the datasets locally;
 #' thereafter they will be loaded from the keras cache
 #' directory.
 #'
-#' @param label_mode   either "fine" or "coarse"; how to construct labels for \code{CIFAR100}.
+#' @param label_mode   either "fine" or "coarse"; how to construct labels for [load_cifar100].
 #' @param num_words    integer or NULL. Top most frequent words to consider. Any less frequent
 #'                       word will appear as 0 in the sequence data.
 #' @param skip_top     integer. Top most frequent words to ignore (they will appear as 0s in
@@ -20,31 +20,8 @@
 #'                       limit will be replaced with this character.
 #' @param index_from   integer. Index actual words with this index and higher.
 #'
-#' @examples
-#' if (run_examples()) {
-#' boston <- load_boston_housing()
-#' X_train <- normalize(boston$X_train, 0)
-#' Y_train <- boston$Y_train
-#' X_test <- normalize(boston$X_test, 0)
-#' Y_test <- boston$Y_test
-#'
-#' mod <- Sequential()
-#' mod$add(Dense(units = 200, input_shape = 13))
-#' mod$add(Activation("relu"))
-#' mod$add(Dense(units = 200))
-#' mod$add(Activation("relu"))
-#' mod$add(Dense(units = 1))
-#' keras_compile(mod,  loss = 'mse', optimizer = SGD())
-#'
-#' keras_fit(mod, scale(X_train), Y_train,
-#'           batch_size = 32, epochs = 20,
-#'           verbose = 1, validation_split = 0.1)
-#' }
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @example inst/examples/datasets.R
+#' @template boilerplate
 #' @name Datasets
 NULL
 
