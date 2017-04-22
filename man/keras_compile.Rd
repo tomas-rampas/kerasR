@@ -8,7 +8,7 @@ keras_compile(model, optimizer, loss, metrics = NULL,
   sample_weight_mode = NULL)
 }
 \arguments{
-\item{model}{a keras model object created with \code{Sequential}}
+\item{model}{a keras model object created with \link{Sequential}}
 
 \item{optimizer}{name of optimizer) or optimizer object. See \link{Optimizers}.}
 
@@ -18,7 +18,7 @@ keras_compile(model, optimizer, loss, metrics = NULL,
 training and testing. See Details for possible options.}
 
 \item{sample_weight_mode}{if you need to do timestep-wise sample weighting (2D weights),
-set this to "temporal". "None" defaults to sample-wise weights (1D).}
+set this to \code{temporal}. \code{None} defaults to sample-wise weights (1D).}
 }
 \description{
 Models must be compiled before being fit or used for prediction.
@@ -26,36 +26,56 @@ This function changes to input model object itself, and does not produce
 a return value.
 }
 \details{
-Possible losses are "mean_squared_error", "mean_absolute_error",
-"mean_absolute_percentage_error", "mean_squared_logarithmic_error",
-"squared_hinge", "hinge", "categorical_crossentropy",
-"sparse_categorical_crossentropy", "binary_crossentropy",
-"kullback_leibler_divergence", "poisson", "cosine_proximity".
+Possible losses are
+\itemize{
+\item \code{mean_squared_error}
+\item \code{mean_absolute_error}
+\item \code{mean_absolute_percentage_error}
+\item \code{mean_squared_logarithmic_error}
+\item \code{squared_hinge}
+\item \code{hinge}
+\item \code{categorical_crossentropy}
+\item \code{sparse_categorical_crossentropy}
+\item \code{binary_crossentropy}
+\item \code{kullback_leibler_divergence}
+\item \code{poisson}
+\item \code{cosine_proximity}.
+}
 
-Possible metrics are "binary_accuracy", "categorical_accuracy",
-"sparse_categorical_accuracy", and "top_k_categorical_accuracy",
+Possible metrics are:
+\itemize{
+\item \code{binary_accuracy}
+\item \code{categorical_accuracy}
+\item \code{sparse_categorical_accuracy}
+\item \code{top_k_categorical_accuracy}
+}
 }
 \examples{
-require('kerasR')
-if (run_examples()) {
-X_train <- matrix(rnorm(100 * 10), nrow = 100)
-Y_train <- to_categorical(matrix(sample(0:2, 100, TRUE), ncol = 1), 3)
+if(keras_available()) {
+  X_train <- matrix(rnorm(100 * 10), nrow = 100)
+  Y_train <- to_categorical(matrix(sample(0:2, 100, TRUE), ncol = 1), 3)
 
-mod <- Sequential()
-mod$add(Dense(units = 50, input_shape = dim(X_train)[2]))
-mod$add(Dropout(rate = 0.5))
-mod$add(Activation("relu"))
-mod$add(Dense(units = 3))
-mod$add(ActivityRegularization(l1 = 1))
-mod$add(Activation("softmax"))
-keras_compile(mod,  loss = 'categorical_crossentropy', optimizer = RMSprop())
+  mod <- Sequential()
+  mod$add(Dense(units = 50, input_shape = dim(X_train)[2]))
+  mod$add(Dropout(rate = 0.5))
+  mod$add(Activation("relu"))
+  mod$add(Dense(units = 3))
+  mod$add(ActivityRegularization(l1 = 1))
+  mod$add(Activation("softmax"))
+  keras_compile(mod,  loss = 'categorical_crossentropy', optimizer = RMSprop())
 
-keras_fit(mod, X_train, Y_train, batch_size = 32, epochs = 5,
-          verbose = 0, validation_split = 0.2)
+  keras_fit(mod, X_train, Y_train, batch_size = 32, epochs = 5,
+            verbose = 0, validation_split = 0.2)
 }
+
 }
 \references{
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
+}
+\seealso{
+Other models: \code{\link{LoadSave}},
+  \code{\link{Predict}}, \code{\link{Sequential}},
+  \code{\link{keras_fit}}
 }
 \author{
 Taylor B. Arnold, \email{taylor.arnold@acm.org}

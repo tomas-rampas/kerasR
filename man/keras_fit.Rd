@@ -10,7 +10,7 @@ keras_fit(model, x, y, batch_size = 32, epochs = 10, verbose = 1,
   initial_epoch = 0)
 }
 \arguments{
-\item{model}{a keras model object created with \code{Sequential}}
+\item{model}{a keras model object created with \link{Sequential}}
 
 \item{x}{input data}
 
@@ -23,18 +23,17 @@ keras_fit(model, x, y, batch_size = 32, epochs = 10, verbose = 1,
 \item{verbose}{0 for no logging to stdout, 1 for progress bar logging,
 2 for one log line per epoch.}
 
-\item{callbacks}{list of keras.callbacks.Callback instances. List of
+\item{callbacks}{list of `keras.callbacks.Callback`` instances. List of
 callbacks to apply during training.}
 
-\item{validation_split}{float (0. < x < 1). Fraction of the data to use as
+\item{validation_split}{float (\code{0 < x < 1}). Fraction of the data to use as
 held-out validation data.}
 
-\item{validation_data}{list (x_val, y_val) or list (x_val, y_val,
-val_sample_weights) to be used as held-out validation
-data. Will override validation_split.}
+\item{validation_data}{\code{list(x_val, y_val)} or \code{list(x_val, y_val, val_sample_weights)} to be used as held-out validation
+data. Will override \code{validation_split}.}
 
-\item{shuffle}{boolean or string (for 'batch'). Whether to shuffle the
-samples at each epoch. 'batch' is a special option for
+\item{shuffle}{boolean or string (for \code{batch}). Whether to shuffle the
+samples at each epoch. \code{batch} is a special option for
 dealing with the limitations of HDF5 data; it shuffles
 in batch-sized chunks.}
 
@@ -50,26 +49,31 @@ Learn the weight and bias values for am model given training data.
 Model must be compiled first. The model is modified in place.
 }
 \examples{
-require('kerasR')
-if (run_examples()) {
-X_train <- matrix(rnorm(100 * 10), nrow = 100)
-Y_train <- to_categorical(matrix(sample(0:2, 100, TRUE), ncol = 1), 3)
+if(keras_available()) {
+  X_train <- matrix(rnorm(100 * 10), nrow = 100)
+  Y_train <- to_categorical(matrix(sample(0:2, 100, TRUE), ncol = 1), 3)
 
-mod <- Sequential()
-mod$add(Dense(units = 50, input_shape = dim(X_train)[2]))
-mod$add(Dropout(rate = 0.5))
-mod$add(Activation("relu"))
-mod$add(Dense(units = 3))
-mod$add(ActivityRegularization(l1 = 1))
-mod$add(Activation("softmax"))
-keras_compile(mod,  loss = 'categorical_crossentropy', optimizer = RMSprop())
+  mod <- Sequential()
+  mod$add(Dense(units = 50, input_shape = dim(X_train)[2]))
+  mod$add(Dropout(rate = 0.5))
+  mod$add(Activation("relu"))
+  mod$add(Dense(units = 3))
+  mod$add(ActivityRegularization(l1 = 1))
+  mod$add(Activation("softmax"))
+  keras_compile(mod,  loss = 'categorical_crossentropy', optimizer = RMSprop())
 
-keras_fit(mod, X_train, Y_train, batch_size = 32, epochs = 5,
-          verbose = 0, validation_split = 0.2)
+  keras_fit(mod, X_train, Y_train, batch_size = 32, epochs = 5,
+            verbose = 0, validation_split = 0.2)
 }
+
 }
 \references{
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
+}
+\seealso{
+Other models: \code{\link{LoadSave}},
+  \code{\link{Predict}}, \code{\link{Sequential}},
+  \code{\link{keras_compile}}
 }
 \author{
 Taylor B. Arnold, \email{taylor.arnold@acm.org}

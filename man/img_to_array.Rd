@@ -7,7 +7,7 @@
 img_to_array(img, data_format = NULL)
 }
 \arguments{
-\item{img}{PIL image file; usually loaded with \code{load_img}}
+\item{img}{PIL image file; usually loaded with \link{load_img}}
 
 \item{data_format}{either "channels_first" or "channels_last".}
 }
@@ -19,6 +19,14 @@ Converts a PIL Image instance to a Numpy array.
 }
 \references{
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
+}
+\seealso{
+Other image: \code{\link{load_img}}
+
+Other preprocessing: \code{\link{Tokenizer}},
+  \code{\link{expand_dims}}, \code{\link{load_img}},
+  \code{\link{one_hot}}, \code{\link{pad_sequences}},
+  \code{\link{text_to_word_sequence}}
 }
 \author{
 Taylor B. Arnold, \email{taylor.arnold@acm.org}

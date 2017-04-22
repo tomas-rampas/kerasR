@@ -32,25 +32,38 @@ of the data}
 Turns positive integers (indexes) into dense vectors of fixed size.
 }
 \examples{
-if (run_examples()) {
-X_train <- matrix(sample(0:19, 100 * 100, TRUE), ncol = 100)
-Y_train <- rnorm(100)
-
-mod <- Sequential()
-mod$add(Embedding(input_dim = 20, output_dim = 10,
-                  input_length = 100))
-mod$add(Dropout(0.5))
-
-mod$add(GRU(16))
-mod$add(Dense(1))
-mod$add(Activation("sigmoid"))
-
-keras_compile(mod, loss = "mse", optimizer = RMSprop())
-keras_fit(mod, X_train, Y_train, epochs = 3, verbose = 0)
+if(keras_available()) {
+  X_train <- matrix(sample(0:19, 100 * 100, TRUE), ncol = 100)
+  Y_train <- rnorm(100)
+  
+  mod <- Sequential()
+  mod$add(Embedding(input_dim = 20, output_dim = 10,
+                    input_length = 100))
+  mod$add(Dropout(0.5))
+  
+  mod$add(GRU(16))
+  mod$add(Dense(1))
+  mod$add(Activation("sigmoid"))
+  
+  keras_compile(mod, loss = "mse", optimizer = RMSprop())
+  keras_fit(mod, X_train, Y_train, epochs = 3, verbose = 0)
 }
 }
 \references{
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
+}
+\seealso{
+Other layers: \code{\link{Activation}},
+  \code{\link{ActivityRegularization}},
+  \code{\link{AdvancedActivation}},
+  \code{\link{BatchNormalization}}, \code{\link{Conv}},
+  \code{\link{Dense}}, \code{\link{Dropout}},
+  \code{\link{Flatten}}, \code{\link{GaussianNoise}},
+  \code{\link{LayerWrapper}},
+  \code{\link{LocallyConnected}}, \code{\link{Masking}},
+  \code{\link{MaxPooling}}, \code{\link{Permute}},
+  \code{\link{RNN}}, \code{\link{RepeatVector}},
+  \code{\link{Reshape}}, \code{\link{Sequential}}
 }
 \author{
 Taylor B. Arnold, \email{taylor.arnold@acm.org}

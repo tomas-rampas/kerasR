@@ -6,12 +6,10 @@
 #'                       resolution. Otherwise, set this to a vector giving
 #'                       desired (img_height, img_width).
 #'
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @template boilerplate
 #' @export
+#' @family image
+#' @family preprocessing
 load_img <- function(path, grayscale = FALSE, target_size = NULL) {
 
   if (!is.null(target_size))
@@ -23,17 +21,15 @@ load_img <- function(path, grayscale = FALSE, target_size = NULL) {
 
 #' Converts a PIL Image instance to a Numpy array.
 #'
-#' @param img          PIL image file; usually loaded with \code{load_img}
+#' @param img          PIL image file; usually loaded with [load_img]
 #' @param data_format  either "channels_first" or "channels_last".
 #'
 #' @return A 3D numeric array.
 #'
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @template boilerplate
 #' @export
+#' @family image
+#' @family preprocessing
 img_to_array <- function(img, data_format = NULL) {
   modules$keras.preprocessing.image$img_to_array(img = img, data_format = data_format)
 }
@@ -47,12 +43,9 @@ img_to_array <- function(img, data_format = NULL) {
 #' @param a      array to expand
 #' @param axis   position (amongst axes) where new axis is to be inserted.
 #'
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @template boilerplate
 #' @export
+#' @family preprocessing
 expand_dims <- function(a, axis = 0) {
   modules$np$expand_dims(a = a, axis = int32(axis))
 }
@@ -64,12 +57,9 @@ expand_dims <- function(a, axis = 0) {
 #' @param lower     boolean. Whether to set the text to lowercase.
 #' @param split     string. Separator for word splitting.
 #'
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @template boilerplate
 #' @export
+#' @family preprocessing
 text_to_word_sequence <- function(text, filters = '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n',
                                   lower = TRUE, split = " ") {
   modules$keras.preprocessing.text$text_to_word_sequence(text = text, filters = filters,
@@ -84,12 +74,9 @@ text_to_word_sequence <- function(text, filters = '!"#$%&()*+,-./:;<=>?@[\\]^_`{
 #' @param lower     boolean. Whether to set the text to lowercase.
 #' @param split     string. Separator for word splitting.
 #'
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @template boilerplate
 #' @export
+#' @family preprocessing
 one_hot <- function(text, n, filters = '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n',
                     lower = TRUE, split = " ") {
   modules$keras.preprocessing.text$one_hot(text = text, n = int32(n), filters = filters,
@@ -107,12 +94,9 @@ one_hot <- function(text, n, filters = '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n',
 #' @param lower      boolean. Whether to set the text to lowercase.
 #' @param split      string. Separator for word splitting.
 #'
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @template boilerplate
 #' @export
+#' @family preprocessing
 Tokenizer <- function(num_words = NULL, filters = '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n',
                     lower = TRUE, split = " ") {
 
@@ -140,12 +124,9 @@ Tokenizer <- function(num_words = NULL, filters = '!"#$%&()*+,-./:;<=>?@[\\]^_`{
 #' @param truncating  'pre' or 'post', remove values from sequences larger than maxlen either in the beginning or in the end of the sequence
 #' @param value       float, value to pad the sequences to the desired value.
 #'
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @template boilerplate
 #' @export
+#' @family preprocessing
 pad_sequences <- function(sequences, maxlen = NULL, dtype = 'int32',
                           padding = 'pre', truncating = 'pre',
                           value = 0) {

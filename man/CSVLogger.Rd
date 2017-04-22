@@ -21,6 +21,12 @@ iterables such as np.ndarray.
 \references{
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
 }
+\seealso{
+Other callbacks: \code{\link{EarlyStopping}},
+  \code{\link{ModelCheckpoint}},
+  \code{\link{ReduceLROnPlateau}},
+  \code{\link{TensorBoard}}
+}
 \author{
 Taylor B. Arnold, \email{taylor.arnold@acm.org}
 }

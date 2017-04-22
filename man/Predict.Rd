@@ -14,7 +14,7 @@ keras_predict_classes(model, x, batch_size = 32, verbose = 1)
 keras_predict_proba(model, x, batch_size = 32, verbose = 1)
 }
 \arguments{
-\item{model}{a keras model object created with \code{Sequential}}
+\item{model}{a keras model object created with \link{Sequential}}
 
 \item{x}{input data}
 
@@ -25,32 +25,37 @@ keras_predict_proba(model, x, batch_size = 32, verbose = 1)
 }
 \description{
 Once compiled and trained, this function returns the predictions
-from a keras model. The function \code{keras_predict} returns raw
-predictions, \code{keras_predict_classes} gives class predictions, and
-\code{keras_predict_proba} gives class probabilities.
+from a keras model. The function \link{keras_predict} returns raw
+predictions, \link{keras_predict_classes} gives class predictions, and
+\link{keras_predict_proba} gives class probabilities.
 }
 \examples{
-if (run_examples()) {
-X_train <- matrix(rnorm(100 * 10), nrow = 100)
-Y_train <- to_categorical(matrix(sample(0:2, 100, TRUE), ncol = 1), 3)
-
-mod <- Sequential()
-mod$add(Dense(units = 50, input_shape = dim(X_train)[2]))
-mod$add(Dropout(rate = 0.5))
-mod$add(Activation("relu"))
-mod$add(Dense(units = 3))
-mod$add(ActivityRegularization(l1 = 1))
-mod$add(Activation("softmax"))
-keras_compile(mod,  loss = 'categorical_crossentropy', optimizer = RMSprop())
-
-keras_fit(mod, X_train, Y_train, batch_size = 32, epochs = 5,
-          verbose = 0, validation_split = 0.2)
-dim(keras_predict(mod, X_train))
-mean(keras_predict(mod, X_train) == (apply(Y_train, 1, which.max) - 1))
+if(keras_available()) {
+  X_train <- matrix(rnorm(100 * 10), nrow = 100)
+  Y_train <- to_categorical(matrix(sample(0:2, 100, TRUE), ncol = 1), 3)
+  
+  mod <- Sequential()
+  mod$add(Dense(units = 50, input_shape = dim(X_train)[2]))
+  mod$add(Dropout(rate = 0.5))
+  mod$add(Activation("relu"))
+  mod$add(Dense(units = 3))
+  mod$add(ActivityRegularization(l1 = 1))
+  mod$add(Activation("softmax"))
+  keras_compile(mod,  loss = 'categorical_crossentropy', optimizer = RMSprop())
+  
+  keras_fit(mod, X_train, Y_train, batch_size = 32, epochs = 5,
+            verbose = 0, validation_split = 0.2)
+  dim(keras_predict(mod, X_train))
+  mean(keras_predict(mod, X_train) == (apply(Y_train, 1, which.max) - 1))
 }
 }
 \references{
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
+}
+\seealso{
+Other models: \code{\link{LoadSave}},
+  \code{\link{Sequential}}, \code{\link{keras_compile}},
+  \code{\link{keras_fit}}
 }
 \author{
 Taylor B. Arnold, \email{taylor.arnold@acm.org}

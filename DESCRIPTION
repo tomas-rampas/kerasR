@@ -16,13 +16,11 @@ Description: Provides a consistent interface to the Keras Deep Learning Library
 Depends:
     R (>= 3.3.0)
 Suggests: knitr, rmarkdown
-VignetteBuilder: knitr
 Imports:
     reticulate
 URL: https://github.com/statsmaths/kerasR
 Encoding: UTF-8
 Suggests: knitr, rmarkdown
-VignetteBuilder: knitr
 SystemRequirements: Python (>= 2.7); keras <https://keras.io/> (>= 2.0.1)
 License: LGPL-2
 RoxygenNote: 6.0.1

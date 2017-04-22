@@ -9,33 +9,14 @@
 #'                   One of {'sum', 'mul', 'concat', 'ave', None}. If None, the outputs will
 #'                   not be combined, they will be returned as a list.
 
-#' @examples
-#' if (run_examples()) {
-#' X_train <- matrix(sample(0:19, 100 * 100, TRUE), ncol = 100)
-#' Y_train <- rnorm(100)
-#'
-#' mod <- Sequential()
-#' mod$add(Embedding(input_dim = 20, output_dim = 10,
-#'                   input_length = 100))
-#' mod$add(Dropout(0.5))
-#'
-#' mod$add(Bidirectional(LSTM(16)))
-#' mod$add(Dense(1))
-#' mod$add(Activation("sigmoid"))
-#'
-#' keras_compile(mod, loss = "mse", optimizer = RMSprop())
-#' keras_fit(mod, X_train, Y_train, epochs = 3, verbose = 0)
-#' }
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @example inst/examples/layer_wrappers.R
+#' @template boilerplate
 #' @name LayerWrapper
 NULL
 
 #' @rdname LayerWrapper
 #' @export
+#' @family layers
 TimeDistributed <- function(layer) {
   modules$keras.layers.wrappers$TimeDistributed(layer)
 }

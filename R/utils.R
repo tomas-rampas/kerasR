@@ -8,11 +8,7 @@
 #' @param show_shapes       controls whether output shapes are shown in the graph
 #' @param show_layer_names  controls whether layer names are shown in the graph
 #'
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @template boilerplate
 #' @export
 plot_model <- function(model, to_file = "model.png", show_shapes = FALSE,
                        show_layer_names = TRUE) {
@@ -30,14 +26,10 @@ plot_model <- function(model, to_file = "model.png", show_shapes = FALSE,
 #'
 #' @param y                class vector to be converted into a matrix (integers
 #'                           from 0 to num_classes).
-#' @param num_classes      total number of classes. Set to \code{NULL} to autodetect
+#' @param num_classes      total number of classes. Set to `NULL` to autodetect
 #'                           from the input.
 #'
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @template boilerplate
 #' @export
 to_categorical <- function(y, num_classes = NULL) {
   if (!is.null(num_classes))
@@ -54,11 +46,7 @@ to_categorical <- function(y, num_classes = NULL) {
 #' @param axis  axis along which to normalize. (starts at 0). -1
 #' @param order Normalization order (e.g. 2 for L2 norm).
 #'
-#' @author Taylor B. Arnold, \email{taylor.arnold@@acm.org}
-#' @references
-#'
-#'   Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
-#'
+#' @template boilerplate
 #' @export
 normalize <- function(x, axis = -1, order = 2) {
   modules$keras.utils$normalize(x = x, axis = int32(axis), order = int32(order))
