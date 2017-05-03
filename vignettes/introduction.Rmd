@@ -17,7 +17,7 @@ knitr::opts_chunk$set(eval = FALSE)
 ## Overview
 
 Keras provides a language for building neural networks as connections
-of general purpose layers. In this vignette we illustrate the basic
+between general purpose layers. In this vignette we illustrate the basic
 usage of the R interface to Keras. A self-contained introduction to
 general neural networks is outside the scope of this document; if
 you are unfamiliar with the general principles we suggest consulting
@@ -46,11 +46,10 @@ by **kerasR**, is a `python.builtin.object`. This object type,
 defined from the **reticulate** package, provides direct access to
 all of the methods and attributes exposed by the underlying python
 class. To access these, we use the `$` operator followed by the
-method name. Layers are added by calling the method, written as
-a function in $, `add`. This function takes as an input another
-`python.builtin.object`, generally constructed as the output of
-another **kerasR** function. For example, to add a dense layer to
-our model we do the following:
+method name. Layers are added by calling the method `add`.
+This function takes as an input another `python.builtin.object`,
+generally constructed as the output of another **kerasR** function.
+For example, to add a dense layer to our model we do the following:
 
 ```{r}
 mod$add(Dense(units = 50, input_shape = 13))
@@ -58,9 +57,9 @@ mod$add(Dense(units = 50, input_shape = 13))
 
 We have now added a dense layer with 200 neurons. The first layer
 must include a specification of the `input_shape`, giving the dimensionality
-of the input data. Here we set the number of input variables equal to 13
-squared. Next in the model, we add an activation defined by a rectified
-linear unit to the model:
+of the input data. Here we set the number of input variables equal to 13.
+Next in the model, we add an activation defined by a rectified linear
+unit to the model:
 
 ```{r}
 mod$add(Activation("relu"))
@@ -158,7 +157,7 @@ third is the column of the scan. We will use this additional
 spatial information in the next section, but for now let us flatten
 the data so that is is just a 2D-Tensor. The values are pixel intensities
 between 0 and 255, so we will also normalize the values to be between
-0 and 1 at the same time:
+0 and 1:
 
 ```{r}
 X_train <- array(X_train, dim = c(dim(X_train)[1], prod(dim(X_train)[-1]))) / 255
@@ -166,7 +165,7 @@ X_test <- array(X_test, dim = c(dim(X_test)[1], prod(dim(X_test)[-1]))) / 255
 ```
 
 Finally, we want to process the response vector y into a different format
-as well. By default it is encoding in a one-column matrix with each row
+as well. By default it is encoded in a one-column matrix with each row
 giving the number represented by the hand written image. We instead
 would like this to be converted into a 10-column binary matrix, with
 exactly one 1 in each row indicating which digit is represented. This

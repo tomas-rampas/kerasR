@@ -19,12 +19,18 @@
 #'                             the full model is saved (model.save(filepath)).
 #' @param period             Interval (number of epochs) between checkpoints.
 #'
+#' @example inst/examples/callbacks.R
 #' @template boilerplate
 #' @export
 #' @family callbacks
 ModelCheckpoint <- function(filepath, monitor = 'val_loss', verbose = 0,
       save_best_only = FALSE, save_weights_only = FALSE, mode = 'auto',
       period = 1) {
+
+  if (!reticulate::py_module_available("h5py"))
+    stop("Model checkpoints require the python module h5py.",
+         "Please install before running this R function.")
+
   modules$keras.callbacks$ModelCheckpoint(filepath = filepath, monitor = monitor,
       verbose = int32(verbose), save_best_only = save_best_only,
       save_weights_only = save_weights_only, mode = mode,
@@ -53,6 +59,7 @@ ModelCheckpoint <- function(filepath, monitor = 'val_loss', verbose = 0,
 #' @family callbacks
 EarlyStopping <- function(monitor = 'val_loss', min_delta = 0, patience = 0,
                           verbose = 0, mode = 'auto') {
+
   modules$keras.callbacks$EarlyStopping(monitor = monitor, min_delta = min_delta,
                               patience = int32(patience), verbose = int32(verbose), mode = mode)
 }
@@ -74,6 +81,7 @@ EarlyStopping <- function(monitor = 'val_loss', min_delta = 0, patience = 0,
 #' @param write_images    whether to write model weights to visualize as
 #'                          image in Tensorboard.
 #'
+#' @example inst/examples/callbacks.R
 #' @template boilerplate
 #' @export
 #' @family callbacks
@@ -107,6 +115,7 @@ TensorBoard <- function(log_dir = './logs', histogram_freq = 0, write_graph = TR
 #'                    operation after lr has been reduced.
 #' @param min_lr    lower bound on the learning rate.
 #'
+#' @example inst/examples/callbacks.R
 #' @template boilerplate
 #' @export
 #' @family callbacks
@@ -129,6 +138,7 @@ ReduceLROnPlateau <- function(monitor = 'val_loss', factor = 0.1, patience = 10,
 #' @param append      True: append if file exists (useful for continuing training).
 #'                      False: overwrite existing file,
 #'
+#' @example inst/examples/callbacks.R
 #' @template boilerplate
 #' @export
 #' @family callbacks
