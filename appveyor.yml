@@ -23,17 +23,11 @@ matrix:
   fast_finish: true
 
 build_script:
-  - ECHO %PYTHON%
-  - SET foo=bar
-  - ECHO %foo%
-  - %PYTHON%\\python.exe -m pip install scipy
+  - ps: Get-Location
+  - ps: Get-ChildItem
+  - ps: Import-Module 'scripts\\appveyor-tool.ps1'
+  - ps: InstallPythonMods
   - travis-tool.sh install_deps
-  - ps: $PYTHON\\python.exe -m pip install numpy
-  - "$PYTHON\\python.exe -m pip install scipy"
-  - "$PYTHON\\python.exe -m pip install six"
-  - "$PYTHON\\python.exe -m pip install theano"
-  - "$PYTHON\\python.exe -m pip install pyyaml"
-  - "$PYTHON\\python.exe -m pip install keras"
 
 test_script:
   - travis-tool.sh run_tests
