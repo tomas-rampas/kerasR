@@ -26,8 +26,8 @@ matrix:
 
 build_script:
   - travis-tool.sh install_deps
-  - "%PYTHON%\\python.exe -m pip install numpy"
-  - "%PYTHON%\\python.exe -m pip install keras"
+  - "C:\\Python27\\python.exe -m pip install numpy"
+  - "C:\\Python27\\python.exe -m pip install keras"
 
 
 test_script:
