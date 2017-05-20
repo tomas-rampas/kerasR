@@ -14,6 +14,11 @@ install:
 
 build_script:
   - travis-tool.sh install_deps
+  - set PATH=C:\Miniconda3;C:\Miniconda3\Scripts;%PATH%
+  - PYTHON: "C:\\Python27"
+  - "%PYTHON%\\python.exe -m pip install numpy"
+  - "%PYTHON%\\python.exe -m pip install keras"
+
 
 test_script:
   - travis-tool.sh run_tests
