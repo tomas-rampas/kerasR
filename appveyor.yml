@@ -24,12 +24,12 @@ matrix:
 
 build_script:
   - travis-tool.sh install_deps
-  - "C:\\Python27\\python.exe -m pip install numpy"
-  - "C:\\Python27\\python.exe -m pip install scipy"
-  - "C:\\Python27\\python.exe -m pip install six"
-  - "C:\\Python27\\python.exe -m pip install theano"
-  - "C:\\Python27\\python.exe -m pip install pyyaml"
-  - "C:\\Python27\\python.exe -m pip install keras"
+  - "$env:PYTHON\\python.exe -m pip install numpy"
+  - "$env:PYTHON\\python.exe -m pip install scipy"
+  - "$env:PYTHON\\python.exe -m pip install six"
+  - "$env:PYTHON\\python.exe -m pip install theano"
+  - "$env:PYTHON\\python.exe -m pip install pyyaml"
+  - "$env:PYTHON\\python.exe -m pip install keras"
 
 test_script:
   - travis-tool.sh run_tests
