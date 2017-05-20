@@ -1,4 +1,5 @@
 Function InstallPythonMods {
-  Exec{ $env::PYTHON\python.exe -m pip install numpy }
-  Exec{ $env::PYTHON\python.exe -m pip install scipy }
+  $cmd = $env::PYTHON + "\python.exe"
+  Exec{ $cmd -m pip install numpy }
+  Exec{ $cmd -m pip install scipy }
 }
