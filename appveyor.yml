@@ -25,7 +25,7 @@ matrix:
 build_script:
   - ps: Get-Location
   - ps: Get-ChildItem
-  - ps: Import-Module 'scripts\\appveyor-tool.ps1'
+  - ps: Import-Module 'scripts\\appveyor.ps1'
   - ps: InstallPythonMods
   - travis-tool.sh install_deps
 
