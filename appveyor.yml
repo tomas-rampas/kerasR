@@ -15,7 +15,6 @@ install:
 environment:
   global:
     MY_FLAG: 1
-    PYTHON: "C:\\Python27"
 
   matrix:
   - PYTHON: "C:\\Python27"

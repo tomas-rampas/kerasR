@@ -1,5 +1,3 @@
-
-
 Function InstallPythonMods {
   $cmd = "C:\\Python27\python.exe -m pip install numpy"
   Invoke-Expression $cmd
