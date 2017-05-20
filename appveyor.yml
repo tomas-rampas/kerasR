@@ -17,7 +17,7 @@ environment:
     MY_FLAG: 1
 
   matrix:
-  - PYTHON: "C:\\Python27"
+  - PYTHON: "C:\Miniconda"
 
 matrix:
   fast_finish: true
