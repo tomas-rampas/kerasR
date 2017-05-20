@@ -12,10 +12,20 @@ install:
 
 # Adapt as necessary starting from here
 
+environment:
+  global:
+    MY_FLAG: 1
+
+  matrix:
+  - PYTHON: "C:\\Python27"
+  - PYTHON: "C:\\Python33"
+
+
+matrix:
+  fast_finish: true
+
 build_script:
   - travis-tool.sh install_deps
-  - set PATH=C:\Miniconda3;C:\Miniconda3\Scripts;%PATH%
-  - PYTHON: "C:\\Python27"
   - "%PYTHON%\\python.exe -m pip install numpy"
   - "%PYTHON%\\python.exe -m pip install keras"
 
