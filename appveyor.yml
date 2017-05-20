@@ -24,7 +24,7 @@ matrix:
 
 build_script:
   - travis-tool.sh install_deps
-  - "$PYTHON\\python.exe -m pip install numpy"
+  - $PYTHON\\python.exe -m pip install numpy
   - "$PYTHON\\python.exe -m pip install scipy"
   - "$PYTHON\\python.exe -m pip install six"
   - "$PYTHON\\python.exe -m pip install theano"
