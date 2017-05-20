@@ -14,7 +14,7 @@ Function InstallPythonMods {
   $cmd = $env:PYTHON + "\Scripts\activate test-environment"
   Invoke-Expression $cmd
 
-  $cmd = $env:PYTHON + "\pip.exe install keras"
+  $cmd = $env:PYTHON + "\Scripts\pip.exe install keras"
   Invoke-Expression $cmd
 }
 
