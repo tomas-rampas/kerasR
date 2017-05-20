@@ -181,6 +181,7 @@ LSTM <- function(units,
                  bias_constraint = NULL,
                  dropout = 0.0,
                  recurrent_dropout = 0.0,
+                 return_sequences = FALSE,
                  input_shape = NULL) {
 
   # Need special logic for input_shape because it is passed
@@ -202,7 +203,8 @@ LSTM <- function(units,
                  recurrent_constraint = recurrent_constraint,
                  bias_constraint = bias_constraint,
                  dropout = dropout,
-                 recurrent_dropout = dropout)
+                 recurrent_dropout = dropout,
+                 return_sequences = return_sequences)
   } else {
 
     input_shape <- sapply(input_shape, list)
@@ -225,6 +227,7 @@ LSTM <- function(units,
                  bias_constraint = bias_constraint,
                  dropout = dropout,
                  recurrent_dropout = dropout,
+                 return_sequences = return_sequences,
                  input_shape = input_shape)
 
   }

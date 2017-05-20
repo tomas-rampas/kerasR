@@ -32,7 +32,7 @@ LSTM(units, activation = "tanh", recurrent_activation = "hard_sigmoid",
   recurrent_regularizer = NULL, bias_regularizer = NULL,
   activity_regularizer = NULL, kernel_constraint = NULL,
   recurrent_constraint = NULL, bias_constraint = NULL, dropout = 0,
-  recurrent_dropout = 0, input_shape = NULL)
+  recurrent_dropout = 0, return_sequences = FALSE, input_shape = NULL)
 }
 \arguments{
 \item{units}{Positive integer, dimensionality of the output space.}
