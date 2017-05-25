@@ -20,6 +20,7 @@
 #' @param bias_constraint Constraint function applied to the bias vector
 #' @param dropout Float between 0 and 1. Fraction of the units to drop for the linear transformation of the inputs.
 #' @param recurrent_dropout Float between 0 and 1. Fraction of the units to drop for the linear transformation of the recurrent state.
+#' @param return_sequences  Boolean. Whether to return the last output in the output sequence, or the full sequence.
 #' @param input_shape            only need when first layer of a model; sets the input shape
 #'                               of the data
 #'

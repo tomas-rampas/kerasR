@@ -134,7 +134,7 @@ pad_sequences <- function(sequences, maxlen = NULL, dtype = 'int32',
   if (!is.null(maxlen))
     maxlen <- int32(maxlen)
 
-  sequences <- lapply(sequences, int32)
+  sequences <- lapply(sequences, modules$np[[dtype]])
 
   modules$keras.preprocessing.sequence$pad_sequences(sequences = sequences,
                                                      maxlen = maxlen,
