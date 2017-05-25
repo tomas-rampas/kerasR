@@ -497,7 +497,7 @@ pretrained, state of the art, image processing models. We will
 show a small example of using InceptionV3 to classify a photo of an
 elephant. Specifically, let's classify this elephant photo:
 
-![Elephant](elephant.jpg)
+![Elephant](vignettes/elephant.jpg)
 
 To begin with, let us load the InceptionV3 model into R:
 
