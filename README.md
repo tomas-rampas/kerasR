@@ -28,6 +28,13 @@ should at a minimum be using Keras version 2.0.1.
 Issues, questions, and feature requests should be opened as
 [GitHub Issues](http://github.com/statsmaths/kerasR/issues).
 
+## Contributing
+
+If you would like to contribute to the project please contact
+the maintainer directly. Please note that this project is
+released with a [Contributor Code of Conduct](CONDUCT.md).
+By participating in this project you agree to abide by its terms.
+
 ## A Small Example (Boston Housing Data)
 
 Building a model in Keras starts by constructing an empty `Sequential`
