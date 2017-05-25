@@ -73,8 +73,8 @@ keras_compile <- function(model, optimizer, loss, metrics = NULL,
 #' Model must be compiled first. The model is modified in place.
 #'
 #' @param model             a keras model object created with [Sequential]
-#' @param x                 input data
-#' @param y                 labels
+#' @param x                 input data as a numeric matrix
+#' @param y                 labels; either a numeric matrix or numeric vector
 #' @param batch_size        integer. Number of samples per gradient update.
 #' @param epochs            integer, the number of epochs to train the model.
 #' @param verbose           0 for no logging to stdout, 1 for progress bar logging,
@@ -104,8 +104,14 @@ keras_fit <- function(model, x, y, batch_size = 32, epochs = 10, verbose = 1,
                       shuffle = TRUE, class_weight = NULL, sample_weight = NULL,
                       initial_epoch = 0) {
 
+  if (!is.matrix(x))
+    stop("The input to 'x' must be a matrix object.")
+
   if (length(callbacks) == 1 && !is.list(callbacks))
     callbacks <- list(callbacks)
+
+  if (!is.matrix(y) & !is.vector(y))
+    stop("The input to 'y' must a vector or matrix object.")
 
   if (is.null(dim(y)))
     y <- matrix(y, ncol = 1)
@@ -143,6 +149,9 @@ NULL
 #' @family models
 keras_predict <- function(model, x, batch_size = 32, verbose = 1) {
 
+  if (!is.matrix(x))
+    stop("The input to 'x' must be a matrix object.")
+
   res <- model$predict(x = x, batch_size = int32(batch_size),
                        verbose = int32(verbose))
 
@@ -153,6 +162,9 @@ keras_predict <- function(model, x, batch_size = 32, verbose = 1) {
 #' @export
 keras_predict_classes <- function(model, x, batch_size = 32, verbose = 1) {
 
+  if (!is.matrix(x))
+    stop("The input to 'x' must be a matrix object.")
+
   res <- model$predict_classes(x = x, batch_size = int32(batch_size),
                        verbose = int32(verbose))
 
@@ -162,6 +174,9 @@ keras_predict_classes <- function(model, x, batch_size = 32, verbose = 1) {
 #' @rdname Predict
 #' @export
 keras_predict_proba <- function(model, x, batch_size = 32, verbose = 1) {
+
+  if (!is.matrix(x))
+    stop("The input to 'x' must be a matrix object.")
 
   res <- model$predict_proba(x = x, batch_size = int32(batch_size),
                        verbose = int32(verbose))
