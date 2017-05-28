@@ -104,14 +104,14 @@ keras_fit <- function(model, x, y, batch_size = 32, epochs = 10, verbose = 1,
                       shuffle = TRUE, class_weight = NULL, sample_weight = NULL,
                       initial_epoch = 0) {
 
-  if (!is.matrix(x))
-    stop("The input to 'x' must be a matrix object.")
+  if (!is.array(x))
+    stop("The input to 'x' must be an array/matrix object.")
 
   if (length(callbacks) == 1 && !is.list(callbacks))
     callbacks <- list(callbacks)
 
-  if (!is.matrix(y) & !is.vector(y))
-    stop("The input to 'y' must a vector or matrix object.")
+  if (!is.array(y) & !is.vector(y))
+    stop("The input to 'y' must an array/vector or matrix object.")
 
   if (is.null(dim(y)))
     y <- matrix(y, ncol = 1)
@@ -149,8 +149,8 @@ NULL
 #' @family models
 keras_predict <- function(model, x, batch_size = 32, verbose = 1) {
 
-  if (!is.matrix(x))
-    stop("The input to 'x' must be a matrix object.")
+  if (!is.array(x))
+    stop("The input to 'x' must be an array/matrix object.")
 
   res <- model$predict(x = x, batch_size = int32(batch_size),
                        verbose = int32(verbose))
@@ -162,8 +162,8 @@ keras_predict <- function(model, x, batch_size = 32, verbose = 1) {
 #' @export
 keras_predict_classes <- function(model, x, batch_size = 32, verbose = 1) {
 
-  if (!is.matrix(x))
-    stop("The input to 'x' must be a matrix object.")
+  if (!is.array(x))
+    stop("The input to 'x' must be an array/matrix object.")
 
   res <- model$predict_classes(x = x, batch_size = int32(batch_size),
                        verbose = int32(verbose))
@@ -175,8 +175,8 @@ keras_predict_classes <- function(model, x, batch_size = 32, verbose = 1) {
 #' @export
 keras_predict_proba <- function(model, x, batch_size = 32, verbose = 1) {
 
-  if (!is.matrix(x))
-    stop("The input to 'x' must be a matrix object.")
+  if (!is.array(x))
+    stop("The input to 'x' must be an array/matrix object.")
 
   res <- model$predict_proba(x = x, batch_size = int32(batch_size),
                        verbose = int32(verbose))
