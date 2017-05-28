@@ -1,0 +1,6 @@
+^README\.md$
+^codecov\.yml$
+^CONTRIBUTING.md$
+^appveyor\.yml$
+^\.travis\.yml$
+^CONDUCT\.md$

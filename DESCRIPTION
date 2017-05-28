@@ -1,7 +1,7 @@
 Package: kerasR
 Type: Package
 Title: R Interface to the Keras Deep Learning Library
-Version: 0.5.0
+Version: 0.6.0
 Authors@R: c(person("Taylor", "Arnold", email = "taylor.arnold@acm.org", role = c("aut", "cre")))
 Author: Taylor Arnold [aut, cre]
 Maintainer: Taylor Arnold <taylor.arnold@acm.org>
@@ -13,11 +13,16 @@ Description: Provides a consistent interface to the Keras Deep Learning Library
   choices would otherwise lead to errors. Includes complete R documentation
   and many working examples.
 Depends:
-    R (>= 3.3.0)
-Suggests: knitr, rmarkdown
+    R (>= 2.10)
 Imports:
-    reticulate
+    reticulate (>= 0.7)
+Suggests:
+    knitr (>= 1.15),
+    rmarkdown (>= 1.4),
+    testthat (>= 1.0.1),
+    covr (>= 2.2.2)
 URL: https://github.com/statsmaths/kerasR
+BugReports: http://github.com/statsmaths/kerasR/issues
 Encoding: UTF-8
 Suggests: knitr, rmarkdown
 SystemRequirements: Python (>= 2.7); keras <https://keras.io/> (>= 2.0.1)
