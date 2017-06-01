@@ -10,8 +10,8 @@ EarlyStopping(monitor = "val_loss", min_delta = 0, patience = 0,
 \arguments{
 \item{monitor}{quantity to be monitored.}
 
-\item{min_delta}{minimum change in the monitored quantity to qualify as an
-improvement, i.e. an absolute change of less than
+\item{min_delta}{minimum change in the monitored quantity to qualify
+as an improvement, i.e. an absolute change of less than
 min_delta, will count as no improvement.}
 
 \item{patience}{number of epochs with no improvement after which

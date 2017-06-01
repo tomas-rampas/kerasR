@@ -5,25 +5,31 @@
 #' filters is applied at each different patch of the input.
 #'
 #' @param filters            Integer, the dimensionality of the output space
-#'                           (i.e. the number output of filters in the convolution).
-#' @param kernel_size        A pair of integers specifying the dimensions of the 2D
-#'                           convolution window.
-#' @param strides            A pair of integers specifying the stride length of the
-#'                           convolution.
-#' @param padding            One of "valid", "causal" or "same" (case-insensitive).
-#' @param data_format        A string, one of channels_last (default) or channels_first.
-#'                           The ordering of the dimensions in the inputs.
+#'                           (i.e. the number output of filters in the
+#'                           convolution).
+#' @param kernel_size        A pair of integers specifying the dimensions
+#'                           of the 2D convolution window.
+#' @param strides            A pair of integers specifying the stride length
+#'                           of the convolution.
+#' @param padding            One of "valid", "causal" or "same"
+#'                           (case-insensitive).
+#' @param data_format        A string, one of channels_last (default) or
+#'                           channels_first. The ordering of the dimensions
+#'                           in the inputs.
 #' @param activation         Activation function to use
 #' @param use_bias           Boolean, whether the layer uses a bias vector.
 #' @param kernel_initializer Initializer for the kernel weights matrix
 #' @param bias_initializer   Initializer for the bias vector
-#' @param kernel_regularizer Regularizer function applied to the kernel weights matrix
+#' @param kernel_regularizer Regularizer function applied to the kernel
+#'                           weights matrix
 #' @param bias_regularizer   Regularizer function applied to the bias vector
-#' @param activity_regularizer  Regularizer function applied to the output of the layer (its "activation").
-#' @param kernel_constraint  Constraint function applied to the kernel matrix
+#' @param activity_regularizer  Regularizer function applied to the output
+#'                           of the layer (its "activation").
+#' @param kernel_constraint  Constraint function applied to the kernel
+#'                           matrix
 #' @param bias_constraint    Constraint function applied to the bias vector
-#' @param input_shape            only need when first layer of a model; sets the input shape
-#'                               of the data
+#' @param input_shape        only need when first layer of a model; sets
+#'                           the input shape of the data
 #'
 #' @example inst/examples/local.R
 #' @template boilerplate
@@ -51,7 +57,8 @@ LocallyConnected1D <- function(filters,
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.local$LocallyConnected1D(filters = int32(filters),
+    res <- modules$keras.layers.local$LocallyConnected1D(
+                   filters = int32(filters),
                    kernel_size = int32(kernel_size),
                    strides = int32(strides),
                    padding = padding,
@@ -66,10 +73,11 @@ LocallyConnected1D <- function(filters,
                    bias_constraint = bias_constraint)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.local$LocallyConnected1D(filters = int32(filters),
+    res <- modules$keras.layers.local$LocallyConnected1D(
+                   filters = int32(filters),
                    kernel_size = int32(kernel_size),
                    strides = int32(strides),
                    padding = padding,
@@ -111,7 +119,8 @@ LocallyConnected2D <- function(filters,
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.local$LocallyConnected2D(filters = int32(filters),
+    res <- modules$keras.layers.local$LocallyConnected2D(
+                   filters = int32(filters),
                    kernel_size = int32(kernel_size),
                    strides = int32(strides),
                    padding = padding,
@@ -127,10 +136,11 @@ LocallyConnected2D <- function(filters,
                    bias_constraint = bias_constraint)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.local$LocallyConnected2D(filters = int32(filters),
+    res <- modules$keras.layers.local$LocallyConnected2D(
+                   filters = int32(filters),
                    kernel_size = int32(kernel_size),
                    strides = int32(strides),
                    padding = padding,

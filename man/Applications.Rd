@@ -25,8 +25,8 @@ InceptionV3(include_top = TRUE, weights = "imagenet", input_tensor = NULL,
   input_shape = NULL, pooling = NULL, classes = 1000)
 }
 \arguments{
-\item{include_top}{whether to include the fully-connected layer at the top of the
-network.}
+\item{include_top}{whether to include the fully-connected layer at
+the top of the network.}
 
 \item{weights}{one of NULL (random initialization) or "imagenet"
 (pre-training on ImageNet).}
@@ -34,24 +34,27 @@ network.}
 \item{input_tensor}{optional Keras tensor (i.e. output of layers.Input())
 to use as image input for the model.}
 
-\item{input_shape}{optional shape tuple, only to be specified if include_top
-is False}
+\item{input_shape}{optional shape tuple, only to be specified if
+include_top is False}
 
 \item{pooling}{optional pooling mode for feature extraction when
-include_top is False. None means that the output of the
-model will be the 4D tensor output of the last convolutional
-layer. avg means that global average pooling will be applied
-to the output of the last convolutional layer, and thus the
-output of the model will be a 2D tensor max means that global
-max pooling will be applied.}
+include_top is False. None means that the output
+of the model will be the 4D tensor output of the
+last convolutional layer. avg means that global
+average pooling will be applied
+to the output of the last convolutional layer,
+and thus the output of the model will be a 2D
+tensor max means that global max pooling will be
+applied.}
 
-\item{classes}{optional number of classes to classify images into, only to
-be specified if include_top is True, and if no weights
-argument is specified.}
+\item{classes}{optional number of classes to classify images
+into, only to be specified if include_top is True,
+and if no weights argument is specified.}
 }
 \description{
-These models can be used for prediction, feature extraction, and fine-tuning.
-Weights are downloaded automatically when instantiating a model.
+These models can be used for prediction, feature extraction, and
+fine-tuning. Weights are downloaded automatically when instantiating
+a model.
 }
 \references{
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.

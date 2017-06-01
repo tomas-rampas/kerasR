@@ -12,7 +12,7 @@ check_keras_available <- function() {
 
 test_that("dense model", {
   skip_on_cran()
-  check_corenlp_available()
+  check_keras_available()
 
   X_train <- matrix(rnorm(100 * 10), nrow = 100)
   Y_train <- to_categorical(matrix(sample(0:2, 100, TRUE), ncol = 1), 3)
@@ -31,7 +31,7 @@ test_that("dense model", {
 
   pred <- keras_predict(mod, X_train)
   testthat::expect_equal(dim(pred), c(100L, 3L))
-}
+})
 
 
 

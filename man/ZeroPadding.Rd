@@ -18,10 +18,11 @@ ZeroPadding3D(padding = 1, data_format = NULL, input_shape = NULL)
 to width and height. If two, how many to add
 for height and width.}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model; sets the
+input shape of the data}
 
-\item{data_format}{A string, one of channels_last (default) or channels_first.}
+\item{data_format}{A string, one of channels_last (default) or
+channels_first.}
 }
 \description{
 Zero-padding layers

@@ -41,39 +41,51 @@ LSTM(units, activation = "tanh", recurrent_activation = "hard_sigmoid",
 
 \item{use_bias}{Boolean, whether the layer uses a bias vector.}
 
-\item{kernel_initializer}{Initializer for the kernel weights matrix, used for
-the linear transformation of the inputs.}
+\item{kernel_initializer}{Initializer for the kernel weights matrix,
+used for the linear transformation of the inputs.}
 
-\item{recurrent_initializer}{Initializer for the recurrent_kernel weights matrix,
-used for the linear transformation of the recurrent state.}
+\item{recurrent_initializer}{Initializer for the recurrent_kernel
+weights matrix, used for
+the linear transformation of the recurrentstate.}
 
 \item{bias_initializer}{Initializer for the bias vector}
 
-\item{kernel_regularizer}{Regularizer function applied to the kernel weights matrix}
+\item{kernel_regularizer}{Regularizer function applied to the kernel
+weights matrix}
 
-\item{recurrent_regularizer}{Regularizer function applied to the recurrent_kernel weights matrix}
+\item{recurrent_regularizer}{Regularizer function applied to the
+recurrent_kernel weights matrix}
 
 \item{bias_regularizer}{Regularizer function applied to the bias vector}
 
-\item{activity_regularizer}{Regularizer function applied to the output of the layer (its "activation")}
+\item{activity_regularizer}{Regularizer function applied to the output
+of the layer (its "activation")}
 
-\item{kernel_constraint}{Constraint function applied to the kernel weights matrix}
+\item{kernel_constraint}{Constraint function applied to the kernel
+weights matrix}
 
-\item{recurrent_constraint}{Constraint function applied to the recurrent_kernel weights matrix}
+\item{recurrent_constraint}{Constraint function applied to the
+recurrent_kernel weights matrix}
 
 \item{bias_constraint}{Constraint function applied to the bias vector}
 
-\item{dropout}{Float between 0 and 1. Fraction of the units to drop for the linear transformation of the inputs.}
+\item{dropout}{Float between 0 and 1. Fraction of the units to drop for
+the linear transformation of the inputs.}
 
-\item{recurrent_dropout}{Float between 0 and 1. Fraction of the units to drop for the linear transformation of the recurrent state.}
+\item{recurrent_dropout}{Float between 0 and 1. Fraction of the units
+to drop for the linear transformation of the recurrent state.}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model;
+sets the input shape of the data}
 
-\item{recurrent_activation}{Activation function to use for the recurrent step}
+\item{recurrent_activation}{Activation function to use for the recurrent
+step}
 
-\item{unit_forget_bias}{Boolean. If True, add 1 to the bias of the forget gate
-at initialization.}
+\item{unit_forget_bias}{Boolean. If True, add 1 to the bias of the
+forget gate at initialization.}
+
+\item{return_sequences}{Boolean. Whether to return the last output in
+the output sequence, or the full sequence.}
 }
 \description{
 Recurrent neural network layers

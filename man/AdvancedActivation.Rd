@@ -17,13 +17,15 @@ ELU(alpha = 1, input_shape = NULL)
 ThresholdedReLU(theta = 1, input_shape = NULL)
 }
 \arguments{
-\item{alpha}{float >= 0. Negative slope coefficient in \link{LeakyReLU}
-and scale for the negative factor in \link{ELU}.}
+\item{alpha}{float >= 0. Negative slope coefficient in
+\link{LeakyReLU} and scale for the negative
+factor in \link{ELU}.}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model;
+sets the input shape of the data}
 
-\item{theta}{float >= 0. Threshold location of activation in \link{ThresholdedReLU}.}
+\item{theta}{float >= 0. Threshold location of
+activation in \link{ThresholdedReLU}.}
 }
 \description{
 Advanced activation layers

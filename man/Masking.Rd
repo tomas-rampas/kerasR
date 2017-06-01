@@ -9,8 +9,8 @@ Masking(mask_value, input_shape = NULL)
 \arguments{
 \item{mask_value}{the value to use in the masking}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model;
+sets the input shape of the data}
 }
 \description{
 For each timestep in the input tensor (dimension #1 in the tensor),

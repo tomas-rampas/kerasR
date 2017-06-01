@@ -11,12 +11,13 @@ TimeDistributed(layer)
 Bidirectional(layer, merge_mode = "concat")
 }
 \arguments{
-\item{layer}{a layer instance (must be a recurrent layer for the bi-directional
-case)}
+\item{layer}{a layer instance (must be a recurrent layer for the
+bi-directional case)}
 
-\item{merge_mode}{Mode by which outputs of the forward and backward RNNs will be combined.
-One of {'sum', 'mul', 'concat', 'ave', None}. If None, the outputs will
-not be combined, they will be returned as a list.}
+\item{merge_mode}{Mode by which outputs of the forward and backward RNNs
+will be combined. One of {'sum', 'mul', 'concat', 'ave',
+None}. If None, the outputs will not be combined,
+they will be returned as a list.}
 }
 \description{
 Apply a layer to every temporal slice of an input or to bi-directional

@@ -10,15 +10,19 @@ keras_compile(model, optimizer, loss, metrics = NULL,
 \arguments{
 \item{model}{a keras model object created with \link{Sequential}}
 
-\item{optimizer}{name of optimizer) or optimizer object. See \link{Optimizers}.}
+\item{optimizer}{name of optimizer) or optimizer object. See
+\link{Optimizers}.}
 
-\item{loss}{name of a loss function. See Details for possible choices.}
+\item{loss}{name of a loss function. See Details for
+possible choices.}
 
-\item{metrics}{vector of metric names to be evaluated by the model during
-training and testing. See Details for possible options.}
+\item{metrics}{vector of metric names to be evaluated by the
+model during training and testing. See Details
+for possible options.}
 
-\item{sample_weight_mode}{if you need to do timestep-wise sample weighting (2D weights),
-set this to \code{temporal}. \code{None} defaults to sample-wise weights (1D).}
+\item{sample_weight_mode}{if you need to do timestep-wise sample
+weighting (2D weights), set this to \code{temporal}.
+\code{None} defaults to sample-wise weights (1D).}
 }
 \description{
 Models must be compiled before being fit or used for prediction.

@@ -7,11 +7,11 @@
 to_categorical(y, num_classes = NULL)
 }
 \arguments{
-\item{y}{class vector to be converted into a matrix (integers
-from 0 to num_classes).}
+\item{y}{class vector to be converted into a matrix
+(integers from 0 to num_classes).}
 
-\item{num_classes}{total number of classes. Set to \code{NULL} to autodetect
-from the input.}
+\item{num_classes}{total number of classes. Set to \code{NULL} to
+autodetect from the input.}
 }
 \description{
 This function takes a vector or 1 column matrix of class labels

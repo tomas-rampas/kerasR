@@ -2,7 +2,7 @@
 % Please edit documentation in R/preprocessing.R
 \name{one_hot}
 \alias{one_hot}
-\title{One-hot encode a text into a list of word indexes in a vocabulary of size n.}
+\title{One-hot encode a text into a list of word indexes}
 \usage{
 one_hot(text, n, filters = "!\\"#$\%&()*+,-./:;<=>?@[\\\\]^_`{|}~\\t\\n",
   lower = TRUE, split = " ")
@@ -12,14 +12,15 @@ one_hot(text, n, filters = "!\\"#$\%&()*+,-./:;<=>?@[\\\\]^_`{|}~\\t\\n",
 
 \item{n}{integer. Size of vocabulary.}
 
-\item{filters}{vector (or concatenation) of characters to filter out, such as punctuation.}
+\item{filters}{vector (or concatenation) of characters to filter out,
+such as punctuation.}
 
 \item{lower}{boolean. Whether to set the text to lowercase.}
 
 \item{split}{string. Separator for word splitting.}
 }
 \description{
-One-hot encode a text into a list of word indexes in a vocabulary of size n.
+One-hot encode a text into a list of word indexes
 }
 \references{
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.

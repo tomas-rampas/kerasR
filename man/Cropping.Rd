@@ -19,10 +19,11 @@ should be trimmed off at the beginning and end
 of the cropping dimension (axis 1). If a single value
 is provided, the same value will be used for both.}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model; sets the
+input shape of the data}
 
-\item{data_format}{A string, one of channels_last (default) or channels_first.}
+\item{data_format}{A string, one of channels_last (default) or
+channels_first.}
 }
 \description{
 It crops along the time dimension (axis 1).

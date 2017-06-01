@@ -12,16 +12,21 @@ BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001,
   gamma_constraint = NULL, input_shape = NULL)
 }
 \arguments{
-\item{axis}{Integer, the axis that should be normalized (typically the features axis).}
+\item{axis}{Integer, the axis that should be normalized
+(typically the features axis).}
 
 \item{momentum}{Momentum for the moving average.}
 
-\item{epsilon}{Small float added to variance to avoid dividing by zero.}
+\item{epsilon}{Small float added to variance to avoid
+dividing by zero.}
 
-\item{center}{If True, add offset of beta to normalized tensor. If False, beta is ignored.}
+\item{center}{If True, add offset of beta to normalized
+tensor. If False, beta is ignored.}
 
-\item{scale}{If True, multiply by gamma. If False, gamma is not used. When the next
-layer is linear (also e.g. nn.relu), this can be disabled since the
+\item{scale}{If True, multiply by gamma. If False,
+gamma is not used. When the next
+layer is linear (also e.g. nn.relu),
+this can be disabled since the
 scaling will be done by the next layer.}
 
 \item{beta_initializer}{Initializer for the beta weight.}
@@ -40,8 +45,8 @@ scaling will be done by the next layer.}
 
 \item{gamma_constraint}{Optional constraint for the gamma weight.}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model; sets
+the input shape of the data}
 }
 \description{
 Batch normalization layer

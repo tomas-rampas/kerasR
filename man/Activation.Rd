@@ -7,19 +7,20 @@
 Activation(activation, input_shape = NULL)
 }
 \arguments{
-\item{activation}{name of activation function to use. See Details
-for possible options.}
+\item{activation}{name of activation function to use.
+See Details for possible options.}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model;
+sets the input shape of the data}
 }
 \description{
 Applies an activation function to an output.
 }
 \details{
-Possible activations include 'softmax', 'elu', 'softplus', 'softsign',
-'relu', 'tanh', 'sigmoid', 'hard_sigmoid', 'linear'. You may also
-set this equal to any of the outputs from an \link{AdvancedActivation}.
+Possible activations include 'softmax', 'elu', 'softplus',
+'softsign', 'relu', 'tanh', 'sigmoid', 'hard_sigmoid',
+linear'. You may also set this equal to any of the
+outputs from an \link{AdvancedActivation}.
 }
 \examples{
 if(keras_available()) {

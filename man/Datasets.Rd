@@ -26,25 +26,31 @@ load_mnist()
 load_boston_housing()
 }
 \arguments{
-\item{label_mode}{either "fine" or "coarse"; how to construct labels for \link{load_cifar100}.}
+\item{label_mode}{either "fine" or "coarse"; how to construct labels
+for \link{load_cifar100}.}
 
-\item{num_words}{integer or NULL. Top most frequent words to consider. Any less frequent
-word will appear as 0 in the sequence data.}
+\item{num_words}{integer or NULL. Top most frequent words to consider.
+Any less frequent word will appear as 0 in the
+sequence data.}
 
-\item{skip_top}{integer. Top most frequent words to ignore (they will appear as 0s in
-the sequence data).}
+\item{skip_top}{integer. Top most frequent words to ignore (they
+will appear as 0s in the sequence data).}
 
-\item{maxlen}{integer. Maximum sequence length. Any longer sequence will be truncated.}
+\item{maxlen}{integer. Maximum sequence length. Any longer sequence
+will be truncated.}
 
 \item{seed}{integer. Seed for reproducible data shuffling.}
 
-\item{start_char}{integer. The start of a sequence will be marked with this character.
-Set to 1 because 0 is usually the padding character.}
+\item{start_char}{integer. The start of a sequence will be marked
+with this character. Set to 1 because 0 is usually
+the padding character.}
 
-\item{oov_char}{integer. words that were cut out because of the num_words or skip_top
-limit will be replaced with this character.}
+\item{oov_char}{integer. words that were cut out because of the
+num_words or skip_top limit will be replaced with
+this character.}
 
-\item{index_from}{integer. Index actual words with this index and higher.}
+\item{index_from}{integer. Index actual words with this index and
+higher.}
 
 \item{test_split}{float. Fraction of the dataset to use for testing.}
 }

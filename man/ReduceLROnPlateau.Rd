@@ -35,9 +35,10 @@ operation after lr has been reduced.}
 \item{min_lr}{lower bound on the learning rate.}
 }
 \description{
-Models often benefit from reducing the learning rate by a factor of 2-10 once
-learning stagnates. This callback monitors a quantity and if no improvement
-is seen for a 'patience' number of epochs, the learning rate is reduced.
+Models often benefit from reducing the learning rate by a factor of
+2-10 once learning stagnates. This callback monitors a quantity and
+if no improvement is seen for a 'patience' number of epochs, the
+learning rate is reduced.
 }
 \examples{
 if(keras_available()) {

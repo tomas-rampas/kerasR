@@ -12,33 +12,36 @@ keras_fit(model, x, y, batch_size = 32, epochs = 10, verbose = 1,
 \arguments{
 \item{model}{a keras model object created with \link{Sequential}}
 
-\item{x}{input data}
+\item{x}{input data as a numeric matrix}
 
-\item{y}{labels}
+\item{y}{labels; either a numeric matrix or numeric vector}
 
 \item{batch_size}{integer. Number of samples per gradient update.}
 
 \item{epochs}{integer, the number of epochs to train the model.}
 
-\item{verbose}{0 for no logging to stdout, 1 for progress bar logging,
-2 for one log line per epoch.}
+\item{verbose}{0 for no logging to stdout, 1 for progress bar
+logging, 2 for one log line per epoch.}
 
-\item{callbacks}{list of `keras.callbacks.Callback`` instances. List of
-callbacks to apply during training.}
+\item{callbacks}{list of `keras.callbacks.Callback`` instances.
+List of callbacks to apply during training.}
 
-\item{validation_split}{float (\code{0 < x < 1}). Fraction of the data to use as
-held-out validation data.}
+\item{validation_split}{float (\code{0 < x < 1}). Fraction of the data to
+use as held-out validation data.}
 
-\item{validation_data}{\code{list(x_val, y_val)} or \code{list(x_val, y_val, val_sample_weights)} to be used as held-out validation
-data. Will override \code{validation_split}.}
+\item{validation_data}{\code{list(x_val, y_val)} or \code{list(x_val, y_val, val_sample_weights)} to be used as held-out
+validation data. Will override
+\code{validation_split}.}
 
-\item{shuffle}{boolean or string (for \code{batch}). Whether to shuffle the
-samples at each epoch. \code{batch} is a special option for
-dealing with the limitations of HDF5 data; it shuffles
+\item{shuffle}{boolean or string (for \code{batch}). Whether to
+shuffle the samples at each epoch. \code{batch} is
+a special option for dealing with the
+limitations of HDF5 data; it shuffles
 in batch-sized chunks.}
 
-\item{class_weight}{dictionary mapping classes to a weight value, used for
-scaling the loss function (during training only).}
+\item{class_weight}{dictionary mapping classes to a weight value,
+used for scaling the loss function (during
+training only).}
 
 \item{sample_weight}{Numpy array of weights for the training samples}
 

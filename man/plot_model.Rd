@@ -12,9 +12,11 @@ plot_model(model, to_file = "model.png", show_shapes = FALSE,
 
 \item{to_file}{output location of the plot)}
 
-\item{show_shapes}{controls whether output shapes are shown in the graph}
+\item{show_shapes}{controls whether output shapes are shown in the
+graph}
 
-\item{show_layer_names}{controls whether layer names are shown in the graph}
+\item{show_layer_names}{controls whether layer names are shown in the
+graph}
 }
 \description{
 This function requires that you have installed graphviz and

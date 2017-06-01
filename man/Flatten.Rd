@@ -7,8 +7,8 @@
 Flatten(input_shape = NULL)
 }
 \arguments{
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model;
+sets the input shape of the data}
 }
 \description{
 Flattens the input. Does not affect the batch size.

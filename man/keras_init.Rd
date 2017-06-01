@@ -7,7 +7,9 @@
 keras_init()
 }
 \description{
-This function gets called automatically on package startup. If the python \code{keras} libary is not installed, then the function displays a message, but doesn't connect to python.
+This function gets called automatically on package startup. If the
+python \code{keras} libary is not installed, then the function displays
+a message, but doesn't connect to python.
 }
 \seealso{
 \link{keras_available}

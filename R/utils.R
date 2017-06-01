@@ -5,8 +5,10 @@
 #'
 #' @param model             model object to plot
 #' @param to_file           output location of the plot)
-#' @param show_shapes       controls whether output shapes are shown in the graph
-#' @param show_layer_names  controls whether layer names are shown in the graph
+#' @param show_shapes       controls whether output shapes are shown in the
+#'                          graph
+#' @param show_layer_names  controls whether layer names are shown in the
+#'                          graph
 #'
 #' @template boilerplate
 #' @export
@@ -24,10 +26,10 @@ plot_model <- function(model, to_file = "model.png", show_shapes = FALSE,
 #' This is the format most commonly used in the fitting and predicting
 #' of neural networks.
 #'
-#' @param y                class vector to be converted into a matrix (integers
-#'                           from 0 to num_classes).
-#' @param num_classes      total number of classes. Set to `NULL` to autodetect
-#'                           from the input.
+#' @param y                class vector to be converted into a matrix
+#'                           (integers from 0 to num_classes).
+#' @param num_classes      total number of classes. Set to `NULL` to
+#'                           autodetect from the input.
 #'
 #' @template boilerplate
 #' @export
@@ -49,7 +51,8 @@ to_categorical <- function(y, num_classes = NULL) {
 #' @template boilerplate
 #' @export
 normalize <- function(x, axis = -1, order = 2) {
-  modules$keras.utils$normalize(x = x, axis = int32(axis), order = int32(order))
+  modules$keras.utils$normalize(x = x, axis = int32(axis),
+                                order = int32(order))
 }
 
 

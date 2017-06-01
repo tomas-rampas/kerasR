@@ -17,19 +17,22 @@ AveragePooling3D(pool_size = c(2, 2, 2), strides = NULL,
   padding = "valid", data_format = NULL, input_shape = NULL)
 }
 \arguments{
-\item{pool_size}{Integer or pair of integers; size(s) of the max pooling windows.}
+\item{pool_size}{Integer or pair of integers; size(s) of
+the max pooling windows.}
 
-\item{strides}{Integer, pair of integers, or None. Factor(s) by which to downscale.
-E.g. 2 will halve the input. If NULL, it will
+\item{strides}{Integer, pair of integers, or None.
+Factor(s) by which to downscale. E.g. 2 will
+halve the input. If NULL, it will
 default to pool_size.}
 
 \item{padding}{One of "valid" or "same" (case-insensitive).}
 
 \item{input_shape}{nD tensor with shape: \code{(batch_size, ..., input_dim)}.
-The most common situation would be a 2D input with shape
-\code{(batch_size, input_dim)}.}
+The most common situation would be a 2D
+input with shape \code{(batch_size, input_dim)}.}
 
-\item{data_format}{A string, one of channels_last (default) or channels_first}
+\item{data_format}{A string, one of channels_last (default) or
+channels_first}
 }
 \description{
 Average pooling operation

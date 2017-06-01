@@ -1,3 +1,7 @@
+^man-roxygen
+^scripts
+^paper.md$
+^paper.bib$
 ^README\.md$
 ^codecov\.yml$
 ^CONTRIBUTING.md$

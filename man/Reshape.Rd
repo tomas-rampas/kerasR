@@ -10,8 +10,8 @@ Reshape(target_shape, input_shape = NULL)
 \item{target_shape}{target shape. Tuple of integers, does not include
 the samples dimension (batch size).}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model;
+sets the input shape of the data}
 }
 \description{
 Reshapes an output to a certain shape.

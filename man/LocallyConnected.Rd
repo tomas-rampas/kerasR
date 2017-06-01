@@ -22,15 +22,17 @@ LocallyConnected2D(filters, kernel_size, strides = c(1, 1),
 }
 \arguments{
 \item{filters}{Integer, the dimensionality of the output space
-(i.e. the number output of filters in the convolution).}
+(i.e. the number output of filters in the
+convolution).}
 
-\item{kernel_size}{A pair of integers specifying the dimensions of the 2D
-convolution window.}
+\item{kernel_size}{A pair of integers specifying the dimensions
+of the 2D convolution window.}
 
-\item{strides}{A pair of integers specifying the stride length of the
-convolution.}
+\item{strides}{A pair of integers specifying the stride length
+of the convolution.}
 
-\item{padding}{One of "valid", "causal" or "same" (case-insensitive).}
+\item{padding}{One of "valid", "causal" or "same"
+(case-insensitive).}
 
 \item{activation}{Activation function to use}
 
@@ -40,21 +42,25 @@ convolution.}
 
 \item{bias_initializer}{Initializer for the bias vector}
 
-\item{kernel_regularizer}{Regularizer function applied to the kernel weights matrix}
+\item{kernel_regularizer}{Regularizer function applied to the kernel
+weights matrix}
 
 \item{bias_regularizer}{Regularizer function applied to the bias vector}
 
-\item{activity_regularizer}{Regularizer function applied to the output of the layer (its "activation").}
+\item{activity_regularizer}{Regularizer function applied to the output
+of the layer (its "activation").}
 
-\item{kernel_constraint}{Constraint function applied to the kernel matrix}
+\item{kernel_constraint}{Constraint function applied to the kernel
+matrix}
 
 \item{bias_constraint}{Constraint function applied to the bias vector}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model; sets
+the input shape of the data}
 
-\item{data_format}{A string, one of channels_last (default) or channels_first.
-The ordering of the dimensions in the inputs.}
+\item{data_format}{A string, one of channels_last (default) or
+channels_first. The ordering of the dimensions
+in the inputs.}
 }
 \description{
 The LocallyConnected layers works similarly to the Conv layers,

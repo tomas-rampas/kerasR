@@ -11,7 +11,8 @@ text_to_word_sequence(text,
 \arguments{
 \item{text}{a string}
 
-\item{filters}{vector (or concatenation) of characters to filter out, such as punctuation.}
+\item{filters}{vector (or concatenation) of characters to filter out,
+such as punctuation.}
 
 \item{lower}{boolean. Whether to set the text to lowercase.}
 

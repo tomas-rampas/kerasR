@@ -16,8 +16,8 @@ ModelCheckpoint(filepath, monitor = "val_loss", verbose = 0,
 \item{verbose}{verbosity mode, 0 or 1.}
 
 \item{save_best_only}{if save_best_only=True, the latest
-best model according to the quantity monitored will
-not be overwritten.}
+best model according to the quantity monitored
+will not be overwritten.}
 
 \item{save_weights_only}{if True, then only the model's weights will
 be saved (model.save_weights(filepath)), else
@@ -26,11 +26,11 @@ the full model is saved (model.save(filepath)).}
 \item{mode}{one of {auto, min, max}. If save_best_only is
 True, the decision to overwrite the current
 save file is made based on either the
-maximization or the minimization of the monitored
-quantity. For val_acc, this should be max, for
-val_loss this should be min, etc. In auto mode,
-the direction is automatically inferred from the
-name of the monitored quantity.}
+maximization or the minimization of the
+monitored quantity. For val_acc, this should
+be max, for val_loss this should be min, etc.
+the direction is automatically inferred from
+the name of the monitored quantity.}
 
 \item{period}{Interval (number of epochs) between checkpoints.}
 }

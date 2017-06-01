@@ -9,24 +9,29 @@ Embedding(input_dim, output_dim, embeddings_initializer = "uniform",
   mask_zero = FALSE, input_length = NULL, input_shape = NULL)
 }
 \arguments{
-\item{input_dim}{int > 0. Size of the vocabulary, ie. 1 + maximum integer
-index occurring in the input data.}
+\item{input_dim}{int > 0. Size of the vocabulary,
+ie. 1 + maximum integer index occurring in
+the input data.}
 
 \item{output_dim}{int >= 0. Dimension of the dense embedding.}
 
 \item{embeddings_initializer}{Initializer for the embeddings matrix}
 
-\item{embeddings_regularizer}{Regularizer function applied to the embeddings matrix}
+\item{embeddings_regularizer}{Regularizer function applied to the
+embeddings matrix}
 
-\item{embeddings_constraint}{Constraint function applied to the embeddings matrix}
+\item{embeddings_constraint}{Constraint function applied to the
+embeddings matrix}
 
-\item{mask_zero}{Whether or not the input value 0 is a special "padding"
-value that should be masked out.}
+\item{mask_zero}{Whether or not the input value 0 is a
+special "padding" value that should be
+masked out.}
 
-\item{input_length}{Length of input sequences, when it is constant.}
+\item{input_length}{Length of input sequences, when it is
+constant.}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model;
+sets the input shape of the data}
 }
 \description{
 Turns positive integers (indexes) into dense vectors of fixed size.

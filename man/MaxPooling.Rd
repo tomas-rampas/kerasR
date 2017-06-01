@@ -17,18 +17,21 @@ MaxPooling3D(pool_size = c(2, 2, 2), strides = NULL, padding = "valid",
   data_format = NULL, input_shape = NULL)
 }
 \arguments{
-\item{pool_size}{Integer or triplet of integers; size(s) of the max pooling windows.}
+\item{pool_size}{Integer or triplet of integers; size(s)
+of the max pooling windows.}
 
-\item{strides}{Integer, triplet of integers, or None. Factor(s) by which to downscale.
-E.g. 2 will halve the input. If NULL, it will
-default to pool_size.}
+\item{strides}{Integer, triplet of integers, or None.
+Factor(s) by which to downscale.
+E.g. 2 will halve the input. If NULL, it
+will default to pool_size.}
 
 \item{padding}{One of "valid" or "same" (case-insensitive).}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model;
+sets the input shape of the data}
 
-\item{data_format}{A string, one of channels_last (default) or channels_first}
+\item{data_format}{A string, one of channels_last (default) or
+channels_first}
 }
 \description{
 Max pooling operations

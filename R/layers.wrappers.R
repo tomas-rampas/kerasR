@@ -3,11 +3,12 @@
 #' Apply a layer to every temporal slice of an input or to bi-directional
 #' RNN.
 #'
-#' @param layer      a layer instance (must be a recurrent layer for the bi-directional
-#'                   case)
-#' @param merge_mode Mode by which outputs of the forward and backward RNNs will be combined.
-#'                   One of {'sum', 'mul', 'concat', 'ave', None}. If None, the outputs will
-#'                   not be combined, they will be returned as a list.
+#' @param layer      a layer instance (must be a recurrent layer for the
+#'                   bi-directional case)
+#' @param merge_mode Mode by which outputs of the forward and backward RNNs
+#'                   will be combined. One of {'sum', 'mul', 'concat', 'ave',
+#'                   None}. If None, the outputs will not be combined,
+#'                   they will be returned as a list.
 
 #' @example inst/examples/layer_wrappers.R
 #' @template boilerplate

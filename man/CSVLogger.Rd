@@ -11,8 +11,8 @@ CSVLogger(filename, separator = ",", append = FALSE)
 
 \item{separator}{string used to separate elements in the csv file.}
 
-\item{append}{True: append if file exists (useful for continuing training).
-False: overwrite existing file,}
+\item{append}{True: append if file exists (useful for continuing
+training). False: overwrite existing file,}
 }
 \description{
 Supports all values that can be represented as a string, including 1D

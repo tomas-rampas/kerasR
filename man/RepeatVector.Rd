@@ -9,8 +9,8 @@ RepeatVector(n, input_shape = NULL)
 \arguments{
 \item{n}{integer, repetition factor.}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model;
+sets the input shape of the data}
 }
 \description{
 Repeats the input n times.

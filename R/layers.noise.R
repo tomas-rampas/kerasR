@@ -6,8 +6,8 @@
 #'
 #' @param stddev         standard deviation of the random Gaussian
 #' @param rate           float, drop probability
-#' @param input_shape    only need when first layer of a model; sets the input shape
-#'                         of the data
+#' @param input_shape    only need when first layer of a model;
+#'                       sets the input shape of the data
 #'
 #' @example inst/examples/noise.R
 #' @template boilerplate
@@ -25,10 +25,11 @@ GaussianNoise <- function(stddev = 1, input_shape = NULL) {
     res <- modules$keras.layers.noise$GaussianNoise(stddev = stddev)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.noise$GaussianNoise(stddev = stddev, input_shape = input_shape)
+    res <- modules$keras.layers.noise$GaussianNoise(stddev = stddev,
+                              input_shape = input_shape)
 
   }
 
@@ -46,10 +47,11 @@ GaussianDropout <- function(rate = 0.5, input_shape = NULL) {
     res <- modules$keras.layers.noise$GaussianDropout(rate = rate)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.noise$GaussianDropout(rate = rate, input_shape = input_shape)
+    res <- modules$keras.layers.noise$GaussianDropout(rate = rate,
+                  input_shape = input_shape)
 
   }
 

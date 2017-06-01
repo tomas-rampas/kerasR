@@ -1,5 +1,5 @@
-library(testthat)
-library(kerasR)
+require(testthat)
+require(kerasR)
 
 test_check("kerasR")
 

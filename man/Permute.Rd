@@ -7,11 +7,12 @@
 Permute(dims, input_shape = NULL)
 }
 \arguments{
-\item{dims}{vector of integers. Permutation pattern, does not include the
-samples dimension. Indexing starts at 1.}
+\item{dims}{vector of integers. Permutation pattern,
+does not include the samples dimension.
+Indexing starts at 1.}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model;
+sets the input shape of the data}
 }
 \description{
 Permutes the dimensions of the input according to a given pattern.

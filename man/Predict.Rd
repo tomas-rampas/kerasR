@@ -20,8 +20,8 @@ keras_predict_proba(model, x, batch_size = 32, verbose = 1)
 
 \item{batch_size}{integer. Number of samples per gradient update.}
 
-\item{verbose}{0 for no logging to stdout, 1 for progress bar logging,
-2 for one log line per epoch.}
+\item{verbose}{0 for no logging to stdout, 1 for progress bar
+logging, 2 for one log line per epoch.}
 }
 \description{
 Once compiled and trained, this function returns the predictions

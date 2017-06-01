@@ -13,8 +13,8 @@ GaussianDropout(rate = 0.5, input_shape = NULL)
 \arguments{
 \item{stddev}{standard deviation of the random Gaussian}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model;
+sets the input shape of the data}
 
 \item{rate}{float, drop probability}
 }

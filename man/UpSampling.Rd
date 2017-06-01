@@ -16,10 +16,11 @@ UpSampling3D(size = c(2, 2, 2), data_format = NULL, input_shape = NULL)
 \arguments{
 \item{size}{integer. Upsampling factor.}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model;
+sets the input shape of the data}
 
-\item{data_format}{A string, one of channels_last (default) or channels_first.}
+\item{data_format}{A string, one of channels_last
+(default) or channels_first.}
 }
 \description{
 Repeats each temporal step size a given number of times.

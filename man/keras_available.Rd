@@ -10,7 +10,10 @@ keras_available()
 Logical
 }
 \description{
-Returns TRUE if the python \code{keras} library is installed. If the function returns FALSE, but you believe \code{keras} is installed, then see \link[reticulate:use_python]{reticulate::use_python} to configure the python environment, and then try running \link{keras_init} to establish the connection to \code{keras}.
+Returns TRUE if the python \code{keras} library is installed. If the function
+returns FALSE, but you believe \code{keras} is installed, then see
+\link{use_python} to configure the python environment, and then
+try running \link{keras_init} to establish the connection to \code{keras}.
 }
 \seealso{
 \link{keras_init}

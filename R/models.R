@@ -23,12 +23,16 @@ Sequential <- function(layers = NULL) {
 #' a return value.
 #'
 #' @param model               a keras model object created with [Sequential]
-#' @param optimizer           name of optimizer) or optimizer object. See [Optimizers].
-#' @param loss                name of a loss function. See Details for possible choices.
-#' @param metrics             vector of metric names to be evaluated by the model during
-#'                              training and testing. See Details for possible options.
-#' @param sample_weight_mode  if you need to do timestep-wise sample weighting (2D weights),
-#'                            set this to `temporal`. `None` defaults to sample-wise weights (1D).
+#' @param optimizer           name of optimizer) or optimizer object. See
+#'                            [Optimizers].
+#' @param loss                name of a loss function. See Details for
+#'                            possible choices.
+#' @param metrics             vector of metric names to be evaluated by the
+#'                            model during training and testing. See Details
+#'                            for possible options.
+#' @param sample_weight_mode  if you need to do timestep-wise sample
+#'                            weighting (2D weights), set this to `temporal`.
+#'                            `None` defaults to sample-wise weights (1D).
 #'
 #' @details
 #' Possible losses are
@@ -77,21 +81,24 @@ keras_compile <- function(model, optimizer, loss, metrics = NULL,
 #' @param y                 labels; either a numeric matrix or numeric vector
 #' @param batch_size        integer. Number of samples per gradient update.
 #' @param epochs            integer, the number of epochs to train the model.
-#' @param verbose           0 for no logging to stdout, 1 for progress bar logging,
-#'                            2 for one log line per epoch.
-#' @param callbacks         list of `keras.callbacks.Callback`` instances. List of
-#'                            callbacks to apply during training.
-#' @param validation_split  float (`0 < x < 1`). Fraction of the data to use as
-#'                            held-out validation data.
+#' @param verbose           0 for no logging to stdout, 1 for progress bar
+#'                          logging, 2 for one log line per epoch.
+#' @param callbacks         list of `keras.callbacks.Callback`` instances.
+#'                          List of callbacks to apply during training.
+#' @param validation_split  float (`0 < x < 1`). Fraction of the data to
+#'                          use as held-out validation data.
 #' @param validation_data   `list(x_val, y_val)` or `list(x_val, y_val,
-#'                            val_sample_weights)` to be used as held-out validation
-#'                            data. Will override `validation_split`.
-#' @param shuffle           boolean or string (for `batch`). Whether to shuffle the
-#'                            samples at each epoch. `batch` is a special option for
-#'                            dealing with the limitations of HDF5 data; it shuffles
-#'                            in batch-sized chunks.
-#' @param class_weight      dictionary mapping classes to a weight value, used for
-#'                            scaling the loss function (during training only).
+#'                          val_sample_weights)` to be used as held-out
+#'                          validation data. Will override
+#'                          `validation_split`.
+#' @param shuffle           boolean or string (for `batch`). Whether to
+#'                          shuffle the samples at each epoch. `batch` is
+#'                          a special option for dealing with the
+#'                          limitations of HDF5 data; it shuffles
+#'                          in batch-sized chunks.
+#' @param class_weight      dictionary mapping classes to a weight value,
+#'                          used for scaling the loss function (during
+#'                          training only).
 #' @param sample_weight     Numpy array of weights for the training samples
 #' @param initial_epoch     epoch at which to start training
 #'
@@ -99,9 +106,12 @@ keras_compile <- function(model, optimizer, loss, metrics = NULL,
 #' @template boilerplate
 #' @export
 #' @family models
-keras_fit <- function(model, x, y, batch_size = 32, epochs = 10, verbose = 1,
-                      callbacks = NULL, validation_split = 0.0, validation_data = NULL,
-                      shuffle = TRUE, class_weight = NULL, sample_weight = NULL,
+keras_fit <- function(model, x, y, batch_size = 32,
+                      epochs = 10, verbose = 1,
+                      callbacks = NULL, validation_split = 0.0,
+                      validation_data = NULL,
+                      shuffle = TRUE, class_weight = NULL,
+                      sample_weight = NULL,
                       initial_epoch = 0) {
 
   if (!is.array(x))
@@ -136,8 +146,8 @@ keras_fit <- function(model, x, y, batch_size = 32, epochs = 10, verbose = 1,
 #' @param model             a keras model object created with [Sequential]
 #' @param x                 input data
 #' @param batch_size        integer. Number of samples per gradient update.
-#' @param verbose           0 for no logging to stdout, 1 for progress bar logging,
-#'                            2 for one log line per epoch.
+#' @param verbose           0 for no logging to stdout, 1 for progress bar
+#'                          logging, 2 for one log line per epoch.
 #'
 #' @example inst/examples/predict.R
 #' @template boilerplate
@@ -189,14 +199,16 @@ keras_predict_proba <- function(model, x, batch_size = 32, verbose = 1) {
 #' These functions provide methods for loading and saving a keras
 #' model. As python objects, R functions such as [readRDS] will
 #' not work correctly. We have [keras_save] and [keras_load]
-#' to save and load the entire object, [keras_save_weights] and [keras_load_weights]
-#' to store only the weights, and [keras_model_to_json] and [keras_model_from_json]
+#' to save and load the entire object, [keras_save_weights] and
+#' [keras_load_weights] to store only the weights, and
+#' [keras_model_to_json] and [keras_model_from_json]
 #' to store only the model architecture. It is also possible to use
 #' the get_weights and set_weights methods to manually extract and
-#' set weights from R objects (returned weights can be saved as an R data file).
+#' set weights from R objects (returned weights can be saved as an
+#' R data file).
 #'
-#' @param model  keras model object to save; or, for [keras_load_weights] the
-#'                 the model in which to load the weights
+#' @param model  keras model object to save; or, for [keras_load_weights]
+#'               the the model in which to load the weights
 #' @param path   local path to save or load the data from
 #'
 #' @example inst/examples/load_save.R

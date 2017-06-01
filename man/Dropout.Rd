@@ -7,14 +7,16 @@
 Dropout(rate, noise_shape = NULL, seed = NULL, input_shape = NULL)
 }
 \arguments{
-\item{rate}{float between 0 and 1. Fraction of the input units to drop.}
+\item{rate}{float between 0 and 1. Fraction of the input
+units to drop.}
 
-\item{noise_shape}{1D integer tensor representing the shape of the binary}
+\item{noise_shape}{1D integer tensor representing the shape of the
+the input.}
 
 \item{seed}{A Python integer to use as random seed.}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model; sets the
+input shape of the data}
 }
 \description{
 Applies Dropout to the input.

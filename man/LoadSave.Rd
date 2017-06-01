@@ -23,8 +23,8 @@ keras_model_to_json(model, path = "model.json")
 keras_model_from_json(path = "model.json")
 }
 \arguments{
-\item{model}{keras model object to save; or, for \link{keras_load_weights} the
-the model in which to load the weights}
+\item{model}{keras model object to save; or, for \link{keras_load_weights}
+the the model in which to load the weights}
 
 \item{path}{local path to save or load the data from}
 }
@@ -32,11 +32,13 @@ the model in which to load the weights}
 These functions provide methods for loading and saving a keras
 model. As python objects, R functions such as \link{readRDS} will
 not work correctly. We have \link{keras_save} and \link{keras_load}
-to save and load the entire object, \link{keras_save_weights} and \link{keras_load_weights}
-to store only the weights, and \link{keras_model_to_json} and \link{keras_model_from_json}
+to save and load the entire object, \link{keras_save_weights} and
+\link{keras_load_weights} to store only the weights, and
+\link{keras_model_to_json} and \link{keras_model_from_json}
 to store only the model architecture. It is also possible to use
 the get_weights and set_weights methods to manually extract and
-set weights from R objects (returned weights can be saved as an R data file).
+set weights from R objects (returned weights can be saved as an
+R data file).
 }
 \examples{
 if (keras_available()) {

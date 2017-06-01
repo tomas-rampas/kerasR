@@ -1,31 +1,38 @@
 #' Convolution layers
 #'
 #' @param filters            Integer, the dimensionality of the output space
-#'                           (i.e. the number output of filters in the convolution).
-#' @param kernel_size        A pair of integers specifying the dimensions of the 2D
-#'                           convolution window.
-#' @param strides            A pair of integers specifying the stride length of the
-#'                           convolution.
-#' @param padding            One of "valid", "causal" or "same" (case-insensitive).
-#' @param data_format        A string, one of channels_last (default) or channels_first.
+#'                           (i.e. the number output of filters in the
+#'                           convolution).
+#' @param kernel_size        A pair of integers specifying the dimensions of
+#'                           the 2D convolution window.
+#' @param strides            A pair of integers specifying the stride length
+#'                           of the convolution.
+#' @param padding            One of "valid", "causal" or "same"
+#'                           (case-insensitive).
+#' @param data_format        A string, one of channels_last (default) or
+#'                           channels_first.
 #'                           The ordering of the dimensions in the inputs.
-#' @param depth_multiplier   The number of depthwise convolution output channels for
-#'                           each input channel. The total number of depthwise
-#'                           convolution output channels will be equal to
-#'                           filterss_in * depth_multiplier.
-#' @param dilation_rate      A pair of integers specifying the dilation rate to use
-#'                           for dilated convolution
+#' @param depth_multiplier   The number of depthwise convolution output
+#'                           channels for each input channel. The total
+#'                           number of depthwise convolution output channels
+#'                            will be equal to filterss_in * depth_multiplier.
+#' @param dilation_rate      A pair of integers specifying the dilation rate
+#'                           to use for dilated convolution
 #' @param activation         Activation function to use
 #' @param use_bias           Boolean, whether the layer uses a bias vector.
 #' @param kernel_initializer Initializer for the kernel weights matrix
 #' @param bias_initializer   Initializer for the bias vector
-#' @param kernel_regularizer Regularizer function applied to the kernel weights matrix
+#' @param kernel_regularizer Regularizer function applied to the kernel
+#'                           weights matrix
 #' @param bias_regularizer   Regularizer function applied to the bias vector
-#' @param activity_regularizer  Regularizer function applied to the output of the layer (its "activation").
-#' @param kernel_constraint  Constraint function applied to the kernel matrix
+#' @param activity_regularizer  Regularizer function applied to the output
+#'                           of the layer (its "activation").
+#' @param kernel_constraint  Constraint function applied to the kernel
+#'                           matrix
 #' @param bias_constraint    Constraint function applied to the bias vector
-#' @param input_shape        only need when first layer of a model; sets the input shape
-#'                               of the data
+#' @param input_shape        only need when first layer of a model; sets the
+#'                           input shape of the data
+#'
 #' @example inst/examples/convolutional.R
 #' @template boilerplate
 #' @name Conv
@@ -53,7 +60,8 @@ Conv1D <- function(filters,
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.convolutional$Conv1D(filters = int32(filters),
+    res <- modules$keras.layers.convolutional$Conv1D(
+                   filters = int32(filters),
                    kernel_size = int32(kernel_size),
                    strides = int32(strides),
                    padding = padding,
@@ -69,10 +77,11 @@ Conv1D <- function(filters,
                    bias_constraint = bias_constraint)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.convolutional$Conv1D(filters = int32(filters),
+    res <- modules$keras.layers.convolutional$Conv1D(
+                   filters = int32(filters),
                    kernel_size = int32(kernel_size),
                    strides = int32(strides),
                    padding = padding,
@@ -116,7 +125,8 @@ Conv2D <- function(filters,
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.convolutional$Conv2D(filters = int32(filters),
+    res <- modules$keras.layers.convolutional$Conv2D(
+                   filters = int32(filters),
                    kernel_size = int32(kernel_size),
                    strides = int32(strides),
                    padding = padding,
@@ -133,10 +143,11 @@ Conv2D <- function(filters,
                    bias_constraint = bias_constraint)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.convolutional$Conv2D(filters = int32(filters),
+    res <- modules$keras.layers.convolutional$Conv2D(
+                   filters = int32(filters),
                    kernel_size = int32(kernel_size),
                    strides = int32(strides),
                    padding = padding,
@@ -182,7 +193,8 @@ SeparableConv2D <- function(filters,
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.convolutional$SeparableConv2D(filters = int32(filters),
+    res <- modules$keras.layers.convolutional$SeparableConv2D(
+                   filters = int32(filters),
                    kernel_size = int32(kernel_size),
                    strides = int32(strides),
                    padding = padding,
@@ -200,10 +212,11 @@ SeparableConv2D <- function(filters,
                    bias_constraint = bias_constraint)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.convolutional$SeparableConv2D(filters = int32(filters),
+    res <- modules$keras.layers.convolutional$SeparableConv2D(
+                   filters = int32(filters),
                    kernel_size = int32(kernel_size),
                    strides = int32(strides),
                    padding = padding,
@@ -249,7 +262,8 @@ Conv2DTranspose <- function(filters,
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.convolutional$Conv2DTranspose(filters = int32(filters),
+    res <- modules$keras.layers.convolutional$Conv2DTranspose(
+                   filters = int32(filters),
                    kernel_size = int32(kernel_size),
                    strides = int32(strides),
                    padding = padding,
@@ -266,10 +280,11 @@ Conv2DTranspose <- function(filters,
                    bias_constraint = bias_constraint)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.convolutional$Conv2DTranspose(filters = int32(filters),
+    res <- modules$keras.layers.convolutional$Conv2DTranspose(
+                   filters = int32(filters),
                    kernel_size = int32(kernel_size),
                    strides = int32(strides),
                    padding = padding,
@@ -313,7 +328,8 @@ Conv3D <- function(filters,
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.convolutional$Conv3D(filters = int32(filters),
+    res <- modules$keras.layers.convolutional$Conv3D(
+                   filters = int32(filters),
                    kernel_size = int32(kernel_size),
                    strides = int32(strides),
                    padding = padding,
@@ -330,10 +346,11 @@ Conv3D <- function(filters,
                    bias_constraint = bias_constraint)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.convolutional$Conv3D(filters = int32(filters),
+    res <- modules$keras.layers.convolutional$Conv3D(
+                   filters = int32(filters),
                    kernel_size = int32(kernel_size),
                    strides = int32(strides),
                    padding = padding,
@@ -360,13 +377,15 @@ Conv3D <- function(filters,
 #'
 #' It crops along the time dimension (axis 1).
 #'
-#' @param cropping               integer or pair of integers. How many units
-#'                                 should be trimmed off at the beginning and end
-#'                                 of the cropping dimension (axis 1). If a single value
-#'                               is provided, the same value will be used for both.
-#' @param data_format            A string, one of channels_last (default) or channels_first.
-#' @param input_shape            only need when first layer of a model; sets the input shape
-#'                                 of the data
+#' @param cropping   integer or pair of integers. How many units
+#'                   should be trimmed off at the beginning and end
+#'                   of the cropping dimension (axis 1). If a single value
+#'                   is provided, the same value will be used for both.
+#' @param data_format  A string, one of channels_last (default) or
+#'                     channels_first.
+#' @param input_shape  only need when first layer of a model; sets the
+#'                     input shape of the data
+#'
 #' @template boilerplate
 #' @name Cropping
 NULL
@@ -378,14 +397,16 @@ Cropping1D <- function(cropping = c(1,1), input_shape = NULL) {
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.convolutional$Cropping1D(cropping = int32(cropping))
+    res <- modules$keras.layers.convolutional$Cropping1D(
+                          cropping = int32(cropping))
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.convolutional$Cropping1D(cropping = int32(cropping),
-                                                input_shape = input_shape)
+    res <- modules$keras.layers.convolutional$Cropping1D(
+                              cropping = int32(cropping),
+                              input_shape = input_shape)
 
   }
 
@@ -394,19 +415,22 @@ Cropping1D <- function(cropping = c(1,1), input_shape = NULL) {
 
 #' @rdname Cropping
 #' @export
-Cropping2D <- function(cropping = 0, data_format = NULL, input_shape = NULL) {
+Cropping2D <- function(cropping = 0, data_format = NULL,
+                       input_shape = NULL) {
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.convolutional$Cropping2D(cropping = int32(cropping),
-                                                         data_format = data_format)
+    res <- modules$keras.layers.convolutional$Cropping2D(
+                  cropping = int32(cropping),
+                  data_format = data_format)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.convolutional$Cropping2D(cropping = int32(cropping),
+    res <- modules$keras.layers.convolutional$Cropping2D(
+                                                cropping = int32(cropping),
                                                 data_format = data_format,
                                                 input_shape = input_shape)
 
@@ -417,21 +441,24 @@ Cropping2D <- function(cropping = 0, data_format = NULL, input_shape = NULL) {
 
 #' @rdname Cropping
 #' @export
-Cropping3D <- function(cropping = 0, data_format = NULL, input_shape = NULL) {
+Cropping3D <- function(cropping = 0, data_format = NULL,
+                       input_shape = NULL) {
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.convolutional$Cropping3D(cropping = int32(cropping),
-                                                         data_format = data_format)
+    res <- modules$keras.layers.convolutional$Cropping3D(
+                                          cropping = int32(cropping),
+                                          data_format = data_format)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.convolutional$Cropping3D(cropping = int32(cropping),
-                                                data_format = data_format,
-                                                input_shape = input_shape)
+    res <- modules$keras.layers.convolutional$Cropping3D(
+                                            cropping = int32(cropping),
+                                            data_format = data_format,
+                                            input_shape = input_shape)
 
   }
 
@@ -443,9 +470,10 @@ Cropping3D <- function(cropping = 0, data_format = NULL, input_shape = NULL) {
 #' Repeats each temporal step size a given number of times.
 #'
 #' @param size                   integer. Upsampling factor.
-#' @param data_format            A string, one of channels_last (default) or channels_first.
-#' @param input_shape            only need when first layer of a model; sets the input shape
-#'                               of the data
+#' @param data_format            A string, one of channels_last
+#'                               (default) or channels_first.
+#' @param input_shape            only need when first layer of a model;
+#'                               sets the input shape of the data
 #'
 #' @template boilerplate
 #' @name UpSampling
@@ -461,7 +489,7 @@ UpSampling1D <- function(size = 2, input_shape = NULL) {
     res <- modules$keras.layers.convolutional$UpSampling1D(size = int32(size))
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
     res <- modules$keras.layers.convolutional$UpSampling1D(size = int32(size),
@@ -474,7 +502,8 @@ UpSampling1D <- function(size = 2, input_shape = NULL) {
 
 #' @rdname UpSampling
 #' @export
-UpSampling2D <- function(size = c(2, 2), data_format = NULL, input_shape = NULL) {
+UpSampling2D <- function(size = c(2, 2), data_format = NULL,
+                         input_shape = NULL) {
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -482,7 +511,7 @@ UpSampling2D <- function(size = c(2, 2), data_format = NULL, input_shape = NULL)
     res <- modules$keras.layers.convolutional$UpSampling2D(size = int32(size))
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
     res <- modules$keras.layers.convolutional$UpSampling2D(size = int32(size),
@@ -496,7 +525,8 @@ UpSampling2D <- function(size = c(2, 2), data_format = NULL, input_shape = NULL)
 
 #' @rdname UpSampling
 #' @export
-UpSampling3D <- function(size = c(2, 2, 2), data_format = NULL, input_shape = NULL) {
+UpSampling3D <- function(size = c(2, 2, 2), data_format = NULL,
+                          input_shape = NULL) {
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -504,7 +534,7 @@ UpSampling3D <- function(size = c(2, 2, 2), data_format = NULL, input_shape = NU
     res <- modules$keras.layers.convolutional$UpSampling3D(size = int32(size))
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
     res <- modules$keras.layers.convolutional$UpSampling3D(size = int32(size),
@@ -517,12 +547,13 @@ UpSampling3D <- function(size = c(2, 2, 2), data_format = NULL, input_shape = NU
 
 #' Zero-padding layers
 #'
-#' @param padding                if one integer, the same symmetric padding is applied
-#'                               to width and height. If two, how many to add
-#'                               for height and width.
-#' @param data_format            A string, one of channels_last (default) or channels_first.
-#' @param input_shape            only need when first layer of a model; sets the input shape
-#'                               of the data
+#' @param padding     if one integer, the same symmetric padding is applied
+#'                    to width and height. If two, how many to add
+#'                    for height and width.
+#' @param data_format   A string, one of channels_last (default) or
+#'                      channels_first.
+#' @param input_shape   only need when first layer of a model; sets the
+#'                      input shape of the data
 #'
 #' @template boilerplate
 #' @name ZeroPadding
@@ -535,14 +566,16 @@ ZeroPadding1D <- function(padding = 1, input_shape = NULL) {
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.convolutional$ZeroPadding1D(padding = int32(padding))
+    res <- modules$keras.layers.convolutional$ZeroPadding1D(
+                              padding = int32(padding))
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.convolutional$ZeroPadding1D(padding = int32(padding),
-                                                input_shape = input_shape)
+    res <- modules$keras.layers.convolutional$ZeroPadding1D(
+                              padding = int32(padding),
+                              input_shape = input_shape)
 
   }
 
@@ -551,21 +584,24 @@ ZeroPadding1D <- function(padding = 1, input_shape = NULL) {
 
 #' @rdname ZeroPadding
 #' @export
-ZeroPadding2D <- function(padding = 1, data_format = NULL, input_shape = NULL) {
+ZeroPadding2D <- function(padding = 1, data_format = NULL,
+                          input_shape = NULL) {
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.convolutional$ZeroPadding2D(padding = int32(padding),
-                                                            data_format = data_format)
+    res <- modules$keras.layers.convolutional$ZeroPadding2D(
+                                padding = int32(padding),
+                                data_format = data_format)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.convolutional$ZeroPadding2D(padding = int32(padding),
-                                                data_format = data_format,
-                                                input_shape = input_shape)
+    res <- modules$keras.layers.convolutional$ZeroPadding2D(
+                                padding = int32(padding),
+                                data_format = data_format,
+                                input_shape = input_shape)
 
   }
 
@@ -574,19 +610,22 @@ ZeroPadding2D <- function(padding = 1, data_format = NULL, input_shape = NULL) {
 
 #' @rdname ZeroPadding
 #' @export
-ZeroPadding3D <- function(padding = 1, data_format = NULL, input_shape = NULL) {
+ZeroPadding3D <- function(padding = 1, data_format = NULL,
+                          input_shape = NULL) {
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.convolutional$ZeroPadding3D(padding = int32(padding),
-                                                            data_format = data_format)
+    res <- modules$keras.layers.convolutional$ZeroPadding3D(
+                            padding = int32(padding),
+                            data_format = data_format)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.convolutional$ZeroPadding3D(padding = int32(padding),
+    res <- modules$keras.layers.convolutional$ZeroPadding3D(
+                                                padding = int32(padding),
                                                 data_format = data_format,
                                                 input_shape = input_shape)
 

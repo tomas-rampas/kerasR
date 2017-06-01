@@ -7,10 +7,9 @@
 run_examples()
 }
 \description{
-This function decided whether examples should be
-run or not. Currently always answers FALSE to avoid
-problems with checking the package on systems that
-do not have keras installed.
+This function decides whether examples should be
+run or not. Answers \code{TRUE} if and only if the
+package is able to find an installation of keras.
 }
 \author{
 Taylor B. Arnold, \email{taylor.arnold@acm.org}

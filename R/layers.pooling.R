@@ -1,13 +1,16 @@
 #' Max pooling operations
 #'
-#' @param pool_size              Integer or triplet of integers; size(s) of the max pooling windows.
-#' @param strides                Integer, triplet of integers, or None. Factor(s) by which to downscale.
-#'                               E.g. 2 will halve the input. If NULL, it will
-#'                               default to pool_size.
+#' @param pool_size              Integer or triplet of integers; size(s)
+#'                               of the max pooling windows.
+#' @param strides                Integer, triplet of integers, or None.
+#'                               Factor(s) by which to downscale.
+#'                               E.g. 2 will halve the input. If NULL, it
+#'                               will default to pool_size.
 #' @param padding                One of "valid" or "same" (case-insensitive).
-#' @param data_format            A string, one of channels_last (default) or channels_first
-#' @param input_shape            only need when first layer of a model; sets the input shape
-#'                               of the data
+#' @param data_format            A string, one of channels_last (default) or
+#'                               channels_first
+#' @param input_shape            only need when first layer of a model;
+#'                               sets the input shape of the data
 #'
 #' @example inst/examples/pooling.R
 #' @template boilerplate
@@ -18,7 +21,8 @@ NULL
 
 #' @rdname MaxPooling
 #' @export
-MaxPooling1D <- function(pool_size = 2, strides = NULL, padding = 'valid', input_shape = NULL) {
+MaxPooling1D <- function(pool_size = 2, strides = NULL, padding = 'valid',
+                         input_shape = NULL) {
 
   if (!is.null(strides))
     strides <- int32(strides)
@@ -26,15 +30,17 @@ MaxPooling1D <- function(pool_size = 2, strides = NULL, padding = 'valid', input
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.pooling$MaxPooling1D(pool_size = int32(pool_size),
+    res <- modules$keras.layers.pooling$MaxPooling1D(
+                                             pool_size = int32(pool_size),
                                                strides = strides,
                                                padding = padding)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.pooling$MaxPooling1D(pool_size = int32(pool_size),
+    res <- modules$keras.layers.pooling$MaxPooling1D(
+                                             pool_size = int32(pool_size),
                                                strides = strides,
                                                padding = padding,
                                                input_shape = input_shape)
@@ -46,8 +52,9 @@ MaxPooling1D <- function(pool_size = 2, strides = NULL, padding = 'valid', input
 
 #' @rdname MaxPooling
 #' @export
-MaxPooling2D <- function(pool_size = c(2, 2), strides = NULL, padding = 'valid',
-                          data_format = NULL, input_shape = NULL) {
+MaxPooling2D <- function(pool_size = c(2, 2), strides = NULL,
+                         padding = 'valid', data_format = NULL,
+                         input_shape = NULL) {
 
   if (!is.null(strides))
     strides <- int32(strides)
@@ -55,16 +62,18 @@ MaxPooling2D <- function(pool_size = c(2, 2), strides = NULL, padding = 'valid',
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.pooling$MaxPooling2D(pool_size = int32(pool_size),
+    res <- modules$keras.layers.pooling$MaxPooling2D(
+                                             pool_size = int32(pool_size),
                                                strides = strides,
                                                padding = padding,
                                                data_format = data_format)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.pooling$MaxPooling2D(pool_size = int32(pool_size),
+    res <- modules$keras.layers.pooling$MaxPooling2D(
+                                             pool_size = int32(pool_size),
                                                strides = strides,
                                                padding = padding,
                                                data_format = data_format,
@@ -77,7 +86,8 @@ MaxPooling2D <- function(pool_size = c(2, 2), strides = NULL, padding = 'valid',
 
 #' @rdname MaxPooling
 #' @export
-MaxPooling3D <- function(pool_size = c(2, 2, 2), strides = NULL, padding = 'valid',
+MaxPooling3D <- function(pool_size = c(2, 2, 2), strides = NULL,
+                          padding = 'valid',
                           data_format = NULL, input_shape = NULL) {
 
   if (!is.null(strides))
@@ -86,16 +96,18 @@ MaxPooling3D <- function(pool_size = c(2, 2, 2), strides = NULL, padding = 'vali
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.pooling$MaxPooling3D(pool_size = int32(pool_size),
+    res <- modules$keras.layers.pooling$MaxPooling3D(
+                                             pool_size = int32(pool_size),
                                                strides = strides,
                                                padding = padding,
                                                data_format = data_format)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.pooling$MaxPooling3D(pool_size = int32(pool_size),
+    res <- modules$keras.layers.pooling$MaxPooling3D(
+                                             pool_size = int32(pool_size),
                                                strides = strides,
                                                padding = padding,
                                                data_format = data_format,
@@ -108,15 +120,19 @@ MaxPooling3D <- function(pool_size = c(2, 2, 2), strides = NULL, padding = 'vali
 
 #' Average pooling operation
 #'
-#' @param pool_size              Integer or pair of integers; size(s) of the max pooling windows.
-#' @param strides                Integer, pair of integers, or None. Factor(s) by which to downscale.
-#'                               E.g. 2 will halve the input. If NULL, it will
+#' @param pool_size              Integer or pair of integers; size(s) of
+#'                               the max pooling windows.
+#' @param strides                Integer, pair of integers, or None.
+#'                               Factor(s) by which to downscale. E.g. 2 will
+#'                               halve the input. If NULL, it will
 #'                               default to pool_size.
 #' @param padding                One of "valid" or "same" (case-insensitive).
-#' @param data_format            A string, one of channels_last (default) or channels_first
-#' @param input_shape            nD tensor with shape: `(batch_size, ..., input_dim)`.
-#'                               The most common situation would be a 2D input with shape
-#'                               `(batch_size, input_dim)`.
+#' @param data_format            A string, one of channels_last (default) or
+#'                               channels_first
+#' @param input_shape            nD tensor with shape: `(batch_size, ...,
+#'                               input_dim)`.
+#'                               The most common situation would be a 2D
+#'                               input with shape `(batch_size, input_dim)`.
 #' @template boilerplate
 #' @name AveragePooling
 NULL
@@ -124,7 +140,8 @@ NULL
 
 #' @rdname AveragePooling
 #' @export
-AveragePooling1D <- function(pool_size = 2, strides = NULL, padding = 'valid', input_shape = NULL) {
+AveragePooling1D <- function(pool_size = 2, strides = NULL,
+                             padding = 'valid', input_shape = NULL) {
 
   if (!is.null(strides))
     strides <- int32(strides)
@@ -132,15 +149,17 @@ AveragePooling1D <- function(pool_size = 2, strides = NULL, padding = 'valid', i
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.pooling$AveragePooling1D(pool_size = int32(pool_size),
+    res <- modules$keras.layers.pooling$AveragePooling1D(
+                                             pool_size = int32(pool_size),
                                                strides = strides,
                                                padding = padding)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.pooling$AveragePooling1D(pool_size = int32(pool_size),
+    res <- modules$keras.layers.pooling$AveragePooling1D(
+                                             pool_size = int32(pool_size),
                                                strides = strides,
                                                padding = padding,
                                                input_shape = input_shape)
@@ -152,8 +171,10 @@ AveragePooling1D <- function(pool_size = 2, strides = NULL, padding = 'valid', i
 
 #' @rdname AveragePooling
 #' @export
-AveragePooling2D <- function(pool_size = c(2, 2), strides = NULL, padding = 'valid',
-                          data_format = NULL, input_shape = NULL) {
+AveragePooling2D <- function(pool_size = c(2, 2), strides = NULL,
+                             padding = 'valid',
+                             data_format = NULL,
+                             input_shape = NULL) {
 
   if (!is.null(strides))
     strides <- int32(strides)
@@ -161,16 +182,18 @@ AveragePooling2D <- function(pool_size = c(2, 2), strides = NULL, padding = 'val
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.pooling$AveragePooling2D(pool_size = int32(pool_size),
+    res <- modules$keras.layers.pooling$AveragePooling2D(
+                                             pool_size = int32(pool_size),
                                                strides = strides,
                                                padding = padding,
                                                data_format = data_format)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.pooling$AveragePooling2D(pool_size = int32(pool_size),
+    res <- modules$keras.layers.pooling$AveragePooling2D(
+                                             pool_size = int32(pool_size),
                                                strides = strides,
                                                padding = padding,
                                                data_format = data_format,
@@ -183,8 +206,10 @@ AveragePooling2D <- function(pool_size = c(2, 2), strides = NULL, padding = 'val
 
 #' @rdname AveragePooling
 #' @export
-AveragePooling3D <- function(pool_size = c(2, 2, 2), strides = NULL, padding = 'valid',
-                          data_format = NULL, input_shape = NULL) {
+AveragePooling3D <- function(pool_size = c(2, 2, 2), strides = NULL,
+                             padding = 'valid',
+                             data_format = NULL,
+                             input_shape = NULL) {
 
   if (!is.null(strides))
     strides <- int32(strides)
@@ -192,16 +217,18 @@ AveragePooling3D <- function(pool_size = c(2, 2, 2), strides = NULL, padding = '
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.pooling$AveragePooling3D(pool_size = int32(pool_size),
+    res <- modules$keras.layers.pooling$AveragePooling3D(
+                                             pool_size = int32(pool_size),
                                                strides = strides,
                                                padding = padding,
                                                data_format = data_format)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.pooling$AveragePooling3D(pool_size = int32(pool_size),
+    res <- modules$keras.layers.pooling$AveragePooling3D(
+                                             pool_size = int32(pool_size),
                                                strides = strides,
                                                padding = padding,
                                                data_format = data_format,
@@ -214,9 +241,12 @@ AveragePooling3D <- function(pool_size = c(2, 2, 2), strides = NULL, padding = '
 
 #' Global pooling operations
 #'
-#' @param data_format            A string, one of channels_last (default) or channels_first
-#' @param input_shape            nD tensor with shape: `(batch_size, ..., input_dim)`.
-#'                               The most common situation would be a 2D input with shape
+#' @param data_format            A string, one of channels_last (default)
+#'                               or channels_first
+#' @param input_shape            nD tensor with shape: `(batch_size, ...,
+#'                               input_dim)`.
+#'                               The most common situation would be a 2D
+#'                               input with shape
 #'                               `(batch_size, input_dim)`.
 #'
 #' @template boilerplate
@@ -233,10 +263,11 @@ GlobalMaxPooling1D <- function(input_shape = NULL) {
     res <- modules$keras.layers.pooling$GlobalMaxPooling1D()
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.pooling$GlobalMaxPooling1D(input_shape = input_shape)
+    res <- modules$keras.layers.pooling$GlobalMaxPooling1D(
+                                      input_shape = input_shape)
 
   }
 
@@ -254,10 +285,11 @@ GlobalAveragePooling1D <- function(input_shape = NULL) {
     res <- modules$keras.layers.pooling$GlobalAveragePooling1D()
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.pooling$GlobalAveragePooling1D(input_shape = input_shape)
+    res <- modules$keras.layers.pooling$GlobalAveragePooling1D(
+                                      input_shape = input_shape)
 
   }
 
@@ -271,13 +303,15 @@ GlobalMaxPooling2D <- function(data_format = NULL, input_shape = NULL) {
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.pooling$GlobalMaxPooling2D(data_format = data_format)
+    res <- modules$keras.layers.pooling$GlobalMaxPooling2D(
+                                     data_format = data_format)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.pooling$GlobalMaxPooling2D(data_format = data_format,
+    res <- modules$keras.layers.pooling$GlobalMaxPooling2D(
+                                               data_format = data_format,
                                                input_shape = input_shape)
 
   }
@@ -293,13 +327,15 @@ GlobalAveragePooling2D <- function(data_format = NULL, input_shape = NULL) {
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.pooling$GlobalAveragePooling2D(data_format = data_format)
+    res <- modules$keras.layers.pooling$GlobalAveragePooling2D(
+                                      data_format = data_format)
   } else {
 
-    input_shape <- sapply(input_shape, list)
+    input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.pooling$GlobalAveragePooling2D(data_format = data_format,
+    res <- modules$keras.layers.pooling$GlobalAveragePooling2D(
+                                      data_format = data_format,
                                                input_shape = input_shape)
 
   }

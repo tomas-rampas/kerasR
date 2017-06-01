@@ -52,13 +52,16 @@ he_uniform(seed = NULL)
 
 \item{mean}{average of the Normal distribution to sample from}
 
-\item{stddev}{standard deviation of the Normal distribution to sample from}
+\item{stddev}{standard deviation of the Normal distribution to
+sample from}
 
 \item{seed}{Integer. Used to seed the random generator.}
 
-\item{minval}{Lower bound of the range of random values to generate.}
+\item{minval}{Lower bound of the range of random values to
+generate.}
 
-\item{maxval}{Upper bound of the range of random values to generate.}
+\item{maxval}{Upper bound of the range of random values to
+generate.}
 
 \item{scale}{Scaling factor (positive float).}
 
@@ -66,7 +69,8 @@ he_uniform(seed = NULL)
 
 \item{distribution}{distribution to use. One of 'normal' or 'uniform'}
 
-\item{gain}{Multiplicative factor to apply to the orthogonal matrix}
+\item{gain}{Multiplicative factor to apply to the orthogonal
+matrix}
 }
 \description{
 These functions are used to set the initial weights and biases in

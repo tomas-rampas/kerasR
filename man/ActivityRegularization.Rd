@@ -11,8 +11,8 @@ ActivityRegularization(l1 = 0, l2 = 0, input_shape = NULL)
 
 \item{l2}{L2 regularization factor (positive float).}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model; sets the
+input shape of the data}
 }
 \description{
 Layer that applies an update to the cost function based input activity.

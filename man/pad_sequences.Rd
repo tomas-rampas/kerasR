@@ -10,13 +10,18 @@ pad_sequences(sequences, maxlen = NULL, dtype = "int32", padding = "pre",
 \arguments{
 \item{sequences}{vector of lists of int or float.}
 
-\item{maxlen}{None or int. Maximum sequence length, longer sequences are truncated and shorter sequences are padded with zeros at the end.}
+\item{maxlen}{None or int. Maximum sequence length, longer sequences
+are truncated and shorter sequences are padded with
+zeros at the end.}
 
 \item{dtype}{datatype of the Numpy array returned.}
 
-\item{padding}{'pre' or 'post', pad either before or after each sequence.}
+\item{padding}{'pre' or 'post', pad either before or after each
+sequence.}
 
-\item{truncating}{'pre' or 'post', remove values from sequences larger than maxlen either in the beginning or in the end of the sequence}
+\item{truncating}{'pre' or 'post', remove values from sequences larger
+than maxlen either in the beginning or in the end of
+the sequence}
 
 \item{value}{float, value to pad the sequences to the desired value.}
 }

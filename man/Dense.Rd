@@ -11,29 +11,34 @@ Dense(units, activation = "linear", use_bias = TRUE,
   bias_constraint = NULL, input_shape = NULL)
 }
 \arguments{
-\item{units}{Positive integer, dimensionality of the output space.}
+\item{units}{Positive integer, dimensionality of the
+output space.}
 
 \item{activation}{The activation function to use.}
 
-\item{use_bias}{Boolean, whether the layer uses a bias vector.}
+\item{use_bias}{Boolean, whether the layer uses a bias
+vector.}
 
 \item{kernel_initializer}{Initializer for the \code{kernel} weights matrix}
 
 \item{bias_initializer}{Initializer for the bias vector}
 
-\item{kernel_regularizer}{Regularizer function applied to the \code{kernel} weights matrix}
+\item{kernel_regularizer}{Regularizer function applied to the
+\code{kernel} weights matrix}
 
-\item{bias_regularizer}{Regularizer function applied to the bias vector}
+\item{bias_regularizer}{Regularizer function applied to the bias
+vector}
 
 \item{activity_regularizer}{Regularizer function applied to
 the output of the layer (its "activation").}
 
-\item{kernel_constraint}{Constraint function applied to  the \code{kernel} weights}
+\item{kernel_constraint}{Constraint function applied to  the}
 
-\item{bias_constraint}{Constraint function applied to the bias vector}
+\item{bias_constraint}{Constraint function applied to the bias
+vector}
 
-\item{input_shape}{only need when first layer of a model; sets the input shape
-of the data}
+\item{input_shape}{only need when first layer of a model; sets
+the input shape of the data}
 }
 \description{
 Dense implements the operation:

@@ -41,11 +41,11 @@ Nadam(lr = 0.002, beta_1 = 0.9, beta_2 = 0.999, epsilon = 1e-08,
 
 \item{nesterov}{boolean. Whether to apply Nesterov momentum.}
 
-\item{clipnorm}{float >= 0. Gradients will be clipped when their L2 norm exceeds this value.
-Set to -1 to disable.}
+\item{clipnorm}{float >= 0. Gradients will be clipped when their L2 norm
+exceeds this value. Set to -1 to disable.}
 
-\item{clipvalue}{float >= 0. Gradients will be clipped when their absolute value exceeds this value.
-Set to -1 to disable.}
+\item{clipvalue}{float >= 0. Gradients will be clipped when their
+absolute value exceeds this value. Set to -1 to disable.}
 
 \item{rho}{float >= 0 to be used in \link{RMSprop}}
 
@@ -55,7 +55,8 @@ Set to -1 to disable.}
 
 \item{beta_2}{float, 0 < beta < 1. Generally close to 1.}
 
-\item{schedule_decay}{float >= 0. Learning rate decay over each schedule in \link{Nadam}.}
+\item{schedule_decay}{float >= 0. Learning rate decay over each
+schedule in \link{Nadam}.}
 }
 \description{
 Optimization functions to use in compiling a keras model.
