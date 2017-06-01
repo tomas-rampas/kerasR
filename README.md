@@ -115,9 +115,6 @@ keras_fit(mod, X_train, Y_train,
           batch_size = 32, epochs = 200,
           verbose = 1, validation_split = 0.1)
 ```
-```
-output
-```
 
 Notice that the model does not do particularly well here, probably
 due to over-fitting on such as small set.

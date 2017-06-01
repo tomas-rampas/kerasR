@@ -6,7 +6,7 @@
 \alias{kerasR-package}
 \title{Keras Models in R}
 \description{
-Keras is a high-level neural networks API, originall written in Python, and
+Keras is a high-level neural networks API, originally written in Python, and
 capable of running on top of either TensorFlow or Theano. It was developed
 with a focus on enabling fast experimentation. This package provides an
 interface to Keras from within R. All of the returned objects from functions
