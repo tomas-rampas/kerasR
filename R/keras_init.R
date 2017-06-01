@@ -40,7 +40,7 @@ keras_init <- function(){
   if(keras_available()){
 
     modules$builtin <-  reticulate::import_builtins()
-    modules$np <-       import("numpy")
+    modules$np <-       import("numpy", convert = FALSE)
 
     modules$keras.models <-               import("keras.models")
     modules$keras.layers.core <-          import("keras.layers.core")
