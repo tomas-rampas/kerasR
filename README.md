@@ -1,6 +1,8 @@
+## kerasR: R Interface to the Keras Deep Learning Library
+
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/statsmaths/kerasR?branch=master&svg=true)](https://ci.appveyor.com/project/statsmaths/kerasR) [![Travis-CI Build Status](https://travis-ci.org/statsmaths/kerasR.svg?branch=master)](https://travis-ci.org/statsmaths/kerasR) [![CRAN Version](http://www.r-pkg.org/badges/version/kerasR)](https://CRAN.R-project.org/package=kerasR) ![Downloads](http://cranlogs.r-pkg.org/badges/kerasR)
 
-## R Interface to the Keras Deep Learning Library
+## Description
 
 Keras provides a language for building neural networks as connections
 between general purpose layers.
@@ -11,6 +13,8 @@ recurrent neural networks (RNN) running on top of either TensorFlow or
 Theano. Type conversions between Python and R are automatically handled
 correctly, even when the default choices would otherwise lead to errors.
 Includes complete R documentation and many working examples.
+
+## Installation
 
 You can download the current released version of CRAN:
 ```{r}
@@ -27,13 +31,6 @@ which should be updated as new releases are given. Note that you
 should at a minimum be using Keras version 2.0.1.
 Issues, questions, and feature requests should be opened as
 [GitHub Issues](http://github.com/statsmaths/kerasR/issues).
-
-## Contributing
-
-If you would like to contribute to the project please contact
-the maintainer directly. Please note that this project is
-released with a [Contributor Code of Conduct](CONDUCT.md).
-By participating in this project you agree to abide by its terms.
 
 ## A Small Example (Boston Housing Data)
 
@@ -543,3 +540,10 @@ But even more directly, we can take this output and get category names:
 And we see that VGG19 correctly identifies the most likely animal in the photo
 as an elephant. More specifically, it spreads the probability weights over
 3 specific sub-types of elephant.
+
+## Contributing
+
+If you would like to contribute to the project please contact
+the maintainer directly. Please note that this project is
+released with a [Contributor Code of Conduct](CONDUCT.md).
+By participating in this project you agree to abide by its terms.
