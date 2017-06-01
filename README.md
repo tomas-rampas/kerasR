@@ -28,7 +28,21 @@ You will also have to install the Python module **Keras** and
 either the module **tensorflow** or **Theano**. The best resource
 for this is the [Keras Documentation](https://keras.io/#installation),
 which should be updated as new releases are given. Note that you
-should at a minimum be using Keras version 2.0.1.
+should at a minimum be using Keras version 2.0.1. To check that
+you have installed this properly, run the following in R, setting
+the correct path to the version of Python that has installed
+the Keras module:
+```{r}
+library(kerasR)
+library(reticulate)
+
+use_python("/path/to/bin/python")
+keras_init()
+keras_available()
+```
+The `keras_init` will throw a helpful message if it fails to
+find keras and the function `keras_available` will return
+`TRUE` if it is succesfully installed and loaded.
 Issues, questions, and feature requests should be opened as
 [GitHub Issues](http://github.com/statsmaths/kerasR/issues).
 
