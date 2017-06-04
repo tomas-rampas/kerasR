@@ -106,13 +106,18 @@ data, but we do not yet have any data from which to train! Let's
 load some using the wrapper function `load_boston_housing`. We
 provide several data loading functions as part of the package,
 and all return data in the same format. In this case it will be
-helpful to scale the data matrices:
+helpful to scale the data matrices. While we could use the
+R function `scale`, another option is the keras-specific
+function `normalize`, which we use here. One benefit of
+`normalize` is that is allows for normalizing arrays along
+arbitrary dimensions, a useful feature in convolutional and
+recurrent neural networks.
 
 ```{r}
 boston <- load_boston_housing()
-X_train <- scale(boston$X_train)
+X_train <- normalize(boston$X_train)
 Y_train <- boston$Y_train
-X_test <- scale(boston$X_test)
+X_test <- normalize(boston$X_test)
 Y_test <- boston$Y_test
 ```
 
@@ -134,11 +139,11 @@ Notice that the model does not do particularly well here, probably
 due to over-fitting on such as small set.
 
 ```{r}
-pred <- keras_predict(mod, normalize(X_test))
+pred <- keras_predict(mod, X_test)
 sd(as.numeric(pred) - Y_test) / sd(Y_test)
 ```
 ```
-## [1] 0.7692395
+## [1] 0.6818437
 ```
 Several more involved examples are contained in the package
 vignette *R Interface to the Keras Deep Learning Library*.
