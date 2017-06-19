@@ -9,6 +9,9 @@ check_keras_available <- function() {
 }
 
 test_that("dropout", {
+  skip_on_cran()
+  check_keras_available()
+
   X_train <- array(rnorm(100 * 28 * 28), dim = c(100, 28, 28, 1))
   Y_train <- to_categorical(matrix(sample(0:2, 100, TRUE), ncol = 1), 3)
 
