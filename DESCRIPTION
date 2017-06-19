@@ -1,7 +1,7 @@
 Package: kerasR
 Type: Package
 Title: R Interface to the Keras Deep Learning Library
-Version: 0.6.2
+Version: 0.7.0
 Authors@R: c(person("Taylor", "Arnold", email = "taylor.arnold@acm.org", role = c("aut", "cre")))
 Author: Taylor Arnold [aut, cre]
 Maintainer: Taylor Arnold <taylor.arnold@acm.org>

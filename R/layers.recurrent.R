@@ -59,6 +59,7 @@ SimpleRNN <- function(units,
                  dropout = 0.0,
                  recurrent_dropout = 0.0,
                  input_shape = NULL) {
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -125,6 +126,7 @@ GRU <- function(units,
                  dropout = 0.0,
                  recurrent_dropout = 0.0,
                  input_shape = NULL) {
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -194,6 +196,7 @@ LSTM <- function(units,
                  recurrent_dropout = 0.0,
                  return_sequences = FALSE,
                  input_shape = NULL) {
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted

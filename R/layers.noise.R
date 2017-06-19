@@ -18,6 +18,7 @@ NULL
 #' @export
 #' @family layers
 GaussianNoise <- function(stddev = 1, input_shape = NULL) {
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -40,6 +41,7 @@ GaussianNoise <- function(stddev = 1, input_shape = NULL) {
 #' @rdname GaussianNoise
 #' @export
 GaussianDropout <- function(rate = 0.5, input_shape = NULL) {
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted

@@ -14,9 +14,44 @@
 #' @export
 plot_model <- function(model, to_file = "model.png", show_shapes = FALSE,
                        show_layer_names = TRUE) {
-  modules$keras.utils$plot_model(model = model, to_file = to_file,
-                                 show_shapes = show_shapes,
-                                 show_layer_names = show_layer_names)
+  keras_check() # nocov
+
+  if (!reticulate::py_module_available("pydot")) {
+    py_path <- reticulate::py_config()$python
+    msg <-
+          c("The python module pydot is not\n",
+            "available from the Python executable located here:",
+            "\n\n   ",
+            py_path, "\n\n",
+            "These can be installed with pip by running either of:\n",
+            "\n  pip install pydot\n\n",
+            "If you believe it is already installed, you may be linking \n",
+            "to the wrong version of Python. See reticulate::use_python()\n",
+            "to set python path, then use kerasR::keras_init() to retry.\n",
+            "You may need to restart R before use_python takes effect.")
+    stop(msg)
+  }
+
+  if (!reticulate::py_module_available("graphviz")) {
+    py_path <- reticulate::py_config()$python
+    msg <-
+          c("The python module graphviz is not\n",
+            "available from the Python executable located here:",
+            "\n\n   ",
+            py_path, "\n\n",
+            "These can be installed with pip by running either of:\n",
+            "\n  pip install graphviz\n\n",
+            "If you believe it is already installed, you may be linking \n",
+            "to the wrong version of Python. See reticulate::use_python()\n",
+            "to set python path, then use kerasR::keras_init() to retry.\n",
+            "You may need to restart R before use_python takes effect.")
+    stop(msg)
+
+  }
+
+  modules$keras.utils$plot_model(model = model, to_file = to_file, # nocov
+                              show_shapes = show_shapes,        # nocov
+                              show_layer_names = show_layer_names) # nocov
 }
 
 #' Converts a class vector (integers) to binary class matrix.
@@ -34,6 +69,8 @@ plot_model <- function(model, to_file = "model.png", show_shapes = FALSE,
 #' @template boilerplate
 #' @export
 to_categorical <- function(y, num_classes = NULL) {
+  keras_check()
+
   if (!is.null(num_classes))
     num_classes <- int32(num_classes)
   modules$keras.utils$to_categorical(y = int32(y), num_classes = num_classes)
@@ -51,6 +88,8 @@ to_categorical <- function(y, num_classes = NULL) {
 #' @template boilerplate
 #' @export
 normalize <- function(x, axis = -1, order = 2) {
+  keras_check()
+
   modules$keras.utils$normalize(x = x, axis = int32(axis),
                                 order = int32(order))
 }

@@ -56,6 +56,7 @@ Conv1D <- function(filters,
                    kernel_constraint = NULL,
                    bias_constraint = NULL,
                    input_shape = NULL) {
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -120,7 +121,7 @@ Conv2D <- function(filters,
                    kernel_constraint = NULL,
                    bias_constraint = NULL,
                    input_shape = NULL) {
-
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -189,6 +190,7 @@ SeparableConv2D <- function(filters,
                    bias_constraint = NULL,
                    input_shape = NULL) {
 
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -258,6 +260,7 @@ Conv2DTranspose <- function(filters,
                    bias_constraint = NULL,
                    input_shape = NULL) {
 
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -324,6 +327,8 @@ Conv3D <- function(filters,
                    kernel_constraint = NULL,
                    bias_constraint = NULL,
                    input_shape = NULL) {
+
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -394,6 +399,8 @@ NULL
 #' @export
 Cropping1D <- function(cropping = c(1,1), input_shape = NULL) {
 
+  keras_check()
+
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
@@ -417,6 +424,8 @@ Cropping1D <- function(cropping = c(1,1), input_shape = NULL) {
 #' @export
 Cropping2D <- function(cropping = 0, data_format = NULL,
                        input_shape = NULL) {
+
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -443,6 +452,8 @@ Cropping2D <- function(cropping = 0, data_format = NULL,
 #' @export
 Cropping3D <- function(cropping = 0, data_format = NULL,
                        input_shape = NULL) {
+
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -483,6 +494,8 @@ NULL
 #' @export
 UpSampling1D <- function(size = 2, input_shape = NULL) {
 
+  keras_check()
+
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
@@ -504,6 +517,8 @@ UpSampling1D <- function(size = 2, input_shape = NULL) {
 #' @export
 UpSampling2D <- function(size = c(2, 2), data_format = NULL,
                          input_shape = NULL) {
+
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -527,6 +542,8 @@ UpSampling2D <- function(size = c(2, 2), data_format = NULL,
 #' @export
 UpSampling3D <- function(size = c(2, 2, 2), data_format = NULL,
                           input_shape = NULL) {
+
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -563,6 +580,8 @@ NULL
 #' @export
 ZeroPadding1D <- function(padding = 1, input_shape = NULL) {
 
+  keras_check()
+
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
@@ -586,6 +605,8 @@ ZeroPadding1D <- function(padding = 1, input_shape = NULL) {
 #' @export
 ZeroPadding2D <- function(padding = 1, data_format = NULL,
                           input_shape = NULL) {
+
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -612,6 +633,8 @@ ZeroPadding2D <- function(padding = 1, data_format = NULL,
 #' @export
 ZeroPadding3D <- function(padding = 1, data_format = NULL,
                           input_shape = NULL) {
+
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted

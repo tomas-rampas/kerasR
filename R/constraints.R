@@ -19,17 +19,23 @@ NULL
 #' @rdname Constraints
 #' @export
 max_norm <- function(max_value = 2.0, axis=0) {
+  keras_check()
+
   modules$keras.constraints$max_norm(max_value, axis = int32(axis))
 }
 
 #' @rdname Constraints
 #' @export
 non_neg <- function() {
+  keras_check()
+
   modules$keras.constraints$non_neg()
 }
 
 #' @rdname Constraints
 #' @export
 unit_norm <- function() {
+  keras_check()
+
   modules$keras.constraints$unit_norm()
 }

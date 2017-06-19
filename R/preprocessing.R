@@ -11,13 +11,14 @@
 #' @family image
 #' @family preprocessing
 load_img <- function(path, grayscale = FALSE, target_size = NULL) {
+  keras_check()
 
-  if (!is.null(target_size))
-    target_size <- as.integer(target_size)
+  if (!is.null(target_size)) # nocov
+    target_size <- as.integer(target_size) # nocov
 
-  modules$keras.preprocessing.image$load_img(path = path,
-                                             grayscale = grayscale,
-                                             target_size = target_size)
+  modules$keras.preprocessing.image$load_img(path = path, # nocov
+                                     grayscale = grayscale, # nocov
+                                     target_size = target_size) # nocov
 }
 
 #' Converts a PIL Image instance to a Numpy array.
@@ -32,8 +33,10 @@ load_img <- function(path, grayscale = FALSE, target_size = NULL) {
 #' @family image
 #' @family preprocessing
 img_to_array <- function(img, data_format = NULL) {
-  modules$keras.preprocessing.image$img_to_array(img = img,
-                                                 data_format = data_format)
+  keras_check()
+
+  modules$keras.preprocessing.image$img_to_array(img = img, # nocov
+                                     data_format = data_format) # nocov
 }
 
 #' Expand dimensions of an array
@@ -49,6 +52,8 @@ img_to_array <- function(img, data_format = NULL) {
 #' @export
 #' @family preprocessing
 expand_dims <- function(a, axis = 0) {
+  keras_check()
+
   modules$np$expand_dims(a = a, axis = int32(axis))
 }
 
@@ -67,6 +72,8 @@ text_to_word_sequence <- function(text,
                     filters = '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n',
                     lower = TRUE,
                     split = " ") {
+  keras_check()
+
   modules$keras.preprocessing.text$text_to_word_sequence(text = text,
                                                          filters = filters,
                                                          lower = lower,
@@ -88,6 +95,8 @@ text_to_word_sequence <- function(text,
 one_hot <- function(text, n,
                     filters = '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n',
                     lower = TRUE, split = " ") {
+  keras_check()
+
   modules$keras.preprocessing.text$one_hot(text = text, n = int32(n),
                                            filters = filters,
                                            lower = lower,
@@ -114,6 +123,7 @@ Tokenizer <- function(num_words = NULL,
                       filters = '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n',
                       lower = TRUE,
                       split = " ") {
+  keras_check()
 
   if (!is.null(num_words))
     num_words <- int32(num_words)
@@ -152,6 +162,7 @@ Tokenizer <- function(num_words = NULL,
 pad_sequences <- function(sequences, maxlen = NULL, dtype = 'int32',
                           padding = 'pre', truncating = 'pre',
                           value = 0) {
+  keras_check()
 
   if (!is.null(maxlen))
     maxlen <- int32(maxlen)

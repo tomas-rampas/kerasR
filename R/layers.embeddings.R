@@ -32,6 +32,8 @@ Embedding <- function(input_dim,
                       input_length = NULL,
                       input_shape = NULL) {
 
+  keras_check()
+
   if (!is.null(input_length))
     input_length <- int32(input_length)
 

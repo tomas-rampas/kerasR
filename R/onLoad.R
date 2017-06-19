@@ -1,3 +1,3 @@
 .onLoad <- function(libname, pkgname) {
-  keras_init()
+  keras_init() # nocov
 }

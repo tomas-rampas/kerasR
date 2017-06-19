@@ -17,6 +17,8 @@ NULL
 #' @family layers
 LeakyReLU <- function(alpha = 0.3, input_shape = NULL) {
 
+  keras_check()
+
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
@@ -37,6 +39,8 @@ LeakyReLU <- function(alpha = 0.3, input_shape = NULL) {
 #' @rdname AdvancedActivation
 #' @export
 PReLU <- function(input_shape = NULL) {
+
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -59,6 +63,8 @@ PReLU <- function(input_shape = NULL) {
 #' @export
 ELU <- function(alpha = 1.0, input_shape = NULL) {
 
+  keras_check()
+
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
@@ -79,6 +85,8 @@ ELU <- function(alpha = 1.0, input_shape = NULL) {
 #' @rdname AdvancedActivation
 #' @export
 ThresholdedReLU <- function(theta = 1.0, input_shape = NULL) {
+
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted

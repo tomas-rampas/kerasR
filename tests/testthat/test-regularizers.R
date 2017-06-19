@@ -1,6 +1,6 @@
 library(kerasR)
 
-context("Testing dense layers")
+context("Testing regularizers")
 
 check_keras_available <- function() {
   if (!keras_available(silent = TRUE)) {
@@ -8,33 +8,23 @@ check_keras_available <- function() {
   }
 }
 
-test_that("dense model", {
+test_that("regularizers", {
   skip_on_cran()
   check_keras_available()
-
-  keras_available()
-  keras_init()
-  keras_check()
 
   X_train <- matrix(rnorm(100 * 10), nrow = 100)
   Y_train <- to_categorical(matrix(sample(0:2, 100, TRUE), ncol = 1), 3)
 
   mod <- Sequential()
   mod$add(Dense(units = 50, input_shape = dim(X_train)[2]))
-  mod$add(Dropout(rate = 0.5))
   mod$add(Activation("relu"))
-  mod$add(Dense(units = 3))
-  mod$add(ActivityRegularization(l1 = 1))
+  mod$add(Dense(units = 3, kernel_regularizer = l1(l = 0.05),
+                bias_regularizer = l2(l = 0.05)))
+  mod$add(Dense(units = 3, kernel_regularizer = l1_l2(l1 = 0.05, l2 = 0.1)))
   mod$add(Activation("softmax"))
   keras_compile(mod,  loss = 'categorical_crossentropy', optimizer = RMSprop())
 
-  keras_fit(mod, X_train, Y_train, batch_size = 32, epochs = 5,
-            verbose = 0, validation_split = 0.2)
+  keras_fit(mod, X_train, Y_train, batch_size = 32, epochs = 5, verbose = 0)
 
-  pred <- keras_predict(mod, X_train)
-  pred <- keras_predict_proba(mod, X_train)
-  pred <- keras_predict_classes(mod, X_train)
+  testthat::expect_false(mod$stateful)
 })
-
-
-

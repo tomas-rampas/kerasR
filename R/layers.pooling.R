@@ -23,6 +23,7 @@ NULL
 #' @export
 MaxPooling1D <- function(pool_size = 2, strides = NULL, padding = 'valid',
                          input_shape = NULL) {
+  keras_check()
 
   if (!is.null(strides))
     strides <- int32(strides)
@@ -55,6 +56,7 @@ MaxPooling1D <- function(pool_size = 2, strides = NULL, padding = 'valid',
 MaxPooling2D <- function(pool_size = c(2, 2), strides = NULL,
                          padding = 'valid', data_format = NULL,
                          input_shape = NULL) {
+  keras_check()
 
   if (!is.null(strides))
     strides <- int32(strides)
@@ -89,6 +91,7 @@ MaxPooling2D <- function(pool_size = c(2, 2), strides = NULL,
 MaxPooling3D <- function(pool_size = c(2, 2, 2), strides = NULL,
                           padding = 'valid',
                           data_format = NULL, input_shape = NULL) {
+  keras_check()
 
   if (!is.null(strides))
     strides <- int32(strides)

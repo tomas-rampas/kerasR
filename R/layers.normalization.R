@@ -40,6 +40,7 @@ BatchNormalization <- function(axis = -1,
                                beta_constraint = NULL,
                                gamma_constraint = NULL,
                                input_shape = NULL) {
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted

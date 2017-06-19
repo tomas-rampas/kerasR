@@ -26,6 +26,7 @@
 ModelCheckpoint <- function(filepath, monitor = 'val_loss', verbose = 0,
       save_best_only = FALSE, save_weights_only = FALSE, mode = 'auto',
       period = 1) {
+  keras_check()
 
   if (!reticulate::py_module_available("h5py"))
     stop("Model checkpoints require the python module h5py.",
@@ -60,6 +61,7 @@ ModelCheckpoint <- function(filepath, monitor = 'val_loss', verbose = 0,
 #' @family callbacks
 EarlyStopping <- function(monitor = 'val_loss', min_delta = 0, patience = 0,
                           verbose = 0, mode = 'auto') {
+  keras_check()
 
   modules$keras.callbacks$EarlyStopping(monitor = monitor,
                               min_delta = min_delta,
@@ -91,6 +93,9 @@ EarlyStopping <- function(monitor = 'val_loss', min_delta = 0, patience = 0,
 TensorBoard <- function(log_dir = './logs', histogram_freq = 0,
                         write_graph = TRUE,
                         write_images = FALSE) {
+
+  keras_check()
+
   modules$keras.callbacks$TensorBoard(log_dir = log_dir,
                         histogram_freq = int32(histogram_freq),
                         write_graph = write_graph,
@@ -130,6 +135,8 @@ ReduceLROnPlateau <- function(monitor = 'val_loss', factor = 0.1,
                               patience = 10,
                               verbose = 0, mode = 'auto', epsilon = 0.0001,
                               cooldown = 0, min_lr = 0) {
+  keras_check()
+
   modules$keras.callbacks$ReduceLROnPlateau(monitor = monitor,
                               factor = factor,
                               patience = patience, verbose = int32(verbose),
@@ -153,6 +160,8 @@ ReduceLROnPlateau <- function(monitor = 'val_loss', factor = 0.1,
 #' @export
 #' @family callbacks
 CSVLogger <- function(filename, separator = ',', append = FALSE) {
+  keras_check()
+
     modules$keras.callbacks$CSVLogger(filename = filename,
                               separator = separator,
                               append = append)

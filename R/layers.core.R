@@ -45,6 +45,8 @@ Dense <- function(units,
                   bias_constraint = NULL,
                   input_shape = NULL) {
 
+  keras_check()
+
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
@@ -97,6 +99,8 @@ Dense <- function(units,
 #' @family layers
 #' @example inst/examples/layers.R
 Activation <- function(activation, input_shape = NULL) {
+  keras_check()
+
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
@@ -131,6 +135,7 @@ Activation <- function(activation, input_shape = NULL) {
 #' @example inst/examples/dropout.R
 Dropout <- function(rate, noise_shape = NULL, seed = NULL,
                     input_shape = NULL) {
+  keras_check()
 
   if (!is.null(seed))
     seed <- int32(seed)
@@ -168,6 +173,7 @@ Dropout <- function(rate, noise_shape = NULL, seed = NULL,
 #' @family layers
 #' @example inst/examples/dropout.R
 Flatten <- function(input_shape = NULL) {
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -194,6 +200,8 @@ Flatten <- function(input_shape = NULL) {
 #' @export
 #' @family layers
 Reshape <- function(target_shape, input_shape = NULL) {
+  keras_check()
+
   target_shape <- as.list(target_shape)
   target_shape <- modules$builtin$tuple(int32(target_shape))
 
@@ -224,6 +232,8 @@ Reshape <- function(target_shape, input_shape = NULL) {
 #' @export
 #' @family layers
 Permute <- function(dims, input_shape = NULL) {
+  keras_check()
+
   dims <- as.list(dims)
   dims <- modules$builtin$tuple(int32(dims))
 
@@ -252,6 +262,7 @@ Permute <- function(dims, input_shape = NULL) {
 #' @export
 #' @family layers
 RepeatVector <- function(n, input_shape = NULL) {
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -280,6 +291,7 @@ RepeatVector <- function(n, input_shape = NULL) {
 #' @export
 #' @family layers
 ActivityRegularization <- function(l1 = 0.0, l2 = 0.0, input_shape = NULL) {
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -313,6 +325,7 @@ ActivityRegularization <- function(l1 = 0.0, l2 = 0.0, input_shape = NULL) {
 #' @export
 #' @family layers
 Masking <- function(mask_value, input_shape = NULL) {
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted

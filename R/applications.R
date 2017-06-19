@@ -35,6 +35,7 @@ Xception <- function(include_top = TRUE, weights = 'imagenet',
                       input_tensor = NULL,
                       input_shape = NULL, pooling = NULL,
                       classes = 1000) {
+  keras_check()
 
   # input_shape is a proper argument here, but we still need to
   # convert it into the correct format if not NULL
@@ -58,6 +59,7 @@ Xception <- function(include_top = TRUE, weights = 'imagenet',
 VGG16 <- function(include_top = TRUE, weights = 'imagenet',
                     input_tensor = NULL,
                     input_shape = NULL, pooling = NULL, classes = 1000) {
+  keras_check()
 
   # input_shape is a proper argument here, but we still need to
   # convert it into the correct format if not NULL
@@ -81,6 +83,7 @@ VGG16 <- function(include_top = TRUE, weights = 'imagenet',
 VGG19 <- function(include_top = TRUE, weights = 'imagenet',
                     input_tensor = NULL,
                     input_shape = NULL, pooling = NULL, classes = 1000) {
+  keras_check()
 
   # input_shape is a proper argument here, but we still need to
   # convert it into the correct format if not NULL
@@ -104,6 +107,7 @@ VGG19 <- function(include_top = TRUE, weights = 'imagenet',
 ResNet50 <- function(include_top = TRUE, weights = 'imagenet',
                       input_tensor = NULL,
                       input_shape = NULL, pooling = NULL, classes = 1000) {
+  keras_check()
 
   # input_shape is a proper argument here, but we still need to
   # convert it into the correct format if not NULL
@@ -127,6 +131,7 @@ ResNet50 <- function(include_top = TRUE, weights = 'imagenet',
 InceptionV3 <- function(include_top = TRUE, weights = 'imagenet',
                         input_tensor = NULL,
                         input_shape = NULL, pooling = NULL, classes = 1000) {
+  keras_check()
 
   # input_shape is a proper argument here, but we still need to
   # convert it into the correct format if not NULL
@@ -159,6 +164,8 @@ InceptionV3 <- function(include_top = TRUE, weights = 'imagenet',
 #' @export
 preprocess_input <- function(img, model = c("Xception",
             "VGG16", "VGG19", "ResNet50", "InceptionV3")) {
+  keras_check()
+
   model <- match.arg(model)
 
   if (model == "Xception") {
@@ -190,6 +197,8 @@ preprocess_input <- function(img, model = c("Xception",
 decode_predictions <- function(pred, model = c("Xception", "VGG16",
                         "VGG19", "ResNet50", "InceptionV3"),
                                 top = 5) {
+  keras_check()
+
   model <- match.arg(model)
 
   if (model == "Xception") {

@@ -19,11 +19,15 @@ NULL
 #' @export
 #' @family layers
 TimeDistributed <- function(layer) {
+  keras_check()
+
   modules$keras.layers.wrappers$TimeDistributed(layer)
 }
 
 #' @rdname LayerWrapper
 #' @export
 Bidirectional <- function(layer, merge_mode = 'concat') {
+  keras_check()
+
   modules$keras.layers.wrappers$Bidirectional(layer, merge_mode = merge_mode)
 }

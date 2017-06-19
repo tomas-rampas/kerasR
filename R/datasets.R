@@ -34,6 +34,8 @@ NULL
 #' @rdname Datasets
 #' @export
 load_cifar10 <- function() {
+  keras_check()
+
   z <- modules$keras.datasets$cifar10$load_data()
   z <- unlist(z, recursive = FALSE)
   names(z) <- c("X_train", "Y_train", "X_test", "Y_test")
@@ -43,6 +45,8 @@ load_cifar10 <- function() {
 #' @rdname Datasets
 #' @export
 load_cifar100 <- function(label_mode = "fine") {
+  keras_check()
+
   z <- modules$keras.datasets$cifar100$load_data(label_mode = label_mode)
   z <- unlist(z, recursive = FALSE)
   names(z) <- c("X_train", "Y_train", "X_test", "Y_test")
@@ -54,6 +58,7 @@ load_cifar100 <- function(label_mode = "fine") {
 load_imdb <- function(num_words = NULL, skip_top = 0, maxlen = NULL,
                   seed = 113, start_char = 1, oov_char = 2,
                   index_from = 3) {
+  keras_check()
 
   if (!is.null(num_words))
     num_words <- int32(num_words)
@@ -78,6 +83,7 @@ load_imdb <- function(num_words = NULL, skip_top = 0, maxlen = NULL,
 load_reuters <- function(num_words = NULL, skip_top = 0, maxlen = 1000,
                  test_split=0.2, seed = 113, start_char = 1, oov_char = 2,
                  index_from = 3) {
+  keras_check()
 
   if (!is.null(num_words))
     num_words <- int32(num_words)
@@ -101,6 +107,8 @@ load_reuters <- function(num_words = NULL, skip_top = 0, maxlen = 1000,
 #' @rdname Datasets
 #' @export
 load_mnist <- function() {
+  keras_check()
+
   z <- modules$keras.datasets$mnist$load_data()
   z <- unlist(z, recursive = FALSE)
   names(z) <- c("X_train", "Y_train", "X_test", "Y_test")
@@ -110,6 +118,8 @@ load_mnist <- function() {
 #' @rdname Datasets
 #' @export
 load_boston_housing <- function() {
+  keras_check()
+
   z <- modules$keras.datasets$boston_housing$load_data()
   z <- unlist(z, recursive = FALSE)
   names(z) <- c("X_train", "Y_train", "X_test", "Y_test")

@@ -26,6 +26,8 @@ NULL
 #' @export
 SGD <- function(lr = 0.01, momentum = 0.0, decay = 0.0, nesterov = FALSE,
                 clipnorm = -1, clipvalue = -1) {
+  keras_check()
+
   modules$keras.optimizers$SGD(lr = lr, momentum = momentum, decay = decay,
                                nesterov = nesterov,
                                 clipnorm = clipnorm, clipvalue = clipvalue)
@@ -35,6 +37,8 @@ SGD <- function(lr = 0.01, momentum = 0.0, decay = 0.0, nesterov = FALSE,
 #' @export
 RMSprop <- function(lr = 0.001, rho = 0.9, epsilon = 1e-08, decay = 0.0,
                     clipnorm = -1, clipvalue = -1) {
+  keras_check()
+
   modules$keras.optimizers$RMSprop(lr = lr, rho = rho,
                                    epsilon = epsilon,
                                    decay = decay,
@@ -46,6 +50,8 @@ RMSprop <- function(lr = 0.001, rho = 0.9, epsilon = 1e-08, decay = 0.0,
 #' @export
 Adagrad <- function(lr = 0.01, epsilon = 1e-08, decay = 0.0,
                     clipnorm = -1, clipvalue = -1) {
+  keras_check()
+
   modules$keras.optimizers$Adagrad(lr = lr, epsilon = epsilon, decay = decay,
                                     clipnorm = clipnorm,
                                     clipvalue = clipvalue)
@@ -55,6 +61,8 @@ Adagrad <- function(lr = 0.01, epsilon = 1e-08, decay = 0.0,
 #' @export
 Adadelta <- function(lr = 1.0, rho = 0.95, epsilon = 1e-08, decay = 0.0,
                      clipnorm = -1, clipvalue = -1) {
+  keras_check()
+
   modules$keras.optimizers$Adadelta(lr = lr, rho = rho, epsilon = epsilon,
                                     decay = decay,
                                     clipnorm = clipnorm,
@@ -65,6 +73,8 @@ Adadelta <- function(lr = 1.0, rho = 0.95, epsilon = 1e-08, decay = 0.0,
 #' @export
 Adam <- function(lr = 0.001, beta_1 = 0.9, beta_2 = 0.999, epsilon = 1e-08,
                  decay = 0.0, clipnorm = -1, clipvalue = -1) {
+  keras_check()
+
   modules$keras.optimizers$Adam(lr = lr, beta_1 = beta_2, beta_2 = beta_2,
                                 epsilon = epsilon, decay = decay,
                                 clipnorm = clipnorm, clipvalue = clipvalue)
@@ -74,6 +84,8 @@ Adam <- function(lr = 0.001, beta_1 = 0.9, beta_2 = 0.999, epsilon = 1e-08,
 #' @export
 Adamax <- function(lr = 0.002, beta_1 = 0.9, beta_2 = 0.999, epsilon = 1e-08,
                     decay = 0.0, clipnorm = -1, clipvalue = -1) {
+  keras_check()
+
   modules$keras.optimizers$Adamax(lr = lr, beta_1 = beta_1, beta_2 = beta_2,
                                   epsilon = epsilon, decay = decay,
                                   clipnorm = clipnorm, clipvalue = clipvalue)
@@ -83,6 +95,8 @@ Adamax <- function(lr = 0.002, beta_1 = 0.9, beta_2 = 0.999, epsilon = 1e-08,
 #' @export
 Nadam <- function(lr = 0.002, beta_1 = 0.9, beta_2 = 0.999, epsilon = 1e-08,
                   schedule_decay = 0.004, clipnorm = -1, clipvalue = -1) {
+  keras_check()
+
   modules$keras.optimizers$Nadam(lr = lr, beta_1 = beta_1, beta_2 = beta_2,
                                   epsilon = epsilon,
                                   schedule_decay = schedule_decay,

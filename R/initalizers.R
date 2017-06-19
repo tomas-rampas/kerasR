@@ -26,24 +26,32 @@ NULL
 #' @rdname Initalizers
 #' @export
 Zeros <- function() {
+  keras_check()
+
   modules$keras.initializers$Zeros()
 }
 
 #' @rdname Initalizers
 #' @export
 Ones <- function() {
+  keras_check()
+
   modules$keras.initializers$Ones()
 }
 
 #' @rdname Initalizers
 #' @export
 Constant <- function(value = 0.0) {
+  keras_check()
+
   modules$keras.initializers$Constant(value = value)
 }
 
 #' @rdname Initalizers
 #' @export
 RandomNormal <- function(mean = 0.0, stddev = 0.05, seed = NULL) {
+  keras_check()
+
   if (!is.null(seed))
     seed <- int32(seed)
 
@@ -54,6 +62,8 @@ RandomNormal <- function(mean = 0.0, stddev = 0.05, seed = NULL) {
 #' @rdname Initalizers
 #' @export
 RandomUniform <- function(minval = -0.05, maxval = 0.05, seed = NULL) {
+  keras_check()
+
   if (!is.null(seed))
     seed <- int32(seed)
 
@@ -64,6 +74,8 @@ RandomUniform <- function(minval = -0.05, maxval = 0.05, seed = NULL) {
 #' @rdname Initalizers
 #' @export
 TruncatedNormal <- function(mean = 0.0, stddev = 0.05, seed = NULL) {
+  keras_check()
+
   if (!is.null(seed))
     seed <- int32(seed)
 
@@ -75,6 +87,8 @@ TruncatedNormal <- function(mean = 0.0, stddev = 0.05, seed = NULL) {
 #' @export
 VarianceScaling <- function(scale = 1.0, mode = 'fan_in',
                             distribution = 'normal', seed = NULL) {
+  keras_check()
+
   if (!is.null(seed))
     seed <- int32(seed)
 
@@ -86,6 +100,8 @@ VarianceScaling <- function(scale = 1.0, mode = 'fan_in',
 #' @rdname Initalizers
 #' @export
 Orthogonal <- function(gain = 1.0, seed = NULL) {
+  keras_check()
+
   if (!is.null(seed))
     seed <- int32(seed)
 
@@ -95,12 +111,16 @@ Orthogonal <- function(gain = 1.0, seed = NULL) {
 #' @rdname Initalizers
 #' @export
 Identity <- function(gain = 1.0) {
+  keras_check()
+
   modules$keras.initializers$Identity(gain = gain)
 }
 
 #' @rdname Initalizers
 #' @export
 lecun_uniform <- function(seed = NULL) {
+  keras_check()
+
   if (!is.null(seed))
     seed <- int32(seed)
 
@@ -110,6 +130,8 @@ lecun_uniform <- function(seed = NULL) {
 #' @rdname Initalizers
 #' @export
 glorot_normal <- function(seed = NULL) {
+  keras_check()
+
   if (!is.null(seed))
     seed <- int32(seed)
 
@@ -119,6 +141,8 @@ glorot_normal <- function(seed = NULL) {
 #' @rdname Initalizers
 #' @export
 glorot_uniform <- function(seed = NULL) {
+  keras_check()
+
   if (!is.null(seed))
     seed <- int32(seed)
 
@@ -128,6 +152,8 @@ glorot_uniform <- function(seed = NULL) {
 #' @rdname Initalizers
 #' @export
 he_normal <- function(seed = NULL) {
+  keras_check()
+
   if (!is.null(seed))
     seed <- int32(seed)
 
@@ -137,6 +163,8 @@ he_normal <- function(seed = NULL) {
 #' @rdname Initalizers
 #' @export
 he_uniform <- function(seed = NULL) {
+  keras_check()
+
   if (!is.null(seed))
     seed <- int32(seed)
 

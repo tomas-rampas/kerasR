@@ -53,6 +53,7 @@ LocallyConnected1D <- function(filters,
                    kernel_constraint = NULL,
                    bias_constraint = NULL,
                    input_shape = NULL) {
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
@@ -115,6 +116,7 @@ LocallyConnected2D <- function(filters,
                    bias_constraint = NULL,
                    input_shape = NULL) {
 
+  keras_check()
 
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted

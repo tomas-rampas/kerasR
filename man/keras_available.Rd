@@ -4,7 +4,11 @@
 \alias{keras_available}
 \title{Tests if keras is available on the system.}
 \usage{
-keras_available()
+keras_available(silent = FALSE)
+}
+\arguments{
+\item{silent}{logical. Should warning message be displayed
+if the result is false.}
 }
 \value{
 Logical

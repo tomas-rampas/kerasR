@@ -13,6 +13,8 @@
 #' @family models
 #' @family layers
 Sequential <- function(layers = NULL) {
+  keras_check()
+
   modules$keras.models$Sequential(layers = layers)
 }
 

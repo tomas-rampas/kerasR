@@ -5,12 +5,15 @@
 #' [use_python] to configure the python environment, and then
 #' try running [keras_init] to establish the connection to `keras`.
 #'
+#' @param silent   logical. Should warning message be displayed
+#'                 if the result is false.
+#'
 #' @export
 #' @return Logical
 #' @seealso [keras_init]
-keras_available <- function(){
+keras_available <- function(silent = FALSE){
   msg <- ""
-  collapse <- function(...)paste(..., sep = "\n")
+  collapse <- function(...) paste(..., sep = "\n")
   if(!reticulate::py_available(initialize = TRUE))
     msg <- collapse(msg, "python not available")
   else if(!reticulate::py_numpy_available())
@@ -19,9 +22,11 @@ keras_available <- function(){
     msg <- collapse(msg, "keras not available")
 
   if(msg != ""){
-    message(msg, "\n",
+    if (!silent) {
+      message(msg, "\n",
             "See reticulate::use_python() to set python path, ", "\n",
             "then use kerasR::keras_init() to retry")
+    }
     FALSE
   } else TRUE
 }
@@ -70,3 +75,76 @@ keras_init <- function(){
     message("successfully loaded keras")
   }
 }
+
+#' Called to check if keras is installed and loaded
+#'
+keras_check <- function() {
+
+  error_flag <- 0L
+
+  if(!reticulate::py_available(initialize = TRUE)) {
+
+    error_flag <- 1L
+    msg <- c("Python not available", "\n",
+            "See reticulate::use_python() to set python path, ", "\n",
+            "then use kerasR::keras_init() to retry")
+
+  } else if(!reticulate::py_numpy_available()) {
+
+    error_flag <- 2L
+    py_path <- reticulate::py_config()$python
+    msg <- c("The numpy module is not available from the Python\n",
+            "executable located here:",
+            "\n\n   ",
+            py_path, "\n\n",
+            "This can be installed with pip by running the following:\n",
+            "\n  pip install numpy\n\n",
+            "If you believe it is already installed, you may be linking \n",
+            "to the wrong version of Python. See reticulate::use_python()\n",
+            "to set python path, then use kerasR::keras_init() to retry.\n",
+            "You may need to restart R before use_python takes effect.")
+
+
+  } else if(!reticulate::py_module_available("keras")) {
+
+    error_flag <- 3L
+    py_path <- reticulate::py_config()$python
+    msg <-
+          c("The keras module is not available from the Python\n",
+            "executable located here:",
+            "\n\n   ",
+            py_path, "\n\n",
+            "This can be installed with pip by running the following:\n",
+            "\n  pip install keras\n\n",
+            "If you believe it is already installed, you may be linking \n",
+            "to the wrong version of Python. See reticulate::use_python()\n",
+            "to set python path, then use kerasR::keras_init() to retry.\n",
+            "You may need to restart R before use_python takes effect.")
+
+  } else if(!reticulate::py_module_available("tensorflow") &
+            !reticulate::py_module_available("theano")) {
+
+    error_flag <- 4L
+    py_path <- reticulate::py_config()$python
+    msg <-
+          c("Neither the tensorflow nor the theano modules are\n",
+            "available from the Python executable located here:",
+            "\n\n   ",
+            py_path, "\n\n",
+            "These can be installed with pip by running either of:\n",
+            "\n  pip install tensorflow",
+            "\n  pip install theano\n\n",
+            "If you believe it is already installed, you may be linking \n",
+            "to the wrong version of Python. See reticulate::use_python()\n",
+            "to set python path, then use kerasR::keras_init() to retry.\n",
+            "You may need to restart R before use_python takes effect.")
+
+  }
+
+  if (error_flag > 0L)
+    stop(msg, call. = FALSE)
+  else
+    invisible(error_flag)
+
+}
+

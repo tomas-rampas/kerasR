@@ -1,3 +1,23 @@
+kerasR 0.7.0 (2017-06-19)
+=================
+
+The test suite is built out to include coverage
+for all available user-facing functions. We also
+now explicitly check and warn users if they attempt
+to call a function without first installing keras.
+Explicit pip commands are given for accomplishing
+this.
+
+We also now print the path to python that reticulate
+is currently linked to. The reticulate package cannot
+be restarted and because it will silently ignore
+incorrect paths, this has lead to a lot of bug reports
+that boil down to users not selecting the correct
+version of python. Hopefully this change will make it
+more obvious that this is the issue.
+
+
+
 kerasR 0.6.1 (2017-06-01)
 =================
 
@@ -7,6 +27,7 @@ conforming with the goodpractice::gp()
 recommendations. Also adds hooks to
 TravisCL and AppVeyor for integrated
 testing.
+
 
 kerasR 0.5.0 (2017-04-26)
 =================
