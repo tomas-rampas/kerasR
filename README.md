@@ -1,6 +1,6 @@
 ## kerasR
 
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/statsmaths/kerasR?branch=master&svg=true)](https://ci.appveyor.com/project/statsmaths/kerasR) [![Travis-CI Build Status](https://travis-ci.org/statsmaths/kerasR.svg?branch=master)](https://travis-ci.org/statsmaths/kerasR) [![CRAN Version](http://www.r-pkg.org/badges/version/kerasR)](https://CRAN.R-project.org/package=kerasR) [![Coverage Status](https://img.shields.io/codecov/c/github/statsmaths/kerasR/master.svg)](https://codecov.io/github/statsmaths/kerasR?branch=master) ![Downloads](http://cranlogs.r-pkg.org/badges/kerasR)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/statsmaths/kerasR?branch=master&svg=true)](https://ci.appveyor.com/project/statsmaths/kerasR) [![Travis-CI Build Status](https://travis-ci.org/statsmaths/kerasR.svg?branch=master)](https://travis-ci.org/statsmaths/kerasR) [![CRAN Version](http://www.r-pkg.org/badges/version/kerasR)](https://CRAN.R-project.org/package=kerasR) [![Coverage Status](https://img.shields.io/codecov/c/github/statsmaths/kerasR/master.svg)](https://codecov.io/github/statsmaths/kerasR?branch=master) ![Downloads](http://cranlogs.r-pkg.org/badges/kerasR) [![status](http://joss.theoj.org/papers/c83b6694f1192e920aa86912bd08919c/status.svg)](http://joss.theoj.org/papers/c83b6694f1192e920aa86912bd08919c)
 
 ## Description
 
