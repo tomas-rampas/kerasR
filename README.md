@@ -1,9 +1,16 @@
-## kerasR
+## 
+
+kerasR: R Interface to the [Keras Deep Learning Library](https://keras.io/)
+=====================================================
+
+**Authors:** Taylor B. Arnold<br/>
+**License:** [LGPL-2](https://opensource.org/licenses/LGPL-2.1)
+
 
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/statsmaths/kerasR?branch=master&svg=true)](https://ci.appveyor.com/project/statsmaths/kerasR) [![Travis-CI Build Status](https://travis-ci.org/statsmaths/kerasR.svg?branch=master)](https://travis-ci.org/statsmaths/kerasR) [![CRAN Version](http://www.r-pkg.org/badges/version/kerasR)](https://CRAN.R-project.org/package=kerasR) [![Coverage Status](https://img.shields.io/codecov/c/github/statsmaths/kerasR/master.svg)](https://codecov.io/github/statsmaths/kerasR?branch=master) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.814996.svg)](https://doi.org/10.5281/zenodo.814996)
  [![status](http://joss.theoj.org/papers/c83b6694f1192e920aa86912bd08919c/status.svg)](http://joss.theoj.org/papers/c83b6694f1192e920aa86912bd08919c)
 
-## Description
+## Overview
 
 Keras provides a language for building neural networks as connections
 between general purpose layers.
@@ -25,7 +32,7 @@ Or the development version from GitHub:
 ```{r}
 devtools::install_packages("statsmaths/kerasR")
 ```
-You will also have to install the Python module **Keras** and
+You will also have to install the Python module **keras** and
 either the module **tensorflow** or **Theano**. The best resource
 for this is the [Keras Documentation](https://keras.io/#installation),
 which should be updated as new releases are given. Note that you
