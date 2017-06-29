@@ -1,9 +1,7 @@
-## 
-
 kerasR: R Interface to the [Keras Deep Learning Library](https://keras.io/)
 =====================================================
 
-**Authors:** Taylor B. Arnold<br/>
+**Author:** Taylor B. Arnold<br/>
 **License:** [LGPL-2](https://opensource.org/licenses/LGPL-2.1)
 
 
