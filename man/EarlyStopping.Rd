@@ -8,7 +8,7 @@ EarlyStopping(monitor = "val_loss", min_delta = 0, patience = 0,
   verbose = 0, mode = "auto")
 }
 \arguments{
-\item{monitor}{quantity to be monitored.}
+\item{monitor}{quantity to be monitored. See \code{\link[=keras_compile]{keras_compile()}} for list of metrics}
 
 \item{min_delta}{minimum change in the monitored quantity to qualify
 as an improvement, i.e. an absolute change of less than
@@ -19,11 +19,11 @@ training will be stopped.}
 
 \item{verbose}{verbosity mode.}
 
-\item{mode}{one of {auto, min, max}. In min mode, training will
+\item{mode}{one of \code{auto}, \code{min}, or \code{max}. In \code{min} mode, training will
 stop when the quantity monitored has stopped
-decreasing; in max mode it will stop when the
+decreasing; in \code{max} mode it will stop when the
 quantity monitored has stopped increasing; in
-auto mode, the direction is automatically inferred
+\code{auto} mode, the direction is automatically inferred
 from the name of the monitored quantity.}
 }
 \description{

@@ -38,7 +38,7 @@ if(keras_available()) {
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
 }
 \seealso{
-Other models: \code{\link{LoadSave}},
+Other model functions: \code{\link{LoadSave}},
   \code{\link{Predict}}, \code{\link{keras_compile}},
   \code{\link{keras_fit}}
 

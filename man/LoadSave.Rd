@@ -74,7 +74,7 @@ if (keras_available()) {
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
 }
 \seealso{
-Other models: \code{\link{Predict}},
+Other model functions: \code{\link{Predict}},
   \code{\link{Sequential}}, \code{\link{keras_compile}},
   \code{\link{keras_fit}}
 }
