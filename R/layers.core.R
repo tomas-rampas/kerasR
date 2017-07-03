@@ -267,13 +267,13 @@ RepeatVector <- function(n, input_shape = NULL) {
   # Need special logic for input_shape because it is passed
   # via kwargs and needs to be manually adjusted
   if (is.null(input_shape)) {
-    res <- modules$keras.layers.core$Dropout(n = int32(n))
+    res <- modules$keras.layers.core$RepeatVector(n = int32(n))
   } else {
 
     input_shape <- as.list(input_shape)
     input_shape <- modules$builtin$tuple(int32(input_shape))
 
-    res <- modules$keras.layers.core$Dropout(n = int32(n),
+    res <- modules$keras.layers.core$RepeatVector(n = int32(n),
                   input_shape = input_shape)
   }
 
