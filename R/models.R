@@ -12,8 +12,10 @@
 #' @export
 #' @family model functions
 #' @family layers
-Sequential <- function(layers = NULL) {
+Sequential <- function(...) {
   keras_check()
+  
+  layers <- list(...)
 
   modules$keras.models$Sequential(layers = layers)
 }
