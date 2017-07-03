@@ -38,6 +38,6 @@ test_that("loading and saving", {
   # save/load just the architecture (as human readable json)
   tf <- tempfile(fileext = ".json")
   keras_model_to_json(mod, tf)
-  cat(readLines(tf))
+  # cat(readLines(tf))
   mod3 <- keras_model_from_json(tf)
 })
