@@ -59,7 +59,7 @@ absolute value exceeds this value. Set to -1 to disable.}
 schedule in \link{Nadam}.}
 }
 \description{
-Optimization functions to use in compiling a keras model.
+Optimization functions to use in compiling a keras model.  See \code{\link[=keras_compile]{keras_compile()}}.
 }
 \examples{
 if(keras_available()) {

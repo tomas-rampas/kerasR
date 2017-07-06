@@ -168,17 +168,15 @@ preprocess_input <- function(img, model = c("Xception",
 
   model <- match.arg(model)
 
-  if (model == "Xception") {
-    res <- modules$keras.applications$xception$preprocess_input(img)
-  } else if (model == "VGG16") {
-    res <- modules$keras.applications$vgg16$preprocess_input(img)
-  } else if (model == "VGG19") {
-    res <- modules$keras.applications$vgg19$preprocess_input(img)
-  } else if (model == "ResNet50") {
-    res <- modules$keras.applications$resnet50$preprocess_input(img)
-  } else if (model == "InceptionV3") {
-    res <- modules$keras.applications$inception_v3$preprocess_input(img)
-  }
+  k.apps <- modules$keras.applications
+  res <- switch(
+    model, 
+    Xception    = k.apps$xception$preprocess_input(img),
+    VGG16       = k.apps$vgg16$preprocess_input(img),
+    VGG19       = k.apps$vgg19$preprocess_input(img),
+    ResNet50    = k.apps$resnet50$preprocess_input(img),
+    InceptionV3 = k.apps$inception_v3$preprocess_input(img)
+  )
 
   return(res)
 }
@@ -201,22 +199,15 @@ decode_predictions <- function(pred, model = c("Xception", "VGG16",
 
   model <- match.arg(model)
 
-  if (model == "Xception") {
-    res <- modules$keras.applications$xception$decode_predictions(pred,
-                              top = int32(top))
-  } else if (model == "VGG16") {
-    res <- modules$keras.applications$vgg16$decode_predictions(pred,
-                              top = int32(top))
-  } else if (model == "VGG19") {
-    res <- modules$keras.applications$vgg19$decode_predictions(pred,
-                              top = int32(top))
-  } else if (model == "ResNet50") {
-    res <- modules$keras.applications$resnet50$decode_predictions(pred,
-                              top = int32(top))
-  } else if (model == "InceptionV3") {
-    res <- modules$keras.applications$inception_v3$decode_predictions(pred,
-                              top = int32(top))
-  }
+  k.apps <- modules$keras.applications
+  res <- switch(
+    model,
+    Xception    = k.apps$xception$decode_predictions(pred, top = int32(top)),
+    VGG16       = k.apps$vgg16$decode_predictions(pred, top = int32(top)),
+    VGG19       = k.apps$vgg19$decode_predictions(pred, top = int32(top)),
+    ResNet50    = k.apps$resnet50$decode_predictions(pred, top = int32(top)),
+    InceptionV3 = k.apps$inception_v3$decode_predictions(pred, top = int32(top))
+  )
 
   return(res)
 }

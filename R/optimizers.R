@@ -1,6 +1,6 @@
 #' Optimizers
 #'
-#' Optimization functions to use in compiling a keras model.
+#' Optimization functions to use in compiling a keras model.  See [keras_compile()].
 #'
 #' @param clipnorm   float >= 0. Gradients will be clipped when their L2 norm
 #'                   exceeds this value. Set to -1 to disable.

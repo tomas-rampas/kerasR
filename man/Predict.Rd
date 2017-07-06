@@ -14,7 +14,7 @@ keras_predict_classes(model, x, batch_size = 32, verbose = 1)
 keras_predict_proba(model, x, batch_size = 32, verbose = 1)
 }
 \arguments{
-\item{model}{a keras model object created with \link{Sequential}}
+\item{model}{a keras model object, for example created with \code{\link[=Sequential]{Sequential()}}}
 
 \item{x}{input data}
 
@@ -53,7 +53,7 @@ if(keras_available()) {
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
 }
 \seealso{
-Other models: \code{\link{LoadSave}},
+Other model functions: \code{\link{LoadSave}},
   \code{\link{Sequential}}, \code{\link{keras_compile}},
   \code{\link{keras_fit}}
 }
