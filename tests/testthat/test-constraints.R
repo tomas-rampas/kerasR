@@ -1,6 +1,6 @@
 library(kerasR)
 
-context("Testing constaints")
+context("Testing constraints")
 
 check_keras_available <- function() {
   if (!keras_available(silent = TRUE)) {

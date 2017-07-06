@@ -10,10 +10,12 @@
 #' @example inst/examples/layers.R
 #' @template boilerplate
 #' @export
-#' @family models
+#' @family model functions
 #' @family layers
-Sequential <- function(layers = NULL) {
+Sequential <- function(...) {
   keras_check()
+  
+  layers <- list(...)
 
   modules$keras.models$Sequential(layers = layers)
 }
@@ -24,20 +26,20 @@ Sequential <- function(layers = NULL) {
 #' This function changes to input model object itself, and does not produce
 #' a return value.
 #'
-#' @param model               a keras model object created with [Sequential]
+#' @param model               a keras model object, for example created with [Sequential()]
 #' @param optimizer           name of optimizer) or optimizer object. See
 #'                            [Optimizers].
 #' @param loss                name of a loss function. See Details for
 #'                            possible choices.
 #' @param metrics             vector of metric names to be evaluated by the
 #'                            model during training and testing. See Details
-#'                            for possible options.
+#'                            for possible options. See [EarlyStopping()] for using these in callbacks.
 #' @param sample_weight_mode  if you need to do timestep-wise sample
 #'                            weighting (2D weights), set this to `temporal`.
 #'                            `None` defaults to sample-wise weights (1D).
 #'
-#' @details
-#' Possible losses are
+#' @section Loss functions:
+#' Possible losses are:
 #' * `mean_squared_error`
 #' * `mean_absolute_error`
 #' * `mean_absolute_percentage_error`
@@ -51,6 +53,7 @@ Sequential <- function(layers = NULL) {
 #' * `poisson`
 #' * `cosine_proximity`.
 #'
+#' @section Metrics:
 #' Possible metrics are:
 #' * `binary_accuracy`
 #' * `categorical_accuracy`
@@ -60,7 +63,7 @@ Sequential <- function(layers = NULL) {
 #' @example inst/examples/layers.R
 #' @template boilerplate
 #' @export
-#' @family models
+#' @family model functions
 keras_compile <- function(model, optimizer, loss, metrics = NULL,
                           sample_weight_mode = NULL) {
 
@@ -78,16 +81,16 @@ keras_compile <- function(model, optimizer, loss, metrics = NULL,
 #' Learn the weight and bias values for am model given training data.
 #' Model must be compiled first. The model is modified in place.
 #'
-#' @param model             a keras model object created with [Sequential]
-#' @param x                 input data as a numeric matrix
-#' @param y                 labels; either a numeric matrix or numeric vector
+#' @param model             a keras model object, for example created with [Sequential()]
+#' @param x                 numeric matrix of input data
+#' @param y                 a numeric matrix or numeric vector containing labels.
 #' @param batch_size        integer. Number of samples per gradient update.
 #' @param epochs            integer, the number of epochs to train the model.
 #' @param verbose           0 for no logging to stdout, 1 for progress bar
 #'                          logging, 2 for one log line per epoch.
-#' @param callbacks         list of `keras.callbacks.Callback`` instances.
-#'                          List of callbacks to apply during training.
-#' @param validation_split  float (`0 < x < 1`). Fraction of the data to
+#' @param callbacks         list of callbacks to apply during training.
+#'                          See [EarlyStopping()], [ReduceLRonPlateau()] or [TensorBoard()] for examples.
+#' @param validation_split  numeric (`0 < x < 1`). Fraction of the data to
 #'                          use as held-out validation data.
 #' @param validation_data   `list(x_val, y_val)` or `list(x_val, y_val,
 #'                          val_sample_weights)` to be used as held-out
@@ -101,13 +104,14 @@ keras_compile <- function(model, optimizer, loss, metrics = NULL,
 #' @param class_weight      dictionary mapping classes to a weight value,
 #'                          used for scaling the loss function (during
 #'                          training only).
-#' @param sample_weight     Numpy array of weights for the training samples
+#' @param sample_weight     numeric array of weights for the training samples
 #' @param initial_epoch     epoch at which to start training
 #'
 #' @example inst/examples/layers.R
 #' @template boilerplate
 #' @export
-#' @family models
+#' @family model functions
+#' @seealso [keras_compile()]
 keras_fit <- function(model, x, y, batch_size = 32,
                       epochs = 10, verbose = 1,
                       callbacks = NULL, validation_split = 0.0,
@@ -145,7 +149,7 @@ keras_fit <- function(model, x, y, batch_size = 32,
 #' predictions, [keras_predict_classes] gives class predictions, and
 #' [keras_predict_proba] gives class probabilities.
 #'
-#' @param model             a keras model object created with [Sequential]
+#' @param model             a keras model object, for example created with [Sequential()]
 #' @param x                 input data
 #' @param batch_size        integer. Number of samples per gradient update.
 #' @param verbose           0 for no logging to stdout, 1 for progress bar
@@ -158,7 +162,7 @@ NULL
 
 #' @rdname Predict
 #' @export
-#' @family models
+#' @family model functions
 keras_predict <- function(model, x, batch_size = 32, verbose = 1) {
 
   if (!is.array(x))
@@ -216,7 +220,7 @@ keras_predict_proba <- function(model, x, batch_size = 32, verbose = 1) {
 #' @example inst/examples/load_save.R
 #' @template boilerplate
 #' @name LoadSave
-#' @family models
+#' @family model functions
 NULL
 
 

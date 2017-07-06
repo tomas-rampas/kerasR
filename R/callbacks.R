@@ -41,18 +41,18 @@ ModelCheckpoint <- function(filepath, monitor = 'val_loss', verbose = 0,
 
 #' Stop training when a monitored quantity has stopped improving.
 #'
-#' @param monitor    quantity to be monitored.
+#' @param monitor    quantity to be monitored. See [keras_compile()] for list of metrics
 #' @param min_delta  minimum change in the monitored quantity to qualify
 #'                   as an improvement, i.e. an absolute change of less than
 #'                   min_delta, will count as no improvement.
 #' @param patience   number of epochs with no improvement after which
 #'                   training will be stopped.
 #' @param verbose    verbosity mode.
-#' @param mode       one of {auto, min, max}. In min mode, training will
+#' @param mode       one of `auto`, `min`, or `max`. In `min` mode, training will
 #'                     stop when the quantity monitored has stopped
-#'                     decreasing; in max mode it will stop when the
+#'                     decreasing; in `max` mode it will stop when the
 #'                     quantity monitored has stopped increasing; in
-#'                     auto mode, the direction is automatically inferred
+#'                     `auto` mode, the direction is automatically inferred
 #'                     from the name of the monitored quantity.
 #'
 #' @example inst/examples/callbacks.R

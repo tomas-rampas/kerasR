@@ -10,11 +10,11 @@ keras_fit(model, x, y, batch_size = 32, epochs = 10, verbose = 1,
   initial_epoch = 0)
 }
 \arguments{
-\item{model}{a keras model object created with \link{Sequential}}
+\item{model}{a keras model object, for example created with \code{\link[=Sequential]{Sequential()}}}
 
-\item{x}{input data as a numeric matrix}
+\item{x}{numeric matrix of input data}
 
-\item{y}{labels; either a numeric matrix or numeric vector}
+\item{y}{a numeric matrix or numeric vector containing labels.}
 
 \item{batch_size}{integer. Number of samples per gradient update.}
 
@@ -23,10 +23,10 @@ keras_fit(model, x, y, batch_size = 32, epochs = 10, verbose = 1,
 \item{verbose}{0 for no logging to stdout, 1 for progress bar
 logging, 2 for one log line per epoch.}
 
-\item{callbacks}{list of `keras.callbacks.Callback`` instances.
-List of callbacks to apply during training.}
+\item{callbacks}{list of callbacks to apply during training.
+See \code{\link[=EarlyStopping]{EarlyStopping()}}, \code{\link[=ReduceLRonPlateau]{ReduceLRonPlateau()}} or \code{\link[=TensorBoard]{TensorBoard()}} for examples.}
 
-\item{validation_split}{float (\code{0 < x < 1}). Fraction of the data to
+\item{validation_split}{numeric (\code{0 < x < 1}). Fraction of the data to
 use as held-out validation data.}
 
 \item{validation_data}{\code{list(x_val, y_val)} or \code{list(x_val, y_val, val_sample_weights)} to be used as held-out
@@ -43,7 +43,7 @@ in batch-sized chunks.}
 used for scaling the loss function (during
 training only).}
 
-\item{sample_weight}{Numpy array of weights for the training samples}
+\item{sample_weight}{numeric array of weights for the training samples}
 
 \item{initial_epoch}{epoch at which to start training}
 }
@@ -74,7 +74,9 @@ if(keras_available()) {
 Chollet, Francois. 2015. \href{https://keras.io/}{Keras: Deep Learning library for Theano and TensorFlow}.
 }
 \seealso{
-Other models: \code{\link{LoadSave}},
+\code{\link[=keras_compile]{keras_compile()}}
+
+Other model functions: \code{\link{LoadSave}},
   \code{\link{Predict}}, \code{\link{Sequential}},
   \code{\link{keras_compile}}
 }

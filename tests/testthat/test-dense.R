@@ -31,9 +31,9 @@ test_that("dense model", {
   keras_fit(mod, X_train, Y_train, batch_size = 32, epochs = 5,
             verbose = 0, validation_split = 0.2)
 
-  pred <- keras_predict(mod, X_train)
-  pred <- keras_predict_proba(mod, X_train)
-  pred <- keras_predict_classes(mod, X_train)
+  pred <- keras_predict(mod, X_train, verbose = 0)
+  pred <- keras_predict_proba(mod, X_train, verbose = 0)
+  pred <- keras_predict_classes(mod, X_train, verbose = 0)
 })
 
 
