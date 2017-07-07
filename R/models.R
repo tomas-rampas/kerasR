@@ -5,7 +5,8 @@
 #' to the function. The first layer passed to a Sequential
 #' model should have a defined input shape.
 #'
-#' @param layers   list of keras model layers
+#' @param ...     keras model layers to construct the
+#'                model from
 #'
 #' @example inst/examples/layers.R
 #' @template boilerplate
@@ -14,7 +15,7 @@
 #' @family layers
 Sequential <- function(...) {
   keras_check()
-  
+
   layers <- list(...)
 
   modules$keras.models$Sequential(layers = layers)
@@ -89,7 +90,7 @@ keras_compile <- function(model, optimizer, loss, metrics = NULL,
 #' @param verbose           0 for no logging to stdout, 1 for progress bar
 #'                          logging, 2 for one log line per epoch.
 #' @param callbacks         list of callbacks to apply during training.
-#'                          See [EarlyStopping()], [ReduceLRonPlateau()] or [TensorBoard()] for examples.
+#'                          See [EarlyStopping()] or [TensorBoard()] for examples.
 #' @param validation_split  numeric (`0 < x < 1`). Fraction of the data to
 #'                          use as held-out validation data.
 #' @param validation_data   `list(x_val, y_val)` or `list(x_val, y_val,

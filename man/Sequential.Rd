@@ -4,10 +4,11 @@
 \alias{Sequential}
 \title{Initialize sequential model}
 \usage{
-Sequential(layers = NULL)
+Sequential(...)
 }
 \arguments{
-\item{layers}{list of keras model layers}
+\item{...}{keras model layers to construct the
+model from}
 }
 \description{
 Use this function to construct an empty model to which
@@ -22,7 +23,7 @@ if(keras_available()) {
 
   mod <- Sequential()
   mod$add(Dense(units = 50, input_shape = dim(X_train)[2]))
-  mod$add(Dropout(rate = 0.5))
+  mod$add(  Dropout(rate = 0.5))
   mod$add(Activation("relu"))
   mod$add(Dense(units = 3))
   mod$add(ActivityRegularization(l1 = 1))
@@ -31,6 +32,22 @@ if(keras_available()) {
 
   keras_fit(mod, X_train, Y_train, batch_size = 32, epochs = 5,
             verbose = 0, validation_split = 0.2)
+  
+  # You can also add layers directly as arguments to Sequential()
+
+  mod <- Sequential(
+    Dense(units = 50, input_shape = ncol(X_train)),
+    Dropout(rate = 0.5),
+    Activation("relu"),
+    Dense(units = 3),
+    ActivityRegularization(l1 = 1),
+    Activation("softmax")
+  )
+  keras_compile(mod,  loss = 'categorical_crossentropy', optimizer = RMSprop())
+  
+  keras_fit(mod, X_train, Y_train, batch_size = 32, epochs = 5,
+            verbose = 0, validation_split = 0.2)
+  
 }
 
 }

@@ -24,7 +24,7 @@ keras_fit(model, x, y, batch_size = 32, epochs = 10, verbose = 1,
 logging, 2 for one log line per epoch.}
 
 \item{callbacks}{list of callbacks to apply during training.
-See \code{\link[=EarlyStopping]{EarlyStopping()}}, \code{\link[=ReduceLRonPlateau]{ReduceLRonPlateau()}} or \code{\link[=TensorBoard]{TensorBoard()}} for examples.}
+See \code{\link[=EarlyStopping]{EarlyStopping()}} or \code{\link[=TensorBoard]{TensorBoard()}} for examples.}
 
 \item{validation_split}{numeric (\code{0 < x < 1}). Fraction of the data to
 use as held-out validation data.}
@@ -58,7 +58,7 @@ if(keras_available()) {
 
   mod <- Sequential()
   mod$add(Dense(units = 50, input_shape = dim(X_train)[2]))
-  mod$add(Dropout(rate = 0.5))
+  mod$add(  Dropout(rate = 0.5))
   mod$add(Activation("relu"))
   mod$add(Dense(units = 3))
   mod$add(ActivityRegularization(l1 = 1))
@@ -67,6 +67,22 @@ if(keras_available()) {
 
   keras_fit(mod, X_train, Y_train, batch_size = 32, epochs = 5,
             verbose = 0, validation_split = 0.2)
+  
+  # You can also add layers directly as arguments to Sequential()
+
+  mod <- Sequential(
+    Dense(units = 50, input_shape = ncol(X_train)),
+    Dropout(rate = 0.5),
+    Activation("relu"),
+    Dense(units = 3),
+    ActivityRegularization(l1 = 1),
+    Activation("softmax")
+  )
+  keras_compile(mod,  loss = 'categorical_crossentropy', optimizer = RMSprop())
+  
+  keras_fit(mod, X_train, Y_train, batch_size = 32, epochs = 5,
+            verbose = 0, validation_split = 0.2)
+  
 }
 
 }
