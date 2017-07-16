@@ -44,7 +44,7 @@ keras_available <- function(silent = FALSE){
 keras_init <- function(){
   if(keras_available()){
 
-    modules$builtin <-  reticulate::import_builtins()
+    modules$builtin <-  reticulate::import_builtins(convert = FALSE)
     modules$np <-       import("numpy", convert = FALSE)
 
     modules$keras.models <-               import("keras.models")
